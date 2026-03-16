@@ -102,7 +102,8 @@ export default function PricingCalculator() {
   const [customItems, setCustomItems] = useState<CustomItem[]>([]);
   const [newItemName, setNewItemName] = useState("");
   const [customerInfo, setCustomerInfo] = useState({ name: "", contact: "" });
-  const [isLocked, setIsLocked] = useState(true);
+  const [showLeadModal, setShowLeadModal] = useState(false);
+  const [pendingAction, setPendingAction] = useState<"pdf" | "wa" | null>(null);
 
   const saveLead = async () => {
     if (!customerInfo.name || !customerInfo.contact) return false;
@@ -193,9 +194,15 @@ export default function PricingCalculator() {
   };
 
   const handleExportPDF = async () => {
+    if (!customerInfo.name || !customerInfo.contact) {
+      setPendingAction("pdf");
+      setShowLeadModal(true);
+      return;
+    }
+
     const leadSaved = await saveLead();
     if (!leadSaved) {
-      alert("System Error: Required transmission metadata missing. Please ensure identity/contact fields are populated.");
+      alert("Lead capture failed. Please try again.");
       return;
     }
 
@@ -213,6 +220,8 @@ export default function PricingCalculator() {
     doc.setFontSize(10);
     doc.text(`Date: ${new Date().toLocaleDateString()}`, 14, 40);
     doc.text(`Currency: ${currency} (${symbol})`, 14, 45);
+    doc.text(`Customer: ${customerInfo.name}`, 120, 40);
+    doc.text(`Contact: ${customerInfo.contact}`, 120, 45);
 
     // Prepare table data
     const tableData = [];
@@ -374,46 +383,8 @@ export default function PricingCalculator() {
           </div>
         </div>
 
-        <div className="mb-12 bg-[#12121a] border border-white/5 p-8 relative overflow-hidden"
-          style={{ clipPath: "polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%)" }}>
-           <div className="absolute top-0 left-0 w-2 h-full bg-[#00ff88]" />
-           <div className="flex flex-col md:flex-row gap-8 items-center">
-              <div className="flex-1 space-y-2">
-                 <h3 className="font-display font-bold text-white uppercase tracking-widest text-lg">Identity Protocol</h3>
-                 <p className="text-xs font-mono text-[#555]">Please initialize your project metadata to unlock the computation engine.</p>
-              </div>
-              <div className="flex-2 grid grid-cols-1 md:grid-cols-2 gap-4 w-full md:w-auto">
-                 <div className="relative">
-                    <input 
-                      type="text" 
-                      placeholder="SHORT NAME"
-                      value={customerInfo.name}
-                      onChange={(e) => setCustomerInfo({...customerInfo, name: e.target.value})}
-                      className="bg-[#0a0a0f] border border-[#333] p-4 text-white font-mono text-xs w-full focus:border-[#00ff88] outline-none"
-                    />
-                 </div>
-                 <div className="relative">
-                    <input 
-                      type="text" 
-                      placeholder="CONTACT NUMBER"
-                      value={customerInfo.contact}
-                      onChange={(e) => setCustomerInfo({...customerInfo, contact: e.target.value})}
-                      className="bg-[#0a0a0f] border border-[#333] p-4 text-white font-mono text-xs w-full focus:border-[#00ff88] outline-none"
-                    />
-                 </div>
-              </div>
-              <button 
-                onClick={() => {
-                  if (customerInfo.name && customerInfo.contact) setIsLocked(false);
-                }}
-                className={`px-8 py-4 font-mono font-bold text-xs uppercase tracking-widest transition-all ${customerInfo.name && customerInfo.contact ? 'bg-[#00ff88] text-black hover:brightness-110' : 'bg-[#1a1a1a] text-[#333] cursor-not-allowed'}`}
-                style={{ clipPath: "polygon(0 4px, 4px 0, calc(100% - 4px) 0, 100% 4px, 100% calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 0 calc(100% - 4px))" }}>
-                Unlock Engine
-              </button>
-           </div>
-        </div>
 
-        <div className={`grid grid-cols-1 lg:grid-cols-3 gap-8 transition-all duration-500 ${isLocked ? 'blur-sm pointer-events-none opacity-40 select-none' : ''}`}>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 transition-all duration-500">
           {/* Configurator */}
           <div className="lg:col-span-2 space-y-8">
             <motion.div
@@ -965,13 +936,21 @@ export default function PricingCalculator() {
                       PDF DOCUMENT
                     </button>
                     <button
+                      id="wa-btn"
                       onClick={async () => {
+                        if (!customerInfo.name || !customerInfo.contact) {
+                          setPendingAction("wa");
+                          setShowLeadModal(true);
+                          return;
+                        }
+
                         const leadSaved = await saveLead();
                         if (!leadSaved) return;
 
                         const customSummary = customItems.map(i => `\n- ${i.name} (Pending Analysis)`).join('');
                         const summary = `*Project Estimate Summary*\n` +
-                          `Name: ${customerInfo.name}\n` +
+                          `Customer: ${customerInfo.name}\n` +
+                          `Contact: ${customerInfo.contact}\n` +
                           `Total: ${symbol}${convert(currentTotal)}\n\n` +
                           `Interested in: ${includeBase ? 'Base Package, ' : ''}${additionalPages > 0 ? additionalPages + ' Add. Pages, ' : ''}` +
                           Object.entries(toggles).filter(([_, v]) => v).map(([k]) => k).join(', ') + 
@@ -1042,6 +1021,88 @@ export default function PricingCalculator() {
           </div>
         </div>
       </div>
+
+      {/* Identity Modal Overlay */}
+      <AnimatePresence>
+        {showLeadModal && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[10000] flex items-center justify-center p-6 bg-[#0a0a0f]/90 backdrop-blur-md"
+          >
+            <motion.div 
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.9, y: 20 }}
+              className="max-w-md w-full bg-[#111] border border-[#ff0088]/30 p-8 shadow-[0_0_50px_rgba(255,0,136,0.2)]"
+              style={{ clipPath: "polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%)" }}
+            >
+              <div className="flex justify-between items-start mb-6">
+                <div>
+                  <h3 className="text-xl font-display font-black text-white uppercase tracking-widest">
+                    Identity Protocol
+                  </h3>
+                  <p className="text-[10px] font-mono text-[#ff0088] uppercase tracking-[0.2em] mt-1">
+                    System Authentication Required
+                  </p>
+                </div>
+                <button onClick={() => setShowLeadModal(false)} className="text-[#555] hover:text-white transition-colors">
+                  <X />
+                </button>
+              </div>
+
+              <div className="space-y-6">
+                <p className="text-xs font-mono text-[#888] leading-relaxed">
+                  Please provide your project identifiers to finalize the generation of the {pendingAction === 'pdf' ? 'PDF proposal' : 'WhatsApp inquiry'}.
+                </p>
+                
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-[10px] uppercase font-mono text-[#555] mb-2">Short Name</label>
+                    <input 
+                      type="text" 
+                      placeholder="E.G. ABDULLAH / OSB"
+                      value={customerInfo.name}
+                      onChange={(e) => setCustomerInfo({...customerInfo, name: e.target.value})}
+                      className="w-full bg-[#1a1a1a] border border-[#333] p-4 text-white font-mono text-sm focus:border-[#ff0088] outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] uppercase font-mono text-[#555] mb-2">Contact Number</label>
+                    <input 
+                      type="text" 
+                      placeholder="+974 ..."
+                      value={customerInfo.contact}
+                      onChange={(e) => setCustomerInfo({...customerInfo, contact: e.target.value})}
+                      className="w-full bg-[#1a1a1a] border border-[#333] p-4 text-white font-mono text-sm focus:border-[#ff0088] outline-none"
+                    />
+                  </div>
+                </div>
+
+                <button 
+                  onClick={async () => {
+                    if (customerInfo.name && customerInfo.contact) {
+                      setShowLeadModal(false);
+                      if (pendingAction === 'pdf') handleExportPDF();
+                      if (pendingAction === 'wa') {
+                        // Small delay to let modal close
+                        setTimeout(() => {
+                           const btn = document.getElementById('wa-btn');
+                           if(btn) (btn as any).click();
+                        }, 100);
+                      }
+                    }
+                  }}
+                  className={`w-full py-4 font-mono font-bold text-xs uppercase tracking-widest transition-all ${customerInfo.name && customerInfo.contact ? 'bg-[#ff0088] text-white' : 'bg-[#1a1a1a] text-[#333] cursor-not-allowed'}`}
+                >
+                  Generate Estimate Output
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
