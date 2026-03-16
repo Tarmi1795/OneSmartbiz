@@ -59,7 +59,21 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
+    
+    // Construct WhatsApp message
+    const message = `Hello One Smart Biz! I'm interested in your services.
+Name: ${form.name}
+Service: ${form.service}
+Message: ${form.message}`;
+    
+    const whatsappUrl = `https://wa.me/97455855221?text=${encodeURIComponent(message)}`;
+    
+    // Wait for animation
     await new Promise((r) => setTimeout(r, 1200));
+    
+    // Open WhatsApp
+    window.open(whatsappUrl, "_blank");
+    
     setStatus("sent");
   };
 
