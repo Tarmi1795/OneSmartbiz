@@ -122,7 +122,7 @@ export default function Contact() {
               style={{ clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%)" }}>
               <div className="font-mono text-xs text-[#00ff88] mb-2">FASTEST RESPONSE</div>
               <a
-                href="https://wa.me/15550000000"
+                href="https://wa.me/97455855221"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 w-full justify-center py-3 bg-[#00ff88]/10 border border-[#00ff88]/40 text-[#00ff88] font-mono text-sm font-bold tracking-widest hover:bg-[#00ff88]/20 transition-all"
@@ -239,7 +239,7 @@ export default function Contact() {
 
                 <p className="font-mono text-xs text-[#333] text-center">
                   Or reach us directly on{" "}
-                  <a href="https://wa.me/15550000000" className="text-[#00ff88] hover:underline">WhatsApp</a>
+                  <a href="https://wa.me/97455855221" className="text-[#00ff88] hover:underline">WhatsApp</a>
                   {" "}for instant response
                 </p>
               </form>

@@ -967,7 +967,7 @@ export default function PricingCalculator() {
                           Object.entries(toggles).filter(([_, v]) => v).map(([k]) => k).join(', ') +
                           (customItems.length > 0 ? `\n\n*Custom Requirements:*${customSummary}` : '') +
                           `\n\nGenerated via onesmartbiz.pro`;
-                        const waUrl = `https://wa.me/97400000000?text=${encodeURIComponent(summary)}`;
+                        const waUrl = `https://wa.me/97455855221?text=${encodeURIComponent(summary)}`;
                         window.open(waUrl, '_blank');
                       }}
                       className="flex-[1.5] py-4 bg-[#00ff88] text-black font-mono text-[11px] font-black uppercase tracking-widest hover:brightness-110 transition-all flex items-center justify-center gap-3"

@@ -19,7 +19,7 @@ const services = [
 const socialLinks = [
   {
     label: "WhatsApp",
-    href: "https://wa.me/97400000000",
+    href: "https://wa.me/97455855221",
     color: "#00ff88",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">

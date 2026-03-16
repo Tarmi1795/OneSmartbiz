@@ -8,7 +8,7 @@ export default function WhatsAppChat() {
   const [isOpen, setIsOpen] = useState(false);
   const controls = useDragControls();
 
-  const whatsappNumber = "97400000000"; // Replace with real number
+  const whatsappNumber = "97455855221"; // Real number updated
   const message = encodeURIComponent("Hello One SmartBiz! I'm interested in your services.");
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
 
