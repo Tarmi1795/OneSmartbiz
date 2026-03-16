@@ -126,7 +126,7 @@ export default function PricingCalculator() {
       });
 
       const data = await response.json();
-      
+
       if (!response.ok) {
         alert(`Lead Capture Error: ${data.error || 'Check Supabase table/RLS'}`);
         console.error("Server error during lead capture:", data.error);
@@ -237,7 +237,7 @@ export default function PricingCalculator() {
     const tableData = [];
     if (includeBase) {
       tableData.push([
-        "Base Package: Full Turnkey Solution",
+        "Basic Website Package",
         `${symbol}${convert(prices.basePackage)}`,
       ]);
     }
@@ -292,14 +292,14 @@ export default function PricingCalculator() {
         `${symbol}${convert(prices.database)}`,
       ]);
     if (toggles.userAuth)
-      tableData.push(["User Auth", `${symbol}${convert(prices.userAuth)}`]);
+      tableData.push(["User Authentication", `${symbol}${convert(prices.userAuth)}`]);
     if (toggles.aiChat)
       tableData.push([
         "AI Chat Integration",
         `${symbol}${convert(prices.aiChat)}`,
       ]);
     if (toggles.aiCore)
-      tableData.push(["Full AI Core", `${symbol}${convert(prices.aiCore)}`]);
+      tableData.push(["Full AI Task Automation", `${symbol}${convert(prices.aiCore)}`]);
 
     customItems.forEach((item) => {
       tableData.push([
@@ -360,7 +360,7 @@ export default function PricingCalculator() {
             >
               <Calculator className="w-3.5 h-3.5 text-[#00ff88]" />
               <span className="font-mono text-xs text-[#00ff88] tracking-widest uppercase">
-                Pricing Engine
+                PRICE CALCULATOR
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-display font-black text-white uppercase tracking-wider">
@@ -420,11 +420,12 @@ export default function PricingCalculator() {
                     </div>
                     <div>
                       <h4 className="font-mono text-sm text-white">
-                        Full Turnkey Solution
+                        Basic Website
                       </h4>
                       <p className="font-mono text-[10px] text-[#666] mt-1 max-w-sm">
-                        Design, Copy, Domain, SSL, Security, Contact Form,
-                        WhatsApp, & Deployment
+                        Professional layout including custom design, mobile responsiveness, 
+                        domain setup, secure SSL, professional copy, direct WhatsApp 
+                        integration, Google Maps Business integration, and local SEO setup for Doha.
                       </p>
                     </div>
                   </div>
@@ -596,7 +597,7 @@ export default function PricingCalculator() {
                   },
                   {
                     key: "userAuth",
-                    label: "User Auth",
+                    label: "User Authentication",
                     desc: "Secure login & roles",
                     icon: Shield,
                     price: prices.userAuth,
@@ -610,7 +611,7 @@ export default function PricingCalculator() {
                   },
                   {
                     key: "aiCore",
-                    label: "Full AI Core",
+                    label: "Full AI Task Automation",
                     desc: "Deep LLM/RAG integration",
                     icon: Bot,
                     price: prices.aiCore,
@@ -856,7 +857,7 @@ export default function PricingCalculator() {
                 {toggles.userAuth && (
                   <div className="flex justify-between items-center pb-2 border-b border-[#222]">
                     <span className="font-mono text-xs text-[#ff00ff]">
-                      User Auth
+                      User Authentication
                     </span>
                     <span className="font-mono text-sm text-[#ff00ff]">
                       {symbol}
@@ -878,7 +879,7 @@ export default function PricingCalculator() {
                 {toggles.aiCore && (
                   <div className="flex justify-between items-center pb-2 border-b border-[#222]">
                     <span className="font-mono text-xs text-[#ff00ff]">
-                      Full AI Core
+                      Full AI Task Automation
                     </span>
                     <span className="font-mono text-sm text-[#ff00ff]">
                       {symbol}
@@ -928,7 +929,7 @@ export default function PricingCalculator() {
                     <span className="px-2 py-0.5 bg-[#ff0088] text-white text-[9px] font-black uppercase tracking-widest animate-pulse">Hot Action</span>
                     <span className="text-[10px] text-[#555] font-mono uppercase tracking-widest">Select Export Protocol</span>
                   </div>
-                  
+
                   <p className="text-[11px] text-[#666] font-mono leading-relaxed mb-4">
                     Ready to build? Secure your quote as a formal document or initialize a direct strategic consultation via WhatsApp.
                   </p>
@@ -963,7 +964,7 @@ export default function PricingCalculator() {
                           `Contact: ${customerInfo.contact}\n` +
                           `Total: ${symbol}${convert(currentTotal)}\n\n` +
                           `Interested in: ${includeBase ? 'Base Package, ' : ''}${additionalPages > 0 ? additionalPages + ' Add. Pages, ' : ''}` +
-                          Object.entries(toggles).filter(([_, v]) => v).map(([k]) => k).join(', ') + 
+                          Object.entries(toggles).filter(([_, v]) => v).map(([k]) => k).join(', ') +
                           (customItems.length > 0 ? `\n\n*Custom Requirements:*${customSummary}` : '') +
                           `\n\nGenerated via onesmartbiz.pro`;
                         const waUrl = `https://wa.me/97400000000?text=${encodeURIComponent(summary)}`;
@@ -1035,13 +1036,13 @@ export default function PricingCalculator() {
       {/* Identity Modal Overlay */}
       <AnimatePresence>
         {showLeadModal && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[10000] flex items-center justify-center p-6 bg-[#0a0a0f]/90 backdrop-blur-md"
           >
-            <motion.div 
+            <motion.div
               initial={{ scale: 0.9, y: 20 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, y: 20 }}
@@ -1051,10 +1052,10 @@ export default function PricingCalculator() {
               <div className="flex justify-between items-start mb-6">
                 <div>
                   <h3 className="text-xl font-display font-black text-white uppercase tracking-widest">
-                    Identity Protocol
+                    Ready to Connect?
                   </h3>
                   <p className="text-[10px] font-mono text-[#ff0088] uppercase tracking-[0.2em] mt-1">
-                    System Authentication Required
+                    Just one last step
                   </p>
                 </div>
                 <button onClick={() => setShowLeadModal(false)} className="text-[#555] hover:text-white transition-colors">
@@ -1064,33 +1065,33 @@ export default function PricingCalculator() {
 
               <div className="space-y-6">
                 <p className="text-xs font-mono text-[#888] leading-relaxed">
-                  Please provide your project identifiers to finalize the generation of the {pendingAction === 'pdf' ? 'PDF proposal' : 'WhatsApp inquiry'}.
+                  Please share your contact details so we can send you your personalized {pendingAction === 'pdf' ? 'PDF proposal' : 'WhatsApp inquiry'}.
                 </p>
-                
+
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-[10px] uppercase font-mono text-[#555] mb-2">Short Name</label>
-                    <input 
-                      type="text" 
+                    <label className="block text-[10px] uppercase font-mono text-[#555] mb-2"> Your Name </label>
+                    <input
+                      type="text"
                       placeholder="E.G. ABDULLAH / OSB"
                       value={customerInfo.name}
-                      onChange={(e) => setCustomerInfo({...customerInfo, name: e.target.value})}
+                      onChange={(e) => setCustomerInfo({ ...customerInfo, name: e.target.value })}
                       className="w-full bg-[#1a1a1a] border border-[#333] p-4 text-white font-mono text-sm focus:border-[#ff0088] outline-none"
                     />
                   </div>
                   <div>
                     <label className="block text-[10px] uppercase font-mono text-[#555] mb-2">Contact Number</label>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       placeholder="+974 ..."
                       value={customerInfo.contact}
-                      onChange={(e) => setCustomerInfo({...customerInfo, contact: e.target.value})}
+                      onChange={(e) => setCustomerInfo({ ...customerInfo, contact: e.target.value })}
                       className="w-full bg-[#1a1a1a] border border-[#333] p-4 text-white font-mono text-sm focus:border-[#ff0088] outline-none"
                     />
                   </div>
                 </div>
 
-                <button 
+                <button
                   onClick={async () => {
                     if (customerInfo.name && customerInfo.contact) {
                       setShowLeadModal(false);
@@ -1098,15 +1099,15 @@ export default function PricingCalculator() {
                       if (pendingAction === 'wa') {
                         // Small delay to let modal close
                         setTimeout(() => {
-                           const btn = document.getElementById('wa-btn');
-                           if(btn) (btn as any).click();
+                          const btn = document.getElementById('wa-btn');
+                          if (btn) (btn as any).click();
                         }, 100);
                       }
                     }
                   }}
                   className={`w-full py-4 font-mono font-bold text-xs uppercase tracking-widest transition-all ${customerInfo.name && customerInfo.contact ? 'bg-[#ff0088] text-white' : 'bg-[#1a1a1a] text-[#333] cursor-not-allowed'}`}
                 >
-                  Generate Estimate Output
+                  Send My Estimate
                 </button>
               </div>
             </motion.div>

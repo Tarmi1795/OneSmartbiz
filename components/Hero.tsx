@@ -67,20 +67,20 @@ export default function Hero() {
                 style={{ fontFamily: "var(--font-sharetech), monospace" }}
               >
                 <span className="w-8 h-px bg-[#00ff88] shadow-[0_0_4px_#00ff88]" />
-                <span className="text-[#00ff88]">sys://doha.qatar</span>
+                <span className="text-[#00ff88]">Doha, Qatar</span>
                 <span className="w-2 h-2 rounded-full bg-[#00ff88] shadow-[0_0_6px_#00ff88] animate-pulse" />
-                <span>online</span>
+                <span>Available Now</span>
               </div>
 
               <div className="relative">
                 <h1
                   className="text-5xl md:text-7xl lg:text-8xl font-black uppercase leading-none tracking-tight cyber-glitch"
-                  data-text="STRATEGIC"
+                  data-text="PREMIUM"
                   style={{ fontFamily: "var(--font-orbitron), monospace" }}
                 >
-                  <span className="block text-[#e0e0e0]">STRATEGIC</span>
+                  <span className="block text-[#e0e0e0]">PREMIUM</span>
                   <span className="block gradient-text-cyber">DIGITAL</span>
-                  <span className="block text-[#e0e0e0]">SOLUTIONS</span>
+                  <span className="block text-[#e0e0e0]">PARTNER</span>
                 </h1>
               </div>
             </div>
@@ -94,7 +94,7 @@ export default function Hero() {
                 style={{ fontFamily: "var(--font-jetbrains), monospace" }}
               >
                 <span className="text-[#00ff88]">{`>`} </span>
-                The leading digital consultancy in Doha, Qatar. We empower enterprises with high-performance web engineering, multimedia production, and financial intelligence.
+                Leading Digital Agency in Doha, Qatar. We help businesses grow through custom website development, professional media production, and smart business consulting.
                 <span ref={cursorRef} className="inline-block w-2 h-4 bg-[#00ff88] ml-1 align-middle" />
               </p>
             </div>
@@ -168,7 +168,7 @@ export default function Hero() {
                       className="text-[10px] uppercase tracking-[0.3em] text-[#00ff88]"
                       style={{ fontFamily: "var(--font-sharetech), monospace" }}
                     >
-                      Project Intelligence :: estimator_v2
+                      Instant Project Guide :: cost_estimator
                     </span>
                   </div>
                   <h3 
@@ -181,7 +181,7 @@ export default function Hero() {
                     className="text-sm text-[#6b7280] max-w-md leading-relaxed"
                     style={{ fontFamily: "var(--font-jetbrains), monospace" }}
                   >
-                    Validate your next venture with our high-fidelity pricing engine. Get a baseline proposal in QAR tailored to your specific tech stack.
+                    Plan your next business move with our accurate pricing tool. Get a personalized estimate in QAR tailored to your specific goals and requirements.
                   </p>
                 </div>
                 <div 
@@ -225,15 +225,15 @@ export default function Hero() {
 
               <div className="pt-10 p-6 space-y-3">
                 {[
-                  { prefix: "$", text: "connect --host onesmartbiz.pro", color: "#00ff88" },
-                  { prefix: ">", text: "Establishing secure channel...", color: "#6b7280" },
-                  { prefix: ">", text: "AUTH: Qatar Digital Council ✓", color: "#00d4ff" },
-                  { prefix: ">", text: "Loading services manifest...", color: "#6b7280" },
-                  { prefix: ">", text: "WEB_DEV........... [OK]", color: "#00ff88" },
-                  { prefix: ">", text: "MULTIMEDIA_VFX..... [OK]", color: "#00ff88" },
-                  { prefix: ">", text: "FINANCIAL_HUB...... [OK]", color: "#00ff88" },
-                  { prefix: ">", text: "NEURAL_ENGINE...... [OK]", color: "#ff00ff" },
-                  { prefix: "$", text: "status: READY_TO_BUILD", color: "#00d4ff" },
+                  { prefix: "$", text: "connecting to Doha digital hub...", color: "#00ff88" },
+                  { prefix: ">", text: "Establishing secure connection...", color: "#6b7280" },
+                  { prefix: ">", text: "VERIFIED: Premium Provider ✓", color: "#00d4ff" },
+                  { prefix: ">", text: "Loading service options...", color: "#6b7280" },
+                  { prefix: ">", text: "WEB DEVELOPMENT....... [OK]", color: "#00ff88" },
+                  { prefix: ">", text: "MEDIA PRODUCTION...... [OK]", color: "#00ff88" },
+                  { prefix: ">", text: "BUSINESS GROWTH....... [OK]", color: "#00ff88" },
+                  { prefix: ">", text: "SMART ADVISOR......... [OK]", color: "#ff00ff" },
+                  { prefix: "$", text: "status: READY TO START", color: "#00d4ff" },
                 ].map((line, i) => (
                   <div key={i} className="flex gap-2 text-xs" style={{ fontFamily: "var(--font-jetbrains), monospace" }}>
                     <span style={{ color: "#00ff88", opacity: 0.6 }}>{line.prefix}</span>

@@ -23,13 +23,13 @@ const services = [
   },
   {
     id: "03",
-    title: "Financial Hub",
-    subtitle: "Strategic Intelligence",
+    title: "Business Growth Lab",
+    subtitle: "Strategic Insight",
     color: "#00d4ff",
     description:
-      "Data-driven financial insights, profitability analysis, and cost-structure modeling. AI-assisted tools that validate business ventures in the Qatar market, minimizing risk and maximizing ROI.",
-    stack: ["Business Modeling", "Market Analysis", "Risk Assessment", "ROI Projection"],
-    metrics: [{ label: "Risk Reduction", value: "−45%" }, { label: "Avg ROI Lift", value: "+28%" }],
+      "Data-driven business analysis, profitability planning, and market-entry modeling. Our AI-assisted tools validate your business ideas in the Qatar market, ensuring long-term success and growth.",
+    stack: ["Business Planning", "Market Research", "Profit Analysis", "Growth Strategy"],
+    metrics: [{ label: "Success Rate", value: "+92%" }, { label: "Avg Growth", value: "+28%" }],
   },
 ];
 
@@ -55,7 +55,7 @@ export default function Services() {
             style={{ fontFamily: "var(--font-sharetech), monospace" }}
           >
             <span className="w-8 h-px bg-[#00ff88] shadow-[0_0_4px_#00ff88]" />
-            module_01 :: core_expertise
+             OUR CORE SPECIALTIES
           </div>
           <h2
             className="text-4xl md:text-5xl font-black uppercase tracking-wide text-[#e0e0e0]"
@@ -73,7 +73,7 @@ export default function Services() {
             style={{ fontFamily: "var(--font-jetbrains), monospace" }}
           >
             <span className="text-[#00ff88]">{`>`} </span>
-            End-to-end digital solutions engineered to scale your business in the modern GCC economy.
+            Complete digital solutions designed to help your business reach its full potential in Qatar and beyond.
           </p>
         </div>
 
@@ -188,7 +188,7 @@ export default function Services() {
                   style={{ fontFamily: "var(--font-sharetech), monospace", color: svc.color }}
                 >
                   <span className="group-hover/link:translate-x-1 transition-transform duration-200">
-                    {`>`} Initialize Service
+                    {`>`} Get Started
                   </span>
                   <span className="flex-1 h-px opacity-20 group-hover/link:opacity-60 transition-opacity duration-200" style={{ background: svc.color }} />
                 </a>

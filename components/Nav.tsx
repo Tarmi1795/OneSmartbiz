@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 const navLinks = [
   { label: "Services", href: "/#services" },
-  { label: "Neural Engine", href: "/#neural" },
+  { label: "Business Advisor", href: "/#neural" },
   { label: "Portfolio", href: "/#portfolio" },
   { label: "Testimonials", href: "/#testimonials" },
   { label: "Estimator", href: "/calculator" },
@@ -72,7 +72,7 @@ export default function Nav() {
               fontFamily: "var(--font-sharetech), monospace",
             }}
           >
-            Init Project
+            Contact Us
           </a>
         </div>
 
@@ -113,7 +113,7 @@ export default function Nav() {
                 fontFamily: "var(--font-sharetech), monospace",
               }}
             >
-              Init Project
+              Contact Us
             </a>
           </div>
         </div>

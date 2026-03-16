@@ -74,13 +74,13 @@ export default function Contact() {
             <div className="h-px flex-1 bg-gradient-to-r from-[#00ff88]/40 to-transparent" />
           </div>
           <h2 className="font-display text-4xl md:text-5xl font-black text-white mb-4 uppercase tracking-tight">
-            INITIATE{" "}
+            TALK TO{" "}
             <span className="bg-gradient-to-r from-[#00ff88] via-[#00d4ff] to-[#ff00ff] bg-clip-text text-transparent">
-              CONTACT
+              OSB
             </span>
           </h2>
           <p className="font-mono text-[#888] text-sm max-w-xl">
-            Ready to transform your business? Send a transmission and we'll respond within 24 hours.
+            Ready to grow your business? Send us a message and our team in Doha will respond within 24 hours.
           </p>
         </div>
 
@@ -144,7 +144,7 @@ export default function Contact() {
                 <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
                 <div className="w-3 h-3 rounded-full bg-[#28c840]" />
               </div>
-              <span className="font-mono text-xs text-[#444] ml-3">transmission_form.exe</span>
+              <span className="font-mono text-xs text-[#444] ml-3">contact_form</span>
             </div>
 
             {status === "sent" ? (
@@ -155,8 +155,8 @@ export default function Contact() {
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                 </div>
-                <div className="font-display text-2xl text-[#00ff88] mb-2 tracking-widest">TRANSMISSION SENT</div>
-                <div className="font-mono text-sm text-[#888]">We'll respond within 24 hours. Check your inbox.</div>
+                <div className="font-display text-2xl text-[#00ff88] mb-2 tracking-widest">MESSAGE RECEIVED</div>
+                <div className="font-mono text-sm text-[#888]">Thank you! Our experts will get back to you soon.</div>
                 <button onClick={() => { setStatus("idle"); setForm({ name: "", service: "", message: "" }); }}
                   className="mt-6 font-mono text-xs text-[#444] hover:text-[#00ff88] transition-colors tracking-widest">
                   SEND ANOTHER →
@@ -165,11 +165,11 @@ export default function Contact() {
             ) : (
               <form onSubmit={handleSubmit} className="p-6 flex flex-col gap-5">
                 <div className="font-mono text-xs text-[#444] mb-2">
-                  <span className="text-[#00ff88]">$</span> initialize_contact_protocol
+                  <span className="text-[#00ff88]">$</span> Fill in the form below
                 </div>
 
                 <div className="flex flex-col gap-1.5">
-                  <label className="font-mono text-xs text-[#666] tracking-widest">IDENTIFIER (NAME)</label>
+                   <label className="font-mono text-xs text-[#666] tracking-widest">YOUR NAME</label>
                   <div className="flex items-center border border-[#1a1a1a] focus-within:border-[#00ff88]/50 transition-colors"
                     style={{ clipPath: "polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%)" }}>
                     <span className="font-mono text-[#00ff88] px-3 text-sm select-none">›</span>
@@ -206,7 +206,7 @@ export default function Contact() {
                 </div>
 
                 <div className="flex flex-col gap-1.5">
-                  <label className="font-mono text-xs text-[#666] tracking-widest">MESSAGE PAYLOAD</label>
+                   <label className="font-mono text-xs text-[#666] tracking-widest">YOUR MESSAGE</label>
                   <div className="flex border border-[#1a1a1a] focus-within:border-[#00d4ff]/50 transition-colors"
                     style={{ clipPath: "polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%)" }}>
                     <span className="font-mono text-[#00d4ff] px-3 pt-3 text-sm select-none">›</span>
@@ -227,13 +227,13 @@ export default function Contact() {
                   disabled={status === "sending"}
                   className="mt-2 w-full py-4 bg-[#00ff88]/10 border border-[#00ff88]/40 text-[#00ff88] font-display font-black text-sm tracking-widest uppercase hover:bg-[#00ff88]/20 hover:border-[#00ff88]/70 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   style={{ clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%)", boxShadow: status === "sending" ? "none" : "0 0 20px #00ff8833" }}>
-                  {status === "sending" ? (
+                   {status === "sending" ? (
                     <span className="flex items-center justify-center gap-2">
                       <span className="inline-block w-3 h-3 border border-[#00ff88] border-t-transparent rounded-full animate-spin" />
-                      TRANSMITTING...
+                      SENDING...
                     </span>
                   ) : (
-                    "SEND TRANSMISSION →"
+                    "SEND MESSAGE →"
                   )}
                 </button>
 

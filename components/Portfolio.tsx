@@ -12,8 +12,9 @@ const projects = [
     year: "2024",
     outcome: "340% traffic increase",
     description:
-      "Enterprise-grade corporate portal for a Doha-based conglomerate. Multi-language, role-based dashboards, and CMS integration delivering sub-1s load times across GCC.",
-    status: "DEPLOYED",
+      "Professional corporate platform for a Doha-based conglomerate. Featuring multi-language support and custom dashboards with lightning-fast performance across the GCC.",
+    status: "LIVE",
+    image: "/projects/falcon.png",
   },
   {
     id: "PRJ-002",
@@ -24,20 +25,22 @@ const projects = [
     year: "2024",
     outcome: "2.1M organic views",
     description:
-      "Cinematic brand film showcasing Lusail City's futuristic infrastructure. Full motion graphics pipeline, chromatic grading, and drone-assisted VFX compositing.",
+      "Stunning brand film showcasing the future of Lusail City. Professional video editing and cinematic drone shots designed to capture the world's attention.",
     status: "DELIVERED",
+    image: "/projects/lusail.png",
   },
   {
     id: "PRJ-003",
     title: "Al Rayyan FinModel",
-    category: "Financial Hub",
+    category: "Business Growth",
     tags: ["Business Model", "ROI Analysis"],
     color: "#00d4ff",
     year: "2023",
     outcome: "QAR 12M raised",
     description:
-      "Complete financial intelligence package for a retail expansion across 6 Qatar locations. Risk modeling, break-even analysis, and investor-ready projections.",
-    status: "EXECUTED",
+      "Smart business planning and investment strategy for a retail expansion across 6 locations in Qatar. Includes detailed market research and growth projections.",
+    status: "COMPLETE",
+    image: "/projects/al_rayyan.png",
   },
   {
     id: "PRJ-004",
@@ -50,6 +53,7 @@ const projects = [
     description:
       "Cross-platform food discovery app for the Doha expat community. Real-time GPS filtering, push notifications, and Stripe payment integration in 8 weeks.",
     status: "LIVE",
+    image: "/projects/nomadeats.png",
   },
   {
     id: "PRJ-005",
@@ -60,8 +64,9 @@ const projects = [
     year: "2024",
     outcome: "+62% engagement",
     description:
-      "Multi-camera event coverage and post-production for Qatar's premium racing season. Color science pipeline tuned for broadcast and social media distribution.",
-    status: "DELIVERED",
+      "Professional event coverage and editing for Qatar's premium racing season. Tailored for high-impact social media engagement and broadcast quality.",
+    status: "COMPLETE",
+    image: "/projects/qipco.png",
   },
   {
     id: "PRJ-006",
@@ -72,17 +77,18 @@ const projects = [
     year: "2024",
     outcome: "98 Lighthouse score",
     description:
-      "B2B analytics dashboard for a regional logistics operator. Real-time data visualization, multi-currency reporting, and role-based access across 4 countries.",
-    status: "DEPLOYED",
+      "Custom business dashboard for a regional logistics operator. Real-time data visualization and detailed reporting across 4 countries.",
+    status: "LIVE",
+    image: "/projects/falcon.png",
   },
 ];
 
-const allCategories = ["All", "Web Development", "Multimedia & VFX", "Financial Hub"];
+const allCategories = ["All", "Web Development", "Multimedia & VFX", "Business Growth"];
 
 const statusColors: Record<string, string> = {
   DEPLOYED: "#00ff88",
   DELIVERED: "#ff00ff",
-  EXECUTED: "#00d4ff",
+  COMPLETE: "#00d4ff",
   LIVE: "#00ff88",
 };
 
@@ -113,7 +119,7 @@ export default function Portfolio() {
             style={{ fontFamily: "var(--font-sharetech), monospace" }}
           >
             <span className="w-8 h-px bg-[#00ff88] shadow-[0_0_4px_#00ff88]" />
-            module_02 :: selected_works
+            module_02 :: portfolio
           </div>
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
             <h2
@@ -169,42 +175,54 @@ export default function Portfolio() {
               }}
             >
               <div
-                className="relative h-40 overflow-hidden flex items-center justify-center"
+                className="relative h-56 overflow-hidden flex items-center justify-center"
                 style={{
-                  background: `linear-gradient(135deg, #0a0a0f 0%, ${proj.color}08 100%)`,
                   borderBottom: "1px solid #2a2a3a",
                 }}
               >
+                <img 
+                  src={proj.image} 
+                  alt={proj.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-90 grayscale-[0.3] group-hover:grayscale-0"
+                />
+                <div 
+                  className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-transparent to-transparent opacity-80"
+                />
                 <div
-                  className="absolute inset-0 pointer-events-none"
+                  className="absolute inset-0 pointer-events-none opacity-20"
                   style={{
                     backgroundImage: `linear-gradient(${proj.color}08 1px, transparent 1px), linear-gradient(90deg, ${proj.color}08 1px, transparent 1px)`,
                     backgroundSize: "30px 30px",
                   }}
                 />
                 <div
-                  className="text-6xl font-black opacity-[0.06]"
-                  style={{
-                    fontFamily: "var(--font-orbitron), monospace",
-                    color: proj.color,
-                  }}
+                   className="absolute top-4 left-4 z-10"
                 >
-                  {proj.id.split("-")[1]}
+                   <div
+                    className="text-4xl font-black opacity-[0.1]"
+                    style={{
+                      fontFamily: "var(--font-orbitron), monospace",
+                      color: proj.color,
+                    }}
+                  >
+                    {proj.id.split("-")[1]}
+                  </div>
                 </div>
                 <div
-                  className="absolute top-3 right-3 text-[9px] uppercase tracking-[0.2em] px-2 py-1"
+                  className="absolute top-4 right-4 text-[9px] uppercase tracking-[0.2em] px-2 py-1 z-10"
                   style={{
                     fontFamily: "var(--font-sharetech), monospace",
                     color: statusColors[proj.status] || "#00ff88",
                     border: `1px solid ${statusColors[proj.status] || "#00ff88"}40`,
                     background: `${statusColors[proj.status] || "#00ff88"}10`,
-                    boxShadow: `0 0 6px ${statusColors[proj.status] || "#00ff88"}30`,
+                    boxShadow: `0 0 10px ${statusColors[proj.status] || "#00ff88"}30`,
+                    backdropFilter: "blur(4px)",
                   }}
                 >
                   ● {proj.status}
                 </div>
                 <div
-                  className="absolute bottom-3 left-3 text-[10px] uppercase tracking-[0.2em] text-[#6b7280]"
+                  className="absolute bottom-4 left-4 text-[10px] uppercase tracking-[0.2em] text-white/50 z-10"
                   style={{ fontFamily: "var(--font-sharetech), monospace" }}
                 >
                   {proj.id} / {proj.year}

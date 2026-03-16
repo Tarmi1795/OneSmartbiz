@@ -86,27 +86,27 @@ export default function NeuralEngine() {
             style={{ fontFamily: "var(--font-sharetech), monospace" }}
           >
             <span className="w-8 h-px bg-[#ff00ff] shadow-[0_0_4px_#ff00ff]" />
-            module_03 :: ai_business_intelligence
+            Smart Business Advisor :: AI Analytics
           </div>
           <h2
             className="text-4xl md:text-5xl font-black uppercase tracking-wide text-[#e0e0e0]"
             style={{ fontFamily: "var(--font-orbitron), monospace" }}
           >
-            Neural{" "}
+            Smart{" "}
             <span
               className="text-[#ff00ff]"
               style={{ textShadow: "0 0 10px rgba(255,0,255,0.5), 0 0 20px rgba(255,0,255,0.3)" }}
             >
               AI Business
             </span>{" "}
-            Engine
+            Advisor
           </h2>
           <p
             className="text-sm text-[#6b7280] max-w-xl leading-relaxed"
             style={{ fontFamily: "var(--font-jetbrains), monospace" }}
           >
             <span className="text-[#ff00ff]">{'> '}</span>
-            Leverage Neural AI to validate your next big idea. Compute market dynamics in Qatar's economy with flexible, dynamic intelligence processing.
+            Use our Smart AI to plan your next successful venture. Instantly calculate your profit potential and market viability in Qatar&apos;s growing economy.
           </p>
         </div>
 
@@ -130,7 +130,7 @@ export default function NeuralEngine() {
                 className="ml-2 text-[10px] uppercase tracking-[0.2em] text-[#6b7280]"
                 style={{ fontFamily: "var(--font-sharetech), monospace" }}
               >
-                neural_engine :: ai_input_parameters
+                SMART ADVISOR :: PROJECT DETAILS
               </span>
             </div>
 
@@ -207,7 +207,7 @@ export default function NeuralEngine() {
                   fontFamily: "var(--font-sharetech), monospace",
                 }}
               >
-                {loading ? "Processing Intelligence..." : "Initialize AI Computation"}
+                {loading ? "Analyzing My Business..." : "Reveal Business Insights"}
               </button>
             </div>
           </div>
@@ -237,7 +237,7 @@ export default function NeuralEngine() {
                 className="ml-2 text-[10px] uppercase tracking-[0.2em] text-[#6b7280]"
                 style={{ fontFamily: "var(--font-sharetech), monospace" }}
               >
-                neural_engine :: ai_output_analysis
+                SMART ADVISOR :: GROWTH ANALYSIS
               </span>
             </div>
 
@@ -254,7 +254,7 @@ export default function NeuralEngine() {
                     className="text-xs uppercase tracking-[0.3em] text-[#2a2a3a]"
                     style={{ fontFamily: "var(--font-sharetech), monospace" }}
                   >
-                    {`>`} AI standby for parameters...
+                    {`>`} Provide your details to see the magic...
                   </div>
                   <div
                     className="w-16 h-px bg-[#2a2a3a]"
@@ -278,7 +278,7 @@ export default function NeuralEngine() {
                         textShadow: results.viable ? "0 0 8px rgba(0,255,136,0.5)" : "0 0 8px rgba(255,51,102,0.5)",
                       }}
                     >
-                      {results.viable ? "// VIABLE VENTURE" : "// HIGH RISK — REVIEW"}
+                      {results.viable ? "// GREAT POTENTIAL" : "// REVIEW STRATEGY"}
                     </span>
                     {industry && (
                       <span
@@ -325,7 +325,7 @@ export default function NeuralEngine() {
                         background: "rgba(0,255,136,0.03)",
                       }}
                     >
-                      <span className="text-[#ff00ff] font-bold">DEEP AI INSIGHT:</span> {results.deepInsight}
+                      <span className="text-[#ff00ff] font-bold">EXPERT SUGGESTION:</span> {results.deepInsight}
                     </div>
                   )}
 
@@ -338,7 +338,7 @@ export default function NeuralEngine() {
                       fontFamily: "var(--font-sharetech), monospace",
                     }}
                   >
-                    Get Full Intelligence Report
+                    Connect With An Expert
                   </a>
                 </div>
               )}
