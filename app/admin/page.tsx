@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { KeyRound, Save, RefreshCcw, ShieldCheck, ShieldAlert, ChevronLeft } from "lucide-react";
+import { KeyRound, Save, RefreshCcw, ShieldCheck, ShieldAlert, ChevronLeft, Download, FileText, Eye, X } from "lucide-react";
 import Link from "next/link";
+import { jsPDF } from "jspdf";
+import autoTable from "jspdf-autotable";
 
 export default function AdminPage() {
   const [password, setPassword] = useState("");
@@ -10,6 +12,24 @@ export default function AdminPage() {
   const [prices, setPrices] = useState<any>(null);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState({ type: "", text: "" });
+  const [selectedLead, setSelectedLead] = useState<any>(null);
+
+  const [status, setStatus] = useState({ state: "idle", message: "" });
+
+  const checkPulse = async () => {
+    setStatus({ state: "checking", message: "Probing database..." });
+    try {
+      const leadsRes = await fetch(`/api/leads?password=${password}`);
+      const leadsData = await leadsRes.json();
+      
+      if (leadsRes.status === 404) throw new Error("API Route /api/leads not found.");
+      if (leadsData.error) throw new Error(`Inquiries Table Error: ${leadsData.error}`);
+      
+      setStatus({ state: "ok", message: "System operational. 'inquiries' table is reachable." });
+    } catch (err: any) {
+      setStatus({ state: "error", message: err.message });
+    }
+  };
 
   const fetchPrices = async () => {
     setLoading(true);
@@ -117,14 +137,26 @@ export default function AdminPage() {
             <p className="text-[#666] text-xs font-mono uppercase">Global baseline configuration engine</p>
           </div>
           <div className="flex gap-4">
-             <button onClick={fetchPrices} className="p-3 border border-[#333] text-[#888] hover:text-white transition-colors">
+             <button 
+               onClick={() => { fetchPrices(); fetchLeads(); checkPulse(); }} 
+               className="p-3 border border-[#333] text-[#888] hover:text-white transition-colors flex items-center gap-2"
+               title="System Diagnostic"
+             >
                <RefreshCcw className={`w-5 h-5 ${loading ? 'animate-spin' : ''}`} />
+               <span className="font-mono text-[10px] uppercase">Diagnostic</span>
              </button>
              <Link href="/" className="flex items-center gap-2 px-6 py-3 border border-[#333] text-[#888] font-mono text-xs uppercase hover:text-white transition-colors">
                <ChevronLeft className="w-4 h-4" /> Exit
              </Link>
           </div>
         </div>
+
+        {status.message && (
+           <div className={`mb-4 p-4 flex items-center gap-4 border ${status.state === 'error' ? 'bg-orange-500/10 border-orange-500/50 text-orange-500' : 'bg-blue-500/10 border-blue-500/50 text-blue-500'}`}>
+              <ShieldAlert className="w-5 h-5" />
+              <span className="font-mono text-xs uppercase tracking-wider">Pulse Check: {status.message}</span>
+           </div>
+        )}
 
         {message.text && (
            <div className={`mb-8 p-4 flex items-center gap-4 border ${message.type === 'error' ? 'bg-red-500/10 border-red-500/50 text-red-500' : 'bg-green-500/10 border-green-500/50 text-green-500'}`}>
@@ -189,6 +221,7 @@ export default function AdminPage() {
                     <th className="py-4 font-mono text-[10px] text-[#555] uppercase">Contact</th>
                     <th className="py-4 font-mono text-[10px] text-[#555] uppercase text-right">Estimate</th>
                     <th className="py-4 font-mono text-[10px] text-[#555] uppercase pl-8">Parameters</th>
+                    <th className="py-4 font-mono text-[10px] text-[#555] uppercase text-right">Actions</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[#222]">
@@ -218,6 +251,63 @@ export default function AdminPage() {
                           ))}
                         </div>
                       </td>
+                      <td className="py-4 text-right">
+                        <button
+                          onClick={() => setSelectedLead(lead)}
+                          className="p-2 bg-blue-500/10 text-blue-500 border border-blue-500/30 hover:bg-blue-500 hover:text-white transition-all mr-2"
+                          title="View Breakdown"
+                        >
+                          <Eye className="w-4 h-4" />
+                        </button>
+                        <button
+                          onClick={() => {
+                            const doc = new jsPDF();
+                            doc.setFontSize(22);
+                            doc.text("One SmartBiz Qatar", 14, 20);
+                            doc.setFontSize(16);
+                            doc.setTextColor(100, 100, 100);
+                            doc.text("Project Quotation - Re-generated", 14, 30);
+                            
+                            doc.setFontSize(10);
+                            doc.text(`Lead ID: ${lead.id.substring(0,8)}`, 14, 40);
+                            doc.text(`Customer: ${lead.name}`, 14, 45);
+                            doc.text(`Contact: ${lead.contact}`, 14, 50);
+                            doc.text(`Date of Inquiry: ${new Date(lead.created_at).toLocaleDateString()}`, 14, 55);
+
+                            const tableData = [];
+                            const sel = lead.selections || {};
+                            if (sel.includeBase) tableData.push(["Base Package: Full Turnkey Solution", "Included"]);
+                            if (sel.additionalPages > 0) tableData.push([`Additional Pages (x${sel.additionalPages})`, "Selected"]);
+                            
+                            Object.entries(sel).forEach(([k, v]) => {
+                              if (v === true && k !== 'includeBase') {
+                                tableData.push([k.replace(/([A-Z])/g, ' $1').toUpperCase(), "Selected"]);
+                              }
+                            });
+
+                            lead.custom_requirements?.forEach((req: string) => {
+                              tableData.push([`Custom: ${req}`, "Pending Analysis"]);
+                            });
+
+                            autoTable(doc, {
+                              startY: 65,
+                              head: [["Requirement", "Status"]],
+                              body: tableData,
+                              theme: 'grid',
+                              headStyles: { fillColor: [10, 10, 15], textColor: [0, 255, 136] }
+                            });
+
+                            const finalY = (doc as any).lastAutoTable.finalY || 70;
+                            doc.setFontSize(14);
+                            doc.text(`Total Estimate: ${lead.currency} ${lead.project_total.toLocaleString()}`, 14, finalY + 15);
+                            
+                            doc.save(`Quotation_${lead.name}_${lead.id.substring(0,4)}.pdf`);
+                          }}
+                          className="p-2 bg-[#00ff88]/10 text-[#00ff88] border border-[#00ff88]/30 hover:bg-[#00ff88] hover:text-black transition-all"
+                        >
+                          <Download className="w-4 h-4" />
+                        </button>
+                      </td>
                     </tr>
                   ))}
                   {leads.length === 0 && (
@@ -241,6 +331,59 @@ export default function AdminPage() {
            </p>
         </div>
       </div>
+
+      {/* Breakdown Modal */}
+      {selectedLead && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/80 backdrop-blur-sm">
+          <div className="max-w-2xl w-full bg-[#111] border border-[#333] p-8 relative"
+            style={{ clipPath: "polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%)" }}>
+            <button 
+              onClick={() => setSelectedLead(null)}
+              className="absolute top-4 right-4 text-[#555] hover:text-white transition-colors"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            <h3 className="text-xl font-display font-black text-white uppercase tracking-widest mb-6 border-b border-[#222] pb-4">
+              Project Breakdown: <span className="text-[#00ff88]">{selectedLead.name}</span>
+            </h3>
+            
+            <div className="space-y-3 max-h-[60vh] overflow-y-auto pr-4 mb-8">
+              {Object.entries(selectedLead.selections || {}).map(([key, value]) => {
+                if (!value) return null;
+                const priceKey = key === 'includeBase' ? 'basePackage' : key === 'additionalPages' ? 'additionalPage' : key;
+                const price = prices ? prices[priceKey] : 0;
+                const label = key.replace(/([A-Z])/g, ' $1').toUpperCase();
+                const displayPrice = key === 'additionalPages' ? `x${value}` : `QR ${price?.toLocaleString()}`;
+                
+                return (
+                  <div key={key} className="flex justify-between items-center py-2 border-b border-[#222]">
+                    <span className="font-mono text-[10px] text-[#888] uppercase">{label}</span>
+                    <span className="font-mono text-xs text-white">{displayPrice}</span>
+                  </div>
+                );
+              })}
+              {selectedLead.custom_requirements?.map((req: string) => (
+                <div key={req} className="flex justify-between items-center py-2 border-b border-[#222]">
+                  <span className="font-mono text-[10px] text-[#ff00ff] uppercase">CUSTOM: {req}</span>
+                  <span className="font-mono text-xs text-[#ff00ff]">ANALYSIS PENDING</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="pt-6 border-t border-[#00ff88]/30 flex justify-between items-center">
+              <div>
+                <p className="text-[10px] font-mono text-[#555] uppercase">Total Captured Estimate</p>
+                <p className="text-2xl font-display font-black text-[#00ff88]">
+                  {selectedLead.currency} {selectedLead.project_total.toLocaleString()}
+                </p>
+              </div>
+              <p className="text-[10px] font-mono text-[#444] text-right max-w-[200px]">
+                Note: Breakdown values are based on current system prices.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

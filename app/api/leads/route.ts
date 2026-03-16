@@ -1,10 +1,5 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
+import { supabase } from "@/lib/supabase";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -32,6 +27,8 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { name, contact, total, currency, selections, customRequirements } = body;
 
+    console.log("Lead Capture POST received:", { name, contact, total });
+
     if (!name || !contact) {
       return NextResponse.json({ error: "Name and contact required" }, { status: 400 });
     }
@@ -47,11 +44,18 @@ export async function POST(request: Request) {
           selections, 
           custom_requirements: customRequirements 
         }
-      ]);
+      ])
+      .select();
 
-    if (error) throw error;
+    if (error) {
+      console.error("Supabase Error during Lead Injection:", error);
+      return NextResponse.json({ error: error.message, details: error.details }, { status: 500 });
+    }
+
+    console.log("Lead successfully stored in Supabase:", data);
     return NextResponse.json({ success: true, data });
   } catch (error: any) {
+    console.error("Fatal API Error in /api/leads:", error);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

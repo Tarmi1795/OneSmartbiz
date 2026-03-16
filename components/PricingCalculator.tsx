@@ -108,7 +108,7 @@ export default function PricingCalculator() {
   const saveLead = async () => {
     if (!customerInfo.name || !customerInfo.contact) return false;
     try {
-      await fetch("/api/leads", {
+      const response = await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -124,9 +124,19 @@ export default function PricingCalculator() {
           customRequirements: customItems.map(i => i.name)
         }),
       });
+
+      const data = await response.json();
+      
+      if (!response.ok) {
+        alert(`Lead Capture Error: ${data.error || 'Check Supabase table/RLS'}`);
+        console.error("Server error during lead capture:", data.error);
+        return false;
+      }
+
       return true;
-    } catch (err) {
-      console.error("Lead capture failed:", err);
+    } catch (err: any) {
+      alert(`Network Error: ${err.message}`);
+      console.error("Network error during lead capture:", err);
       return false;
     }
   };
