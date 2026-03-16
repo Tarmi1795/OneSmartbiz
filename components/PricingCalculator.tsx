@@ -18,6 +18,8 @@ import {
   Terminal,
   Bot,
   TrendingUp,
+  MessageCircle,
+  FileText,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
@@ -99,7 +101,6 @@ export default function PricingCalculator() {
 
   const [customItems, setCustomItems] = useState<CustomItem[]>([]);
   const [newItemName, setNewItemName] = useState("");
-  const [newItemPrice, setNewItemPrice] = useState("");
 
   useEffect(() => {
     const fetchPrices = async () => {
@@ -130,14 +131,12 @@ export default function PricingCalculator() {
   };
 
   const handleAddCustomItem = () => {
-    const parsedPrice = parseFloat(newItemPrice);
-    if (!newItemName.trim() || isNaN(parsedPrice)) return;
+    if (!newItemName.trim()) return;
     setCustomItems((prev) => [
       ...prev,
-      { id: Date.now().toString(), name: newItemName, price: parsedPrice },
+      { id: Date.now().toString(), name: newItemName, price: 0 },
     ]);
     setNewItemName("");
-    setNewItemPrice("");
   };
 
   const currentTotal = useMemo(() => {
@@ -158,7 +157,6 @@ export default function PricingCalculator() {
     if (toggles.aiChat) total += prices.aiChat;
     if (toggles.aiCore) total += prices.aiCore;
 
-    customItems.forEach((item) => (total += item.price));
     return total;
   }, [prices, includeBase, additionalPages, toggles, customItems]);
 
@@ -252,8 +250,8 @@ export default function PricingCalculator() {
 
     customItems.forEach((item) => {
       tableData.push([
-        `Custom: ${item.name}`,
-        `${symbol}${convert(item.price)}`,
+        `Custom Requirement: ${item.name}`,
+        `Dev Analysis Pending`,
       ]);
     });
 
@@ -614,9 +612,8 @@ export default function PricingCalculator() {
                     {item.name}
                   </span>
                   <div className="flex items-center gap-4">
-                    <span className="font-mono text-[#00ff88]">
-                      + {symbol}
-                      {convert(item.price)}
+                    <span className="font-mono text-[10px] text-[#ff00ff] uppercase tracking-tighter bg-[#ff00ff]/10 px-2 py-1">
+                      Pending Analysis
                     </span>
                     <button
                       onClick={() =>
@@ -640,18 +637,6 @@ export default function PricingCalculator() {
                   value={newItemName}
                   onChange={(e) => setNewItemName(e.target.value)}
                 />
-                <div className="relative w-32">
-                  <span className="absolute left-3 top-3 text-[#666] font-mono text-xs">
-                    {symbol}
-                  </span>
-                  <input
-                    type="number"
-                    placeholder="0"
-                    className="w-full bg-[#1a1a1a] border border-[#444] p-3 pl-8 text-sm text-white font-mono placeholder-[#666] focus:border-[#00ff88] outline-none"
-                    value={newItemPrice}
-                    onChange={(e) => setNewItemPrice(e.target.value)}
-                  />
-                </div>
                 <button
                   onClick={handleAddCustomItem}
                   className="bg-[#00ff88]/10 hover:bg-[#00ff88]/20 border border-[#00ff88]/50 p-3 text-[#00ff88] transition-colors flex items-center justify-center"
@@ -856,9 +841,8 @@ export default function PricingCalculator() {
                     <span className="font-mono text-xs text-[#aaa]">
                       {item.name}
                     </span>
-                    <span className="font-mono text-sm text-white">
-                      {symbol}
-                      {convert(item.price)}
+                    <span className="font-mono text-[9px] text-[#ff00ff] uppercase tracking-tighter">
+                      Pending Analysis
                     </span>
                   </div>
                 ))}
@@ -885,35 +869,50 @@ export default function PricingCalculator() {
                   </span>
                 </div>
 
-                <div className="flex gap-3">
-                  <button
-                    onClick={handleExportPDF}
-                    className="flex-1 py-4 bg-[#0a0a0f] text-[#00ff88] border border-[#00ff88]/50 font-mono font-bold uppercase tracking-widest hover:bg-[#00ff88]/10 transition-all flex items-center justify-center gap-2"
-                    style={{
-                      clipPath:
-                        "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%)",
-                    }}
-                  >
-                    PDF
-                  </button>
-                  <button
-                    onClick={() => {
-                      const summary = `*Project Estimate Summary*\n` +
-                        `Total: ${symbol}${convert(currentTotal)}\n\n` +
-                        `Interested in: ${includeBase ? 'Base Package, ' : ''}${additionalPages > 0 ? additionalPages + ' Add. Pages, ' : ''}` +
-                        Object.entries(toggles).filter(([_, v]) => v).map(([k]) => k).join(', ') + 
-                        `\n\nGenerated via onesmartbiz.pro`;
-                      const waUrl = `https://wa.me/97400000000?text=${encodeURIComponent(summary)}`;
-                      window.open(waUrl, '_blank');
-                    }}
-                    className="flex-1 py-4 bg-[#00ff88] text-black font-mono font-bold uppercase tracking-widest hover:brightness-110 transition-all flex items-center justify-center gap-2"
-                    style={{
-                      clipPath:
-                        "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%)",
-                    }}
-                  >
-                    WhatsApp &nbsp;→
-                  </button>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="px-2 py-0.5 bg-[#ff0088] text-white text-[9px] font-black uppercase tracking-widest animate-pulse">Hot Action</span>
+                    <span className="text-[10px] text-[#555] font-mono uppercase tracking-widest">Select Export Protocol</span>
+                  </div>
+                  
+                  <p className="text-[11px] text-[#666] font-mono leading-relaxed mb-4">
+                    Ready to build? Secure your quote as a formal document or initialize a direct strategic consultation via WhatsApp.
+                  </p>
+
+                  <div className="flex gap-3">
+                    <button
+                      onClick={handleExportPDF}
+                      className="flex-1 py-4 bg-[#111] text-white border border-[#333] font-mono text-[11px] font-bold uppercase tracking-widest hover:border-[#00ff88] hover:text-[#00ff88] transition-all flex items-center justify-center gap-3 group"
+                      style={{
+                        clipPath:
+                          "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%)",
+                      }}
+                    >
+                      <FileText className="w-4 h-4" />
+                      PDF DOCUMENT
+                    </button>
+                    <button
+                      onClick={() => {
+                        const customSummary = customItems.map(i => `\n- ${i.name} (Pending Analysis)`).join('');
+                        const summary = `*Project Estimate Summary*\n` +
+                          `Total: ${symbol}${convert(currentTotal)}\n\n` +
+                          `Interested in: ${includeBase ? 'Base Package, ' : ''}${additionalPages > 0 ? additionalPages + ' Add. Pages, ' : ''}` +
+                          Object.entries(toggles).filter(([_, v]) => v).map(([k]) => k).join(', ') + 
+                          (customItems.length > 0 ? `\n\n*Custom Requirements:*${customSummary}` : '') +
+                          `\n\nGenerated via onesmartbiz.pro`;
+                        const waUrl = `https://wa.me/97400000000?text=${encodeURIComponent(summary)}`;
+                        window.open(waUrl, '_blank');
+                      }}
+                      className="flex-[1.5] py-4 bg-[#00ff88] text-black font-mono text-[11px] font-black uppercase tracking-widest hover:brightness-110 transition-all flex items-center justify-center gap-3"
+                      style={{
+                        clipPath:
+                          "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%)",
+                      }}
+                    >
+                      <MessageCircle className="w-4 h-4" />
+                      WHATSAPP INQUIRY
+                    </button>
+                  </div>
                 </div>
               </div>
             </motion.div>
