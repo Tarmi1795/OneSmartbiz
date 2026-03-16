@@ -293,7 +293,7 @@ export default function PricingCalculator() {
   return (
     <section
       id="pricing"
-      className="relative py-24 bg-[#0a0a0f] border-t border-[#1a1a1a] overflow-hidden"
+      className="relative py-24 bg-[#0a0a0f] overflow-hidden"
     >
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,255,136,0.03),transparent_70%)] pointer-events-none" />
 

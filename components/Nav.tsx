@@ -3,11 +3,12 @@
 import { useState, useEffect } from "react";
 
 const navLinks = [
-  { label: "Services", href: "#services" },
-  { label: "Neural Engine", href: "#neural" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "Contact", href: "#contact" },
+  { label: "Services", href: "/#services" },
+  { label: "Neural Engine", href: "/#neural" },
+  { label: "Portfolio", href: "/#portfolio" },
+  { label: "Testimonials", href: "/#testimonials" },
+  { label: "Estimator", href: "/calculator" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Nav() {
@@ -34,7 +35,7 @@ export default function Nav() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-16">
         <a
-          href="#"
+          href="/"
           className="flex items-center gap-3 group"
           aria-label="One Smart Biz Home"
         >
@@ -63,7 +64,7 @@ export default function Nav() {
             </a>
           ))}
           <a
-            href="#contact"
+            href="/#contact"
             className="text-xs uppercase tracking-[0.2em] font-bold px-5 py-2 text-[#0a0a0f] bg-[#00ff88] transition-all duration-150 hover:brightness-110"
             style={{
               clipPath: "polygon(0 6px,6px 0,calc(100% - 6px) 0,100% 6px,100% calc(100% - 6px),calc(100% - 6px) 100%,6px 100%,0 calc(100% - 6px))",
@@ -104,7 +105,7 @@ export default function Nav() {
               </a>
             ))}
             <a
-              href="#contact"
+              href="/#contact"
               onClick={() => setMobileOpen(false)}
               className="text-xs uppercase tracking-[0.2em] font-bold px-5 py-3 text-center text-[#0a0a0f] bg-[#00ff88] mt-2"
               style={{

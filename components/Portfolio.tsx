@@ -94,7 +94,7 @@ export default function Portfolio() {
   return (
     <section
       id="portfolio"
-      className="relative py-28 overflow-hidden"
+      className="relative py-28 border-t border-[#1a1a1a] overflow-hidden"
       style={{ background: "#0a0a0f" }}
     >
       <div
