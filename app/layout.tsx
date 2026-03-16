@@ -31,6 +31,8 @@ export const metadata: Metadata = {
   },
 };
 
+import WhatsAppChat from "@/components/WhatsAppChat";
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -41,6 +43,7 @@ export default function RootLayout({
         style={{ fontFamily: "var(--font-jetbrains), 'JetBrains Mono', monospace" }}
       >
         {children}
+        <WhatsAppChat />
       </body>
     </html>
   );

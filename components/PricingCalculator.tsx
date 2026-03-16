@@ -885,16 +885,36 @@ export default function PricingCalculator() {
                   </span>
                 </div>
 
-                <button
-                  onClick={handleExportPDF}
-                  className="w-full py-4 bg-[#00ff88] text-black font-mono font-bold uppercase tracking-widest hover:brightness-110 transition-all flex items-center justify-center gap-2"
-                  style={{
-                    clipPath:
-                      "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%)",
-                  }}
-                >
-                  Export Proposal &nbsp;→
-                </button>
+                <div className="flex gap-3">
+                  <button
+                    onClick={handleExportPDF}
+                    className="flex-1 py-4 bg-[#0a0a0f] text-[#00ff88] border border-[#00ff88]/50 font-mono font-bold uppercase tracking-widest hover:bg-[#00ff88]/10 transition-all flex items-center justify-center gap-2"
+                    style={{
+                      clipPath:
+                        "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%)",
+                    }}
+                  >
+                    PDF
+                  </button>
+                  <button
+                    onClick={() => {
+                      const summary = `*Project Estimate Summary*\n` +
+                        `Total: ${symbol}${convert(currentTotal)}\n\n` +
+                        `Interested in: ${includeBase ? 'Base Package, ' : ''}${additionalPages > 0 ? additionalPages + ' Add. Pages, ' : ''}` +
+                        Object.entries(toggles).filter(([_, v]) => v).map(([k]) => k).join(', ') + 
+                        `\n\nGenerated via onesmartbiz.pro`;
+                      const waUrl = `https://wa.me/97400000000?text=${encodeURIComponent(summary)}`;
+                      window.open(waUrl, '_blank');
+                    }}
+                    className="flex-1 py-4 bg-[#00ff88] text-black font-mono font-bold uppercase tracking-widest hover:brightness-110 transition-all flex items-center justify-center gap-2"
+                    style={{
+                      clipPath:
+                        "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%)",
+                    }}
+                  >
+                    WhatsApp &nbsp;→
+                  </button>
+                </div>
               </div>
             </motion.div>
           </div>

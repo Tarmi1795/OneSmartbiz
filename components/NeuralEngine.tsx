@@ -36,13 +36,33 @@ function computeResults(data: Record<string, string>) {
 export default function NeuralEngine() {
   const [form, setForm] = useState<Record<string, string>>({});
   const [industry, setIndustry] = useState("");
-  const [computed, setComputed] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [results, setResults] = useState<any>(null);
 
-  const results = computed ? computeResults(form) : null;
+  const handleAnalyze = async () => {
+    setLoading(true);
+    setResults(null);
+    try {
+      const res = await fetch("/api/analyze", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ metrics: form, industry }),
+      });
+      const data = await res.json();
+      if (data.error) throw new Error(data.error);
+      setResults(data);
+    } catch (err) {
+      console.error("AI Analysis failed:", err);
+      // Fallback to local computation if API fails
+      const localResults = computeResults(form);
+      setResults(localResults);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleChange = (key: string, val: string) => {
     setForm((p) => ({ ...p, [key]: val }));
-    setComputed(false);
   };
 
   return (
@@ -66,7 +86,7 @@ export default function NeuralEngine() {
             style={{ fontFamily: "var(--font-sharetech), monospace" }}
           >
             <span className="w-8 h-px bg-[#ff00ff] shadow-[0_0_4px_#ff00ff]" />
-            module_03 :: business_intelligence
+            module_03 :: ai_business_intelligence
           </div>
           <h2
             className="text-4xl md:text-5xl font-black uppercase tracking-wide text-[#e0e0e0]"
@@ -77,7 +97,7 @@ export default function NeuralEngine() {
               className="text-[#ff00ff]"
               style={{ textShadow: "0 0 10px rgba(255,0,255,0.5), 0 0 20px rgba(255,0,255,0.3)" }}
             >
-              Business
+              AI Business
             </span>{" "}
             Engine
           </h2>
@@ -86,7 +106,7 @@ export default function NeuralEngine() {
             style={{ fontFamily: "var(--font-jetbrains), monospace" }}
           >
             <span className="text-[#ff00ff]">{'> '}</span>
-            Validate your next big idea. Compute market dynamics in Qatar's economy to produce high-fidelity business intelligence.
+            Leverage Neural AI to validate your next big idea. Compute market dynamics in Qatar's economy with flexible, dynamic intelligence processing.
           </p>
         </div>
 
@@ -110,7 +130,7 @@ export default function NeuralEngine() {
                 className="ml-2 text-[10px] uppercase tracking-[0.2em] text-[#6b7280]"
                 style={{ fontFamily: "var(--font-sharetech), monospace" }}
               >
-                neural_engine :: input_parameters
+                neural_engine :: ai_input_parameters
               </span>
             </div>
 
@@ -125,7 +145,7 @@ export default function NeuralEngine() {
                 <div className="relative">
                   <select
                     value={industry}
-                    onChange={(e) => { setIndustry(e.target.value); setComputed(false); }}
+                    onChange={(e) => { setIndustry(e.target.value); setResults(null); }}
                     className="w-full appearance-none pl-6 pr-10 py-3 text-sm text-[#00ff88] bg-[#0a0a0f] border border-[#2a2a3a] outline-none focus:border-[#ff00ff] transition-colors duration-200"
                     style={{
                       fontFamily: "var(--font-jetbrains), monospace",
@@ -178,15 +198,16 @@ export default function NeuralEngine() {
               ))}
 
               <button
-                onClick={() => setComputed(true)}
-                className="w-full py-4 text-sm font-bold uppercase tracking-[0.25em] text-[#0a0a0f] bg-[#ff00ff] transition-all duration-150 hover:brightness-110"
+                onClick={handleAnalyze}
+                disabled={loading}
+                className="w-full py-4 text-sm font-bold uppercase tracking-[0.25em] text-[#0a0a0f] bg-[#ff00ff] transition-all duration-150 hover:brightness-110 disabled:opacity-50"
                 style={{
                   clipPath: "polygon(0 8px,8px 0,calc(100% - 8px) 0,100% 8px,100% calc(100% - 8px),calc(100% - 8px) 100%,8px 100%,0 calc(100% - 8px))",
                   boxShadow: "0 0 10px #ff00ff, 0 0 25px #ff00ff40",
                   fontFamily: "var(--font-sharetech), monospace",
                 }}
               >
-                Initialize Computation
+                {loading ? "Processing Intelligence..." : "Initialize AI Computation"}
               </button>
             </div>
           </div>
@@ -216,7 +237,7 @@ export default function NeuralEngine() {
                 className="ml-2 text-[10px] uppercase tracking-[0.2em] text-[#6b7280]"
                 style={{ fontFamily: "var(--font-sharetech), monospace" }}
               >
-                neural_engine :: output_analysis
+                neural_engine :: ai_output_analysis
               </span>
             </div>
 
@@ -233,7 +254,7 @@ export default function NeuralEngine() {
                     className="text-xs uppercase tracking-[0.3em] text-[#2a2a3a]"
                     style={{ fontFamily: "var(--font-sharetech), monospace" }}
                   >
-                    {`>`} input parameters to begin analysis
+                    {`>`} AI standby for parameters...
                   </div>
                   <div
                     className="w-16 h-px bg-[#2a2a3a]"
@@ -272,8 +293,8 @@ export default function NeuralEngine() {
                   {[
                     { label: "Monthly Profit", value: `QAR ${results.monthlyProfit.toLocaleString()}`, color: results.monthlyProfit >= 0 ? "#00ff88" : "#ff3366" },
                     { label: "Annual Profit", value: `QAR ${results.annualProfit.toLocaleString()}`, color: results.annualProfit >= 0 ? "#00d4ff" : "#ff3366" },
-                    { label: "ROI (Annual)", value: `${results.roi}%`, color: "#ff00ff" },
-                    { label: "Profit Margin", value: `${results.margin}%`, color: "#00d4ff" },
+                    { label: "ROI (Annual)", value: results.roi, color: "#ff00ff" },
+                    { label: "Profit Margin", value: results.margin, color: "#00d4ff" },
                     { label: "Break-Even", value: `${results.breakEven} months`, color: results.breakEven <= 24 ? "#00ff88" : results.breakEven <= 36 ? "#ffaa00" : "#ff3366" },
                   ].map(({ label, value, color }) => (
                     <div key={label} className="flex items-center justify-between py-2 border-b border-[#2a2a3a]">
@@ -296,23 +317,23 @@ export default function NeuralEngine() {
                     </div>
                   ))}
 
-                  <div
-                    className="mt-4 p-3 text-xs text-[#6b7280] leading-relaxed"
-                    style={{
-                      fontFamily: "var(--font-jetbrains), monospace",
-                      background: "#0a0a0f",
-                      border: "1px solid #2a2a3a",
-                    }}
-                  >
-                    <span className="text-[#ff00ff]">{'>'} </span>
-                    Analysis computed for Qatar market. Contact our Financial Hub team for a full profitability report and risk assessment.
-                  </div>
+                  {results.deepInsight && (
+                    <div
+                      className="mt-4 p-3 text-[11px] text-[#00ff88] leading-relaxed border-l border-[#00ff88]/30"
+                      style={{
+                        fontFamily: "var(--font-jetbrains), monospace",
+                        background: "rgba(0,255,136,0.03)",
+                      }}
+                    >
+                      <span className="text-[#ff00ff] font-bold">DEEP AI INSIGHT:</span> {results.deepInsight}
+                    </div>
+                  )}
 
                   <a
                     href="#contact"
                     className="block w-full py-3 text-xs font-bold uppercase tracking-[0.2em] text-center text-[#0a0a0f] bg-[#00ff88] transition-all duration-150 hover:brightness-110"
                     style={{
-                      clipPath: "polygon(0 6px,6px 0,calc(100% - 6px) 0,100% 6px,100% calc(100% - 6px),calc(100% - 6px) 100%,6px 100%,0 calc(100% - 6px))",
+                      clipPath: "polygon(0 6px,6px 0,calc(100% - 12px) 0,100% 12px,100% calc(100% - 12px),calc(100% - 12px) 100%,12px 100%,0 calc(100% - 12px))",
                       boxShadow: "0 0 10px #00ff88, 0 0 20px #00ff8840",
                       fontFamily: "var(--font-sharetech), monospace",
                     }}

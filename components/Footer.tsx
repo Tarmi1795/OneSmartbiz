@@ -1,11 +1,11 @@
 "use client";
 
 const navLinks = [
-  { label: "Home", href: "#hero" },
-  { label: "Services", href: "#services" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/#services" },
+  { label: "Estimator", href: "/calculator" },
+  { label: "Portfolio", href: "/#portfolio" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 const services = [
@@ -19,7 +19,7 @@ const services = [
 const socialLinks = [
   {
     label: "WhatsApp",
-    href: "https://wa.me/15550000000",
+    href: "https://wa.me/97400000000",
     color: "#00ff88",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">

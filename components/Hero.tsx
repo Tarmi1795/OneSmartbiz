@@ -150,6 +150,52 @@ export default function Hero() {
                 </div>
               ))}
             </div>
+
+            {/* Estimator CTA Banner */}
+            <a 
+              href="/calculator"
+              className="relative group block overflow-hidden p-[1px]"
+              style={{
+                clipPath: "polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 0 100%)",
+              }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-[#00ff88]/50 via-[#00d4ff]/50 to-[#ff00ff]/50 opacity-20 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
+              <div className="relative bg-[#0a0a0f] p-6 lg:p-8 flex flex-col md:flex-row items-center gap-6 justify-between border border-white/5 group-hover:border-[#00ff88]/30 transition-all duration-500">
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#00ff88] animate-pulse shadow-[0_0_8px_#00ff88]" />
+                    <span 
+                      className="text-[10px] uppercase tracking-[0.3em] text-[#00ff88]"
+                      style={{ fontFamily: "var(--font-sharetech), monospace" }}
+                    >
+                      Project Intelligence :: estimator_v2
+                    </span>
+                  </div>
+                  <h3 
+                    className="text-xl md:text-2xl font-bold text-white uppercase tracking-wider"
+                    style={{ fontFamily: "var(--font-orbitron), monospace" }}
+                  >
+                    Estimate your project <span className="text-[#00ff88]">investment</span>
+                  </h3>
+                  <p 
+                    className="text-sm text-[#6b7280] max-w-md leading-relaxed"
+                    style={{ fontFamily: "var(--font-jetbrains), monospace" }}
+                  >
+                    Validate your next venture with our high-fidelity pricing engine. Get a baseline proposal in QAR tailored to your specific tech stack.
+                  </p>
+                </div>
+                <div 
+                  className="flex items-center gap-3 px-6 py-3 bg-[#00ff88]/10 border border-[#00ff88]/30 text-[#00ff88] text-xs font-bold uppercase tracking-[0.2em] group-hover:bg-[#00ff88] group-hover:text-[#0a0a0f] transition-all duration-300"
+                  style={{
+                    fontFamily: "var(--font-sharetech), monospace",
+                    clipPath: "polygon(0 4px, 4px 0, calc(100% - 4px) 0, 100% 4px, 100% calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 0 calc(100% - 4px))",
+                  }}
+                >
+                  Launch Estimator
+                  <span className="group-hover:translate-x-1 transition-transform">{'>'}</span>
+                </div>
+              </div>
+            </a>
           </div>
 
           <div className="lg:col-span-2 hidden lg:flex items-center justify-center">
