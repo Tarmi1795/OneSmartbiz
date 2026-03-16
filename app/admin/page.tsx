@@ -25,14 +25,25 @@ export default function AdminPage() {
     }
   };
 
+  const [leads, setLeads] = useState<any[]>([]);
+
+  const fetchLeads = async () => {
+    try {
+      const res = await fetch(`/api/leads?password=${password}`);
+      const data = await res.json();
+      if (data.error) throw new Error(data.error);
+      setLeads(data);
+    } catch (err: any) {
+      console.error("Failed to load inquiries:", err);
+    }
+  };
+
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, this would be an API call, 
-    // but for now we just check if the UI can proceed.
-    // The actual POST will check the password on the server.
     if (password) {
       setIsAuth(true);
       fetchPrices();
+      fetchLeads();
     }
   };
 
@@ -164,6 +175,62 @@ export default function AdminPage() {
               </button>
            </div>
         </div>
+         <div className="bg-[#111] border border-[#333] p-8 mb-12 relative overflow-hidden">
+            <h2 className="font-mono text-xs text-[#ff00ff] mb-8 flex items-center gap-3 uppercase tracking-[0.3em]">
+              <span className="w-8 h-px bg-[#ff00ff]" /> Inquiry Ledger (CRM)
+            </h2>
+
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="border-b border-[#222]">
+                    <th className="py-4 font-mono text-[10px] text-[#555] uppercase">Timestamp</th>
+                    <th className="py-4 font-mono text-[10px] text-[#555] uppercase">Name</th>
+                    <th className="py-4 font-mono text-[10px] text-[#555] uppercase">Contact</th>
+                    <th className="py-4 font-mono text-[10px] text-[#555] uppercase text-right">Estimate</th>
+                    <th className="py-4 font-mono text-[10px] text-[#555] uppercase pl-8">Parameters</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-[#222]">
+                  {leads.map((lead) => (
+                    <tr key={lead.id} className="hover:bg-white/5 transition-colors">
+                      <td className="py-4 font-mono text-[10px] text-[#888]">
+                        {new Date(lead.created_at).toLocaleDateString()}
+                      </td>
+                      <td className="py-4 font-mono text-xs text-white font-bold">{lead.name}</td>
+                      <td className="py-4 font-mono text-xs text-[#00d4ff]">{lead.contact}</td>
+                      <td className="py-4 font-mono text-xs text-[#00ff88] text-right font-bold">
+                        {lead.currency} {lead.project_total.toLocaleString()}
+                      </td>
+                      <td className="py-4 pl-8">
+                        <div className="flex flex-wrap gap-1">
+                          {Object.entries(lead.selections || {})
+                            .filter(([_, v]) => v === true || (typeof v === 'number' && v > 0))
+                            .map(([k]) => (
+                              <span key={k} className="text-[8px] uppercase tracking-tighter bg-[#222] text-[#666] px-1 py-0.5 border border-[#333]">
+                                {k}
+                              </span>
+                            ))}
+                          {lead.custom_requirements?.map((req: string) => (
+                            <span key={req} className="text-[8px] uppercase tracking-tighter bg-[#ff00ff]/10 text-[#ff00ff] px-1 py-0.5 border border-[#ff00ff]/20">
+                              {req}
+                            </span>
+                          ))}
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                  {leads.length === 0 && (
+                    <tr>
+                      <td colSpan={5} className="py-12 text-center font-mono text-[10px] text-[#333] uppercase">
+                        No inquiries detected in system buffer.
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
+         </div>
 
         <div className="bg-[#111] border border-[#333] p-8 opacity-50">
            <h2 className="font-mono text-xs text-[#555] mb-6 flex items-center gap-3 uppercase tracking-[0.3em]">

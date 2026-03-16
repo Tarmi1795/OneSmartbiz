@@ -101,6 +101,34 @@ export default function PricingCalculator() {
 
   const [customItems, setCustomItems] = useState<CustomItem[]>([]);
   const [newItemName, setNewItemName] = useState("");
+  const [customerInfo, setCustomerInfo] = useState({ name: "", contact: "" });
+  const [isLocked, setIsLocked] = useState(true);
+
+  const saveLead = async () => {
+    if (!customerInfo.name || !customerInfo.contact) return false;
+    try {
+      await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: customerInfo.name,
+          contact: customerInfo.contact,
+          total: currentTotal,
+          currency,
+          selections: {
+            includeBase,
+            additionalPages,
+            ...toggles
+          },
+          customRequirements: customItems.map(i => i.name)
+        }),
+      });
+      return true;
+    } catch (err) {
+      console.error("Lead capture failed:", err);
+      return false;
+    }
+  };
 
   useEffect(() => {
     const fetchPrices = async () => {
@@ -164,7 +192,13 @@ export default function PricingCalculator() {
     setPrices((prev) => ({ ...prev, [key]: val }));
   };
 
-  const handleExportPDF = () => {
+  const handleExportPDF = async () => {
+    const leadSaved = await saveLead();
+    if (!leadSaved) {
+      alert("System Error: Required transmission metadata missing. Please ensure identity/contact fields are populated.");
+      return;
+    }
+
     const doc = new jsPDF();
 
     // Header
@@ -340,7 +374,46 @@ export default function PricingCalculator() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="mb-12 bg-[#12121a] border border-white/5 p-8 relative overflow-hidden"
+          style={{ clipPath: "polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%)" }}>
+           <div className="absolute top-0 left-0 w-2 h-full bg-[#00ff88]" />
+           <div className="flex flex-col md:flex-row gap-8 items-center">
+              <div className="flex-1 space-y-2">
+                 <h3 className="font-display font-bold text-white uppercase tracking-widest text-lg">Identity Protocol</h3>
+                 <p className="text-xs font-mono text-[#555]">Please initialize your project metadata to unlock the computation engine.</p>
+              </div>
+              <div className="flex-2 grid grid-cols-1 md:grid-cols-2 gap-4 w-full md:w-auto">
+                 <div className="relative">
+                    <input 
+                      type="text" 
+                      placeholder="SHORT NAME"
+                      value={customerInfo.name}
+                      onChange={(e) => setCustomerInfo({...customerInfo, name: e.target.value})}
+                      className="bg-[#0a0a0f] border border-[#333] p-4 text-white font-mono text-xs w-full focus:border-[#00ff88] outline-none"
+                    />
+                 </div>
+                 <div className="relative">
+                    <input 
+                      type="text" 
+                      placeholder="CONTACT NUMBER"
+                      value={customerInfo.contact}
+                      onChange={(e) => setCustomerInfo({...customerInfo, contact: e.target.value})}
+                      className="bg-[#0a0a0f] border border-[#333] p-4 text-white font-mono text-xs w-full focus:border-[#00ff88] outline-none"
+                    />
+                 </div>
+              </div>
+              <button 
+                onClick={() => {
+                  if (customerInfo.name && customerInfo.contact) setIsLocked(false);
+                }}
+                className={`px-8 py-4 font-mono font-bold text-xs uppercase tracking-widest transition-all ${customerInfo.name && customerInfo.contact ? 'bg-[#00ff88] text-black hover:brightness-110' : 'bg-[#1a1a1a] text-[#333] cursor-not-allowed'}`}
+                style={{ clipPath: "polygon(0 4px, 4px 0, calc(100% - 4px) 0, 100% 4px, 100% calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 0 calc(100% - 4px))" }}>
+                Unlock Engine
+              </button>
+           </div>
+        </div>
+
+        <div className={`grid grid-cols-1 lg:grid-cols-3 gap-8 transition-all duration-500 ${isLocked ? 'blur-sm pointer-events-none opacity-40 select-none' : ''}`}>
           {/* Configurator */}
           <div className="lg:col-span-2 space-y-8">
             <motion.div
@@ -892,9 +965,13 @@ export default function PricingCalculator() {
                       PDF DOCUMENT
                     </button>
                     <button
-                      onClick={() => {
+                      onClick={async () => {
+                        const leadSaved = await saveLead();
+                        if (!leadSaved) return;
+
                         const customSummary = customItems.map(i => `\n- ${i.name} (Pending Analysis)`).join('');
                         const summary = `*Project Estimate Summary*\n` +
+                          `Name: ${customerInfo.name}\n` +
                           `Total: ${symbol}${convert(currentTotal)}\n\n` +
                           `Interested in: ${includeBase ? 'Base Package, ' : ''}${additionalPages > 0 ? additionalPages + ' Add. Pages, ' : ''}` +
                           Object.entries(toggles).filter(([_, v]) => v).map(([k]) => k).join(', ') + 
