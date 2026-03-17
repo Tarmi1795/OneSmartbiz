@@ -237,7 +237,7 @@ export default function PricingCalculator() {
     const tableData = [];
     if (includeBase) {
       tableData.push([
-        "Basic Website Package",
+        "Core Essentials Setup",
         `${symbol}${convert(prices.basePackage)}`,
       ]);
     }
@@ -254,7 +254,7 @@ export default function PricingCalculator() {
       ]);
     if (toggles.multilingual)
       tableData.push([
-        "Multilingual",
+        "Multilingual Support",
         `${symbol}${convert(prices.multilingual)}`,
       ]);
     if (toggles.customDashboard)
@@ -278,9 +278,9 @@ export default function PricingCalculator() {
         `${symbol}${convert(prices.speedOptimization)}`,
       ]);
     if (toggles.cms)
-      tableData.push(["CMS Integration", `${symbol}${convert(prices.cms)}`]);
+      tableData.push(["Content Management", `${symbol}${convert(prices.cms)}`]);
     if (toggles.backend)
-      tableData.push(["Backend APIs", `${symbol}${convert(prices.backend)}`]);
+      tableData.push(["Full Backend", `${symbol}${convert(prices.backend)}`]);
     if (toggles.apiIntegrations)
       tableData.push([
         "API Integrations",
@@ -404,9 +404,14 @@ export default function PricingCalculator() {
               transition={{ duration: 0.5 }}
               className="p-6 bg-[#111] border border-[#222]"
             >
-              <h3 className="font-display font-bold text-white mb-6 uppercase tracking-wider text-lg border-b border-[#222] pb-4">
-                Base Package: "Business Essentials"
+              <h3 className="font-display font-bold text-white mb-2 uppercase tracking-wider text-lg border-b border-[#222] pb-4">
+                Core Essentials
               </h3>
+              <p className="text-[11px] text-[#888] mb-6 font-mono leading-relaxed italic">
+                The foundational tools needed to get your project up and running smoothly.
+                <br />
+                <span className="text-[#00ff88]/80 not-italic">Examples: Standard Setup, Secure Hosting, Essential Maintenance</span>
+              </p>
               <div className="space-y-4">
                 <div
                   onClick={() => setIncludeBase(!includeBase)}
@@ -420,12 +425,10 @@ export default function PricingCalculator() {
                     </div>
                     <div>
                       <h4 className="font-mono text-sm text-white">
-                        Basic Website
+                        Core Solution Setup
                       </h4>
                       <p className="font-mono text-[10px] text-[#666] mt-1 max-w-sm">
-                        Professional layout including custom design, mobile responsiveness, 
-                        domain setup, secure SSL, professional copy, direct WhatsApp 
-                        integration, Google Maps Business integration, and local SEO setup for Doha.
+                        A high-performance digital presence designed to attract local customers, featuring secure hosting, mobile-first design, and seamless WhatsApp connectivity for immediate engagement.
                       </p>
                     </div>
                   </div>
@@ -478,50 +481,55 @@ export default function PricingCalculator() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="p-6 bg-[#111] border border-[#222]"
             >
-              <h3 className="font-display font-bold text-[#00d4ff] mb-6 uppercase tracking-wider text-lg border-b border-[#222] pb-4">
-                Premium Add-ons
+              <h3 className="font-display font-bold text-[#00d4ff] mb-2 uppercase tracking-wider text-lg border-b border-[#222] pb-4">
+                Tailored Enhancements
               </h3>
+              <p className="text-[11px] text-[#888] mb-6 font-mono leading-relaxed italic">
+                Specific features customized to align with your unique brand and business goals.
+                <br />
+                <span className="text-[#00d4ff]/80 not-italic">Examples: Custom Brand Styling, Multi-language Support, Specialized User Roles</span>
+              </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
                   {
                     key: "brandKit",
                     label: "Logo & Brand Kit",
-                    desc: "Cohesive visual identity",
+                    desc: "Strategic visual identity that builds trust and brand recognition.",
                     icon: LayoutTemplate,
                     price: prices.brandKit,
                   },
                   {
                     key: "multilingual",
-                    label: "Multilingual",
-                    desc: "Arabic & English",
+                    label: "Multilingual Support",
+                    desc: "Expand your reach with seamless Arabic and English integration.",
                     icon: Globe,
                     price: prices.multilingual,
                   },
                   {
                     key: "customDashboard",
                     label: "Custom Dashboard",
-                    desc: "Internal data visualization",
+                    desc: "Gain full control with a private portal for managing data.",
                     icon: TrendingUp,
                     price: prices.customDashboard,
                   },
                   {
                     key: "bookingSystem",
                     label: "Booking System",
-                    desc: "Scheduling & calendars",
+                    desc: "Convert visitors into clients with automated 24/7 scheduling.",
                     icon: Calculator,
                     price: prices.bookingSystem,
                   },
                   {
                     key: "paymentGateway",
                     label: "Payment Gateway",
-                    desc: "QPay, MyFatoorah, Stripe",
+                    desc: "Enable secure transactions with local and global providers.",
                     icon: BriefcaseBusiness,
                     price: prices.paymentGateway,
                   },
                   {
                     key: "speedOptimization",
                     label: "Speed Optimization",
-                    desc: "Advanced caching for SEO",
+                    desc: "Keep visitors engaged with lightning-fast load times.",
                     icon: Server,
                     price: prices.speedOptimization,
                   },
@@ -562,57 +570,62 @@ export default function PricingCalculator() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="p-6 bg-[#111] border border-[#222]"
             >
-              <h3 className="font-display font-bold text-[#ff00ff] mb-6 uppercase tracking-wider text-lg border-b border-[#222] pb-4">
+              <h3 className="font-display font-bold text-[#ff00ff] mb-2 uppercase tracking-wider text-lg border-b border-[#222] pb-4">
                 Advanced Tech Solutions
               </h3>
+              <p className="text-[11px] text-[#888] mb-6 font-mono leading-relaxed italic">
+                Powerful upgrades designed to automate your workflows and scale your operations.
+                <br />
+                <span className="text-[#ff00ff]/80 not-italic">Examples: AI-Driven Insights, Real-time Data Sync, Custom API Integrations</span>
+              </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
                   {
                     key: "cms",
                     label: "Content Management",
-                    desc: "Dynamic CMS integration",
+                    desc: "Update your content effortlessly without technical knowledge.",
                     icon: Database,
                     price: prices.cms,
                   },
                   {
                     key: "backend",
                     label: "Full Backend",
-                    desc: "Custom server & routing",
+                    desc: "Robust infrastructure for complex business logic and traffic.",
                     icon: Terminal,
                     price: prices.backend,
                   },
                   {
                     key: "apiIntegrations",
                     label: "API Integrations",
-                    desc: "Connect external services",
+                    desc: "Sync with external softare like CRM, ERP, or social tools.",
                     icon: Server,
                     price: prices.apiIntegrations,
                   },
                   {
                     key: "database",
-                    label: "Database Arch",
-                    desc: "Scalable data structures",
+                    label: "Database Architecture",
+                    desc: "Highly structured data designed for speed and security.",
                     icon: Database,
                     price: prices.database,
                   },
                   {
                     key: "userAuth",
                     label: "User Authentication",
-                    desc: "Secure login & roles",
+                    desc: "Secure member areas with customized access levels.",
                     icon: Shield,
                     price: prices.userAuth,
                   },
                   {
                     key: "aiChat",
-                    label: "AI Chat integration",
-                    desc: "Automated support bots",
+                    label: "AI Chat Integration",
+                    desc: "Automate support and leads with 24/7 virtual assistants.",
                     icon: Bot,
                     price: prices.aiChat,
                   },
                   {
                     key: "aiCore",
                     label: "Full AI Task Automation",
-                    desc: "Deep LLM/RAG integration",
+                    desc: "Revolutionize operations with custom AI task execution.",
                     icon: Bot,
                     price: prices.aiCore,
                   },
@@ -723,7 +736,7 @@ export default function PricingCalculator() {
                 {includeBase && (
                   <div className="flex justify-between items-center pb-2 border-b border-[#222]">
                     <span className="font-mono text-xs text-[#aaa]">
-                      Base Solution
+                      Core Essentials
                     </span>
                     <span className="font-mono text-sm text-white">
                       {symbol}
@@ -757,7 +770,7 @@ export default function PricingCalculator() {
                 {toggles.multilingual && (
                   <div className="flex justify-between items-center pb-2 border-b border-[#222]">
                     <span className="font-mono text-xs text-[#00d4ff]">
-                      Multilingual
+                      Multilingual Support
                     </span>
                     <span className="font-mono text-sm text-[#00d4ff]">
                       {symbol}
@@ -813,7 +826,7 @@ export default function PricingCalculator() {
                 {toggles.cms && (
                   <div className="flex justify-between items-center pb-2 border-b border-[#222]">
                     <span className="font-mono text-xs text-[#ff00ff]">
-                      CMS Integration
+                      Content Management
                     </span>
                     <span className="font-mono text-sm text-[#ff00ff]">
                       {symbol}
@@ -824,7 +837,7 @@ export default function PricingCalculator() {
                 {toggles.backend && (
                   <div className="flex justify-between items-center pb-2 border-b border-[#222]">
                     <span className="font-mono text-xs text-[#ff00ff]">
-                      Backend APIs
+                      Full Backend
                     </span>
                     <span className="font-mono text-sm text-[#ff00ff]">
                       {symbol}
@@ -846,7 +859,7 @@ export default function PricingCalculator() {
                 {toggles.database && (
                   <div className="flex justify-between items-center pb-2 border-b border-[#222]">
                     <span className="font-mono text-xs text-[#ff00ff]">
-                      Database Arch
+                      Database Architecture
                     </span>
                     <span className="font-mono text-sm text-[#ff00ff]">
                       {symbol}
