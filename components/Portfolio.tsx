@@ -4,6 +4,28 @@ import { useState } from "react";
 
 const projects = [
   {
+    id: "billing-automation",
+    title: "End-to-end Billing Automation",
+    category: "Automation",
+    description: "A fully automated billing solution that synchronizes invoices, payments, and financial records with 99.9% accuracy.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+    tags: ["Automation", "Workflow", "Fintech"],
+    color: "#00ff88",
+    year: "2024",
+    status: "COMPLETE"
+  },
+  {
+    id: "call-whatsapp-agent",
+    title: "Call and Whatsapp Agent",
+    category: "Automation",
+    description: "Intelligent AI agents capable of handling incoming calls and WhatsApp messages with natural language processing.",
+    image: "https://images.unsplash.com/photo-1596524430615-b46475ddff6e?q=80&w=2070&auto=format&fit=crop",
+    tags: ["AI Agent", "WhatsApp", "Voice AI"],
+    color: "#ff00ff",
+    year: "2024",
+    status: "COMPLETE"
+  },
+  {
     id: "tarmi-fintrack",
     title: "Tarmi Fintrack",
     category: "Apps",
@@ -89,7 +111,7 @@ const projects = [
   }
 ];
 
-const allCategories = ["All", "Apps", "Web Design", "Video Production", "Branding"];
+const allCategories = ["All", "Automation", "Apps", "Web Design", "Video Production", "Branding"];
 
 const statusColors: Record<string, string> = {
   DEPLOYED: "#00ff88",
