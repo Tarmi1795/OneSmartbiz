@@ -42,6 +42,7 @@ interface Prices {
   userAuth: number;
   aiChat: number;
   aiCore: number;
+  animated: number;
 }
 
 const DEFAULT_PRICES: Prices = {
@@ -60,6 +61,7 @@ const DEFAULT_PRICES: Prices = {
   userAuth: 800,
   aiChat: 200,
   aiCore: 2500,
+  animated: 2000,
 };
 
 const CURRENCIES = {
@@ -97,6 +99,7 @@ export default function PricingCalculator() {
     userAuth: false,
     aiChat: false,
     aiCore: false,
+    animated: false,
   });
 
   const [customItems, setCustomItems] = useState<CustomItem[]>([]);
@@ -195,6 +198,7 @@ export default function PricingCalculator() {
     if (toggles.userAuth) total += prices.userAuth;
     if (toggles.aiChat) total += prices.aiChat;
     if (toggles.aiCore) total += prices.aiCore;
+    if (toggles.animated) total += prices.animated;
 
     return total;
   }, [prices, includeBase, additionalPages, toggles, customItems]);
@@ -300,6 +304,8 @@ export default function PricingCalculator() {
       ]);
     if (toggles.aiCore)
       tableData.push(["Full AI Task Automation", `${symbol}${convert(prices.aiCore)}`]);
+    if (toggles.animated)
+      tableData.push(["Immersive 3D Animation", `${symbol}${convert(prices.animated)}`]);
 
     customItems.forEach((item) => {
       tableData.push([
@@ -533,6 +539,13 @@ export default function PricingCalculator() {
                     icon: Server,
                     price: prices.speedOptimization,
                   },
+                  {
+                    key: "animated",
+                    label: "Immersive 3D Animation",
+                    desc: "State-of-the-art immersive 3D visuals and WebGL animations.",
+                    icon: Database,
+                    price: prices.animated,
+                  },
                 ].map((ft) => (
                   <div
                     key={ft.key}
@@ -597,7 +610,7 @@ export default function PricingCalculator() {
                   {
                     key: "apiIntegrations",
                     label: "API Integrations",
-                    desc: "Sync with external softare like CRM, ERP, or social tools.",
+                    desc: "Sync with external software like CRM, ERP, or social tools.",
                     icon: Server,
                     price: prices.apiIntegrations,
                   },
@@ -797,6 +810,17 @@ export default function PricingCalculator() {
                     <span className="font-mono text-sm text-[#00d4ff]">
                       {symbol}
                       {convert(prices.bookingSystem)}
+                    </span>
+                  </div>
+                )}
+                {toggles.animated && (
+                  <div className="flex justify-between items-center pb-2 border-b border-[#222]">
+                    <span className="font-mono text-xs text-[#00d4ff]">
+                      Immersive 3D Animation
+                    </span>
+                    <span className="font-mono text-sm text-[#00d4ff]">
+                      {symbol}
+                      {convert(prices.animated)}
                     </span>
                   </div>
                 )}

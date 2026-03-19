@@ -23,13 +23,13 @@ const services = [
   },
   {
     id: "03",
-    title: "Business Growth Lab",
-    subtitle: "Strategic Insight",
+    title: "Financial Services",
+    subtitle: "Precision & Compliance",
     color: "#00d4ff",
     description:
-      "Data-driven business analysis, profitability planning, and market-entry modeling. Our AI-assisted tools validate your business ideas in the Qatar market, ensuring long-term success and growth.",
-    stack: ["Business Planning", "Market Research", "Profit Analysis", "Growth Strategy"],
-    metrics: [{ label: "Success Rate", value: "+92%" }, { label: "Avg Growth", value: "+28%" }],
+      "Comprehensive financial solutions including Audit, Automation, Financial Statements, Bookkeeping, and Tax Filing services tailored for Qatar's business landscape.",
+    stack: ["Audit", "Automation", "Financial Statement", "Bookkeeping", "Tax Filing"],
+    metrics: [{ label: "Accuracy", value: "100%" }, { label: "Compliance", value: "Verified" }],
   },
 ];
 
@@ -55,7 +55,7 @@ export default function Services() {
             style={{ fontFamily: "var(--font-sharetech), monospace" }}
           >
             <span className="w-8 h-px bg-[#00ff88] shadow-[0_0_4px_#00ff88]" />
-             OUR CORE SPECIALTIES
+            OUR CORE SPECIALTIES
           </div>
           <h2
             className="text-4xl md:text-5xl font-black uppercase tracking-wide text-[#e0e0e0]"
@@ -112,9 +112,9 @@ export default function Services() {
                   }}
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={svc.color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    {i === 0 && <><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></>}
-                    {i === 1 && <><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></>}
-                    {i === 2 && <><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></>}
+                    {i === 0 && <><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></>}
+                    {i === 1 && <><polygon points="23 7 16 12 23 17 23 7" /><rect x="1" y="5" width="15" height="14" rx="2" ry="2" /></>}
+                    {i === 2 && <><line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></>}
                   </svg>
                 </div>
               </div>

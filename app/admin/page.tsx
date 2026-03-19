@@ -37,7 +37,7 @@ export default function AdminPage() {
       const res = await fetch("/api/prices");
       const data = await res.json();
       if (data.error) throw new Error(data.error);
-      setPrices(data);
+      setPrices({ animated: 2000, ...data });
     } catch (err: any) {
       setMessage({ type: "error", text: "Failed to load prices" });
     } finally {
