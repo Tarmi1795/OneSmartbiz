@@ -29,7 +29,30 @@ export const metadata: Metadata = {
     icon: "/favicon.png",
     apple: "/favicon.png",
   },
+  openGraph: {
+    title: "One Smart Biz — Strategic Digital Solutions | Doha, Qatar",
+    description: "High-performance web engineering, multimedia production, and financial intelligence for modern enterprises.",
+    url: "https://onesmartbiz.pro",
+    siteName: "One Smart Biz",
+    images: [
+      {
+        url: "https://iili.io/qNzbC1S.png", // Use the Tarmi Fintrack preview as a placeholder for now since it's premium
+        width: 1200,
+        height: 630,
+        alt: "One Smart Biz - Strategic Digital Solutions",
+      },
+    ],
+    locale: "en_QA",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "One Smart Biz — Strategic Digital Solutions",
+    description: "Leading digital consultancy in Doha, Qatar.",
+    images: ["https://iili.io/qNzbC1S.png"],
+  },
 };
+
 
 import WhatsAppChat from "@/components/WhatsAppChat";
 
