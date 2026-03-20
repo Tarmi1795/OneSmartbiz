@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     siteName: "One Smart Biz",
     images: [
       {
-        url: "https://iili.io/qNzbC1S.png", // Use the Tarmi Fintrack preview as a placeholder for now since it's premium
+        url: "https://iili.io/qN7uhLF.png",
         width: 1200,
         height: 630,
         alt: "One Smart Biz - Strategic Digital Solutions",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "One Smart Biz — Strategic Digital Solutions",
     description: "Leading digital consultancy in Doha, Qatar.",
-    images: ["https://iili.io/qNzbC1S.png"],
+    images: ["https://iili.io/qN7uhLF.png"],
   },
 };
 
