@@ -3,8 +3,8 @@ import PricingCalculator from "@/components/PricingCalculator";
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: "Project Cost Estimator | One SmartBiz Qatar",
-  description: "Plan your investment with our accurate project cost estimator. Tailored solutions for businesses in Doha, Qatar.",
+  title: "Project Pricing Tool | One SmartBiz Qatar",
+  description: "Plan your investment with our accurate project pricing tool. Tailored solutions for businesses in Doha, Qatar.",
 };
 
 export default function CalculatorPage() {

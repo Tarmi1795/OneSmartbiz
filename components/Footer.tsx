@@ -3,9 +3,10 @@
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/#services" },
-  { label: "Estimator", href: "/calculator" },
-  { label: "Portfolio", href: "/#portfolio" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Business Advisor", href: "/#neural" },
+  { label: "Projects", href: "/#portfolio" },
+  { label: "Testimonials", href: "/#testimonials" },
+  { label: "Pricing", href: "/calculator" },
 ];
 
 const services = [

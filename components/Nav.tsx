@@ -3,12 +3,12 @@
 import { useState, useEffect } from "react";
 
 const navLinks = [
+  { label: "Home", href: "/" },
   { label: "Services", href: "/#services" },
   { label: "Business Advisor", href: "/#neural" },
-  { label: "Portfolio", href: "/#portfolio" },
+  { label: "Projects", href: "/#portfolio" },
   { label: "Testimonials", href: "/#testimonials" },
-  { label: "Estimator", href: "/calculator" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Pricing", href: "/calculator" },
 ];
 
 export default function Nav() {

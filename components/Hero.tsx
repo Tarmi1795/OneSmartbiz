@@ -151,7 +151,7 @@ export default function Hero() {
               ))}
             </div>
 
-            {/* Estimator CTA Banner */}
+            {/* Pricing CTA Banner */}
             <a 
               href="/calculator"
               className="relative group block overflow-hidden p-[1px]"
@@ -168,7 +168,7 @@ export default function Hero() {
                       className="text-[10px] uppercase tracking-[0.3em] text-[#00ff88]"
                       style={{ fontFamily: "var(--font-sharetech), monospace" }}
                     >
-                      Instant Project Guide :: cost_estimator
+                      Instant Project Guide :: pricing
                     </span>
                   </div>
                   <h3 
@@ -191,7 +191,7 @@ export default function Hero() {
                     clipPath: "polygon(0 4px, 4px 0, calc(100% - 4px) 0, 100% 4px, 100% calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 0 calc(100% - 4px))",
                   }}
                 >
-                  Launch Estimator
+                  Launch Pricing Tool
                   <span className="group-hover:translate-x-1 transition-transform">{'>'}</span>
                 </div>
               </div>

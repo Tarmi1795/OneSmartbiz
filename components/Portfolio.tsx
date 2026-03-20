@@ -148,7 +148,7 @@ export default function Portfolio() {
             style={{ fontFamily: 'var(--font-sharetech), monospace' }}
           >
             <span className="w-8 h-px bg-[#00ff88] shadow-[0_0_4px_#00ff88]" />
-            module_02 :: portfolio
+            module_02 :: projects
           </div>
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
             <h2
@@ -159,7 +159,7 @@ export default function Portfolio() {
             </h2>
             <div className="flex flex-col items-start sm:items-end">
               <span className="text-[10px] uppercase tracking-[0.3em] text-[#444] mb-2 px-2 py-0.5 border border-[#1a1a1a] rounded-sm">
-                Visual Innovation Portfolio
+                Visual Innovation Projects
               </span>
             </div>
           </div>
