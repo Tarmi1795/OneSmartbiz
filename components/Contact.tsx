@@ -78,29 +78,29 @@ Message: ${form.message}`;
   };
 
   return (
-    <section id="contact" className="relative py-24 px-4 overflow-hidden">
+    <section id="contact" className="relative py-24 md:py-28 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(0,255,136,0.06),transparent_60%)]" />
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-4">
             <span className="font-mono text-xs text-[#00ff88] tracking-widest">[04]</span>
             <div className="h-px flex-1 bg-gradient-to-r from-[#00ff88]/40 to-transparent" />
           </div>
-          <h2 className="font-display text-4xl md:text-5xl font-black text-white mb-4 uppercase tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-4 uppercase tracking-wide" style={{ fontFamily: "var(--font-heading), sans-serif" }}>
             TALK TO{" "}
             <span className="bg-gradient-to-r from-[#00ff88] via-[#00d4ff] to-[#ff00ff] bg-clip-text text-transparent">
               OSB
             </span>
           </h2>
-          <p className="font-mono text-[#888] text-sm max-w-xl">
+          <p className="font-mono text-[#888] text-sm max-w-xl" style={{ fontFamily: "var(--font-sans), sans-serif" }}>
             Ready to grow your business? Send us a message and our team in Doha will respond within 24 hours.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-1">
           {/* Left: Contact Info */}
-          <div className="lg:col-span-2 bg-[#0a0a0a] border border-[#1a1a1a] p-6 flex flex-col gap-6"
+          <div className="lg:col-span-2 bg-[#12121a] border border-[#1a1a1a] p-6 flex flex-col gap-6"
             style={{ clipPath: "polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%)" }}>
             <div>
               <div className="flex items-center gap-2 mb-1">
@@ -122,11 +122,11 @@ Message: ${form.message}`;
                   </div>
                   {item.href ? (
                     <a href={item.href} className="font-mono text-sm text-white hover:underline transition-all"
-                      style={{ textShadow: `0 0 8px ${item.color}66` }}>
+                      style={{ fontFamily: "var(--font-sans), sans-serif", textShadow: `0 0 8px ${item.color}66` }}>
                       {item.value}
                     </a>
                   ) : (
-                    <span className="font-mono text-sm text-white">{item.value}</span>
+                    <span className="font-mono text-sm text-white" style={{ fontFamily: "var(--font-sans), sans-serif" }}>{item.value}</span>
                   )}
                 </div>
               ))}
@@ -150,7 +150,7 @@ Message: ${form.message}`;
           </div>
 
           {/* Right: Form */}
-          <div className="lg:col-span-3 bg-[#0a0a0a] border border-[#1a1a1a]"
+          <div className="lg:col-span-3 bg-[#12121a] border border-[#1a1a1a]"
             style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 20px 100%, 0 calc(100% - 20px))" }}>
             <div className="terminal-header px-4 py-2">
               <div className="flex gap-1.5">

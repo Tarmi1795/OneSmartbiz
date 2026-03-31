@@ -70,7 +70,7 @@ export default function Services() {
           </h2>
           <p
             className="text-sm text-[#6b7280] max-w-xl leading-relaxed"
-            style={{ fontFamily: "var(--font-jetbrains), monospace" }}
+            style={{ fontFamily: "var(--font-sans), sans-serif" }}
           >
             <span className="text-[#00ff88]">{`>`} </span>
             Complete digital solutions designed to help your business reach its full potential in Qatar and beyond.
@@ -134,10 +134,10 @@ export default function Services() {
                 </h3>
               </div>
 
-              <p
-                className="text-sm text-[#6b7280] leading-relaxed mb-6 flex-1"
-                style={{ fontFamily: "var(--font-jetbrains), monospace" }}
-              >
+                <p
+                  className="text-sm text-[#6b7280] leading-relaxed mb-6 flex-1"
+                  style={{ fontFamily: "var(--font-sans), sans-serif" }}
+                >
                 {svc.description}
               </p>
 

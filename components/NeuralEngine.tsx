@@ -103,7 +103,7 @@ export default function NeuralEngine() {
           </h2>
           <p
             className="text-sm text-[#6b7280] max-w-xl leading-relaxed"
-            style={{ fontFamily: "var(--font-jetbrains), monospace" }}
+            style={{ fontFamily: "var(--font-sans), sans-serif" }}
           >
             <span className="text-[#ff00ff]">{'> '}</span>
             Use our Smart AI to plan your next successful venture. Instantly calculate your profit potential and market viability in Qatar&apos;s growing economy.

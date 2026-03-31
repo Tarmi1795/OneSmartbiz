@@ -57,7 +57,7 @@ export default function Nav() {
               key={link.href}
               href={link.href}
               className="relative text-xs uppercase tracking-[0.2em] text-[#6b7280] hover:text-[#00ff88] transition-colors duration-200 group"
-              style={{ fontFamily: "var(--font-sharetech), monospace" }}
+              style={{ fontFamily: "var(--font-sans), sans-serif" }}
             >
               {link.label}
               <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#00ff88] group-hover:w-full transition-all duration-300 shadow-[0_0_4px_#00ff88]" />
@@ -69,7 +69,7 @@ export default function Nav() {
             style={{
               clipPath: "polygon(0 6px,6px 0,calc(100% - 6px) 0,100% 6px,100% calc(100% - 6px),calc(100% - 6px) 100%,6px 100%,0 calc(100% - 6px))",
               boxShadow: "0 0 10px #00ff88, 0 0 20px #00ff8840",
-              fontFamily: "var(--font-sharetech), monospace",
+              fontFamily: "var(--font-sans), sans-serif",
             }}
           >
             Contact Us
@@ -99,7 +99,7 @@ export default function Nav() {
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
                 className="text-xs uppercase tracking-[0.2em] text-[#6b7280] hover:text-[#00ff88] transition-colors duration-200 py-2 border-b border-[#2a2a3a]"
-                style={{ fontFamily: "var(--font-sharetech), monospace" }}
+                style={{ fontFamily: "var(--font-sans), sans-serif" }}
               >
                 <span className="text-[#00ff88] mr-2">{`>`}</span>{link.label}
               </a>
@@ -110,7 +110,7 @@ export default function Nav() {
               className="text-xs uppercase tracking-[0.2em] font-bold px-5 py-3 text-center text-[#0a0a0f] bg-[#00ff88] mt-2"
               style={{
                 clipPath: "polygon(0 6px,6px 0,calc(100% - 6px) 0,100% 6px,100% calc(100% - 6px),calc(100% - 6px) 100%,6px 100%,0 calc(100% - 6px))",
-                fontFamily: "var(--font-sharetech), monospace",
+                fontFamily: "var(--font-sans), sans-serif",
               }}
             >
               Contact Us

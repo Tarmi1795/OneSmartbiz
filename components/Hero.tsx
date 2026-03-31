@@ -89,10 +89,10 @@ export default function Hero() {
               className="relative border-l-2 border-[#00ff88] pl-6 max-w-xl"
               style={{ boxShadow: "-3px 0 8px #00ff8830" }}
             >
-              <p
-                className="text-sm md:text-base text-[#6b7280] leading-relaxed tracking-wide"
-                style={{ fontFamily: "var(--font-jetbrains), monospace" }}
-              >
+                <p
+                  className="text-sm md:text-base text-[#6b7280] leading-relaxed tracking-wide"
+                  style={{ fontFamily: "var(--font-sans), sans-serif" }}
+                >
                 <span className="text-[#00ff88]">{`>`} </span>
                 Leading Digital Agency in Doha, Qatar. We help businesses grow through custom website development, professional media production, and smart business consulting.
                 <span ref={cursorRef} className="inline-block w-2 h-4 bg-[#00ff88] ml-1 align-middle" />
@@ -177,10 +177,10 @@ export default function Hero() {
                   >
                     Estimate your project <span className="text-[#00ff88]">investment</span>
                   </h3>
-                  <p 
-                    className="text-sm text-[#6b7280] max-w-md leading-relaxed"
-                    style={{ fontFamily: "var(--font-jetbrains), monospace" }}
-                  >
+                    <p 
+                      className="text-sm text-[#6b7280] max-w-md leading-relaxed"
+                      style={{ fontFamily: "var(--font-sans), sans-serif" }}
+                    >
                     Plan your next business move with our accurate pricing tool. Get a personalized estimate in QAR tailored to your specific goals and requirements.
                   </p>
                 </div>

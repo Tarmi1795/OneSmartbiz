@@ -68,7 +68,7 @@ export default function Footer() {
     <footer className="relative border-t border-[#1a1a1a] overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,255,136,0.03),transparent_50%)]" />
 
-      <div className="max-w-6xl mx-auto px-4 pt-16 pb-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
           <div className="lg:col-span-1">
@@ -82,7 +82,7 @@ export default function Footer() {
                 />
               </div>
             </div>
-            <p className="font-mono text-xs text-[#555] leading-relaxed mb-6">
+            <p className="font-mono text-xs text-[#555] leading-relaxed mb-6" style={{ fontFamily: "var(--font-sans), sans-serif" }}>
               Transforming businesses through intelligent digital solutions. Web development, multimedia, and financial systems.
             </p>
             <div className="flex items-center gap-3">
@@ -190,18 +190,9 @@ export default function Footer() {
           <div className="font-mono text-xs text-[#333]">
             © {year} ONE SMART BIZ. ALL SYSTEMS OPERATIONAL.
           </div>
-          <div className="flex items-center gap-4">
-            <span className="font-mono text-xs text-[#333]">BUILT WITH</span>
-            {["NEXT.JS", "TAILWIND", "TYPESCRIPT"].map((tech, i) => (
-              <span key={tech} className="font-mono text-[10px] px-2 py-0.5 border"
-                style={{
-                  color: ["#00ff88", "#ff00ff", "#00d4ff"][i],
-                  borderColor: `${["#00ff88", "#ff00ff", "#00d4ff"][i]}33`,
-                  clipPath: "polygon(0 0, calc(100% - 4px) 0, 100% 4px, 100% 100%, 0 100%)",
-                }}>
-                {tech}
-              </span>
-            ))}
+          <div className="flex items-center gap-6">
+            <a href="/privacy-policy" className="font-mono text-xs text-[#555] hover:text-[#00ff88] transition-colors">Privacy Policy</a>
+            <a href="/terms" className="font-mono text-xs text-[#555] hover:text-[#00ff88] transition-colors">Terms & Conditions</a>
           </div>
         </div>
       </div>

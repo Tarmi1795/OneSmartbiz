@@ -259,7 +259,7 @@ export default function Portfolio() {
 
                 <p
                   className="text-xs text-[#6b7280] leading-relaxed mb-6 flex-1 line-clamp-3"
-                  style={{ fontFamily: 'var(--font-body), monospace' }}
+                  style={{ fontFamily: "var(--font-sans), sans-serif" }}
                 >
                   {proj.description}
                 </p>

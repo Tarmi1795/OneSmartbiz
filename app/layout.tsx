@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
-import { Orbitron, JetBrains_Mono, Share_Tech_Mono } from "next/font/google";
+import { Inter, Orbitron, JetBrains_Mono, Share_Tech_Mono } from "next/font/google";
 import "./globals.css";
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+});
 
 const orbitron = Orbitron({
   variable: "--font-orbitron",
@@ -62,8 +68,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${orbitron.variable} ${jetbrainsMono.variable} ${shareTechMono.variable} cyber-scanline-sweep antialiased`}
-        style={{ fontFamily: "var(--font-jetbrains), 'JetBrains Mono', monospace" }}
+        className={`${inter.variable} ${orbitron.variable} ${jetbrainsMono.variable} ${shareTechMono.variable} cyber-scanline-sweep antialiased`}
+        style={{ fontFamily: "var(--font-inter), system-ui, -apple-system, sans-serif" }}
       >
         {children}
         <WhatsAppChat />
