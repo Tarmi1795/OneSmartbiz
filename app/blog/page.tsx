@@ -51,13 +51,18 @@ const posts = [
   },
 ];
 
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
+
 export default function BlogPage() {
   return (
-    <main className="min-h-screen bg-black text-white">
-      <div className="max-w-4xl mx-auto px-6 py-20">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: "var(--font-orbitron)" }}>
-          Digital Insights
-        </h1>
+    <>
+      <Nav />
+      <main className="min-h-screen bg-black text-white pt-20">
+        <div className="max-w-4xl mx-auto px-6 py-20">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: "var(--font-orbitron)" }}>
+            Digital Insights
+          </h1>
         <p className="text-gray-400 text-lg mb-12">
           Expert articles on web development, video production, SEO, and financial automation for businesses in Qatar and the GCC.
         </p>
@@ -82,5 +87,7 @@ export default function BlogPage() {
         </div>
       </div>
     </main>
+      <Footer />
+    </>
   );
 }

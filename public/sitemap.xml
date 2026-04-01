@@ -1,63 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Main Home Page -->
   <url>
     <loc>https://www.onesmartbiz.pro/</loc>
     <lastmod>2026-04-01</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- Pricing Calculator -->
   <url>
     <loc>https://www.onesmartbiz.pro/calculator</loc>
-    <lastmod>2026-04-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.onesmartbiz.pro/privacy-policy</loc>
-    <lastmod>2026-04-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.onesmartbiz.pro/terms</loc>
-    <lastmod>2026-04-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.onesmartbiz.pro/blog</loc>
     <lastmod>2026-04-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+
+  <!-- Services -->
   <url>
-    <loc>https://www.onesmartbiz.pro/blog/web-development-doha-guide-2026</loc>
+    <loc>https://www.onesmartbiz.pro/services</loc>
     <lastmod>2026-04-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
+
+  <!-- Blog -->
   <url>
-    <loc>https://www.onesmartbiz.pro/blog/video-production-qatar-social-media</loc>
+    <loc>https://www.onesmartbiz.pro/blog</loc>
     <lastmod>2026-04-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>
+
+  <!-- Terms and Conditions -->
   <url>
-    <loc>https://www.onesmartbiz.pro/blog/financial-automation-qatar-business</loc>
+    <loc>https://www.onesmartbiz.pro/terms</loc>
     <lastmod>2026-04-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
+
+  <!-- Privacy Policy -->
   <url>
-    <loc>https://www.onesmartbiz.pro/blog/start-business-qatar-step-by-step</loc>
+    <loc>https://www.onesmartbiz.pro/privacy-policy</loc>
     <lastmod>2026-04-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.onesmartbiz.pro/blog/seo-company-qatar-what-to-look-for</loc>
-    <lastmod>2026-04-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>

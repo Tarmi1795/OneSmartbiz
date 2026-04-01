@@ -89,12 +89,12 @@ export default function Hero() {
               className="relative border-l-2 border-[#00ff88] pl-6 max-w-xl"
               style={{ boxShadow: "-3px 0 8px #00ff8830" }}
             >
-                <p
-                  className="text-sm md:text-base text-[#6b7280] leading-relaxed tracking-wide"
-                  style={{ fontFamily: "var(--font-sans), sans-serif" }}
-                >
+              <p
+                className="text-sm md:text-base text-[#6b7280] leading-relaxed tracking-wide"
+                style={{ fontFamily: "var(--font-sans), sans-serif" }}
+              >
                 <span className="text-[#00ff88]">{`>`} </span>
-                Leading Digital Agency in Doha, Qatar. We help businesses grow through custom website development, professional media production, and smart business consulting.
+                Leading Strategic Digital Agency in Doha, Qatar. We empower modern enterprises through high-performance web engineering, award-winning multimedia production, and data-driven brand transformation. Our objective is your business growth across the GCC market.
                 <span ref={cursorRef} className="inline-block w-2 h-4 bg-[#00ff88] ml-1 align-middle" />
               </p>
             </div>
@@ -152,7 +152,7 @@ export default function Hero() {
             </div>
 
             {/* Pricing CTA Banner */}
-            <a 
+            <a
               href="/calculator"
               className="relative group block overflow-hidden p-[1px]"
               style={{
@@ -164,34 +164,34 @@ export default function Hero() {
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-[#00ff88] animate-pulse shadow-[0_0_8px_#00ff88]" />
-                    <span 
+                    <span
                       className="text-[10px] uppercase tracking-[0.3em] text-[#00ff88]"
                       style={{ fontFamily: "var(--font-sharetech), monospace" }}
                     >
                       Instant Project Guide :: pricing
                     </span>
                   </div>
-                  <h3 
+                  <h3
                     className="text-xl md:text-2xl font-bold text-white uppercase tracking-wider"
                     style={{ fontFamily: "var(--font-orbitron), monospace" }}
                   >
                     Estimate your project <span className="text-[#00ff88]">investment</span>
                   </h3>
-                    <p 
-                      className="text-sm text-[#6b7280] max-w-md leading-relaxed"
-                      style={{ fontFamily: "var(--font-sans), sans-serif" }}
-                    >
-                    Plan your next business move with our accurate pricing tool. Get a personalized estimate in QAR tailored to your specific goals and requirements.
+                  <p
+                    className="text-sm text-[#6b7280] max-w-md leading-relaxed"
+                    style={{ fontFamily: "var(--font-sans), sans-serif" }}
+                  >
+                    Optimize your digital investment with our accurate project configurator. Get a personalized estimate in QAR for bespoke web apps, specialized multimedia campaigns, or expert financial services tailored to Qatar’s regulatory landscape.
                   </p>
                 </div>
-                <div 
+                <div
                   className="flex items-center gap-3 px-6 py-3 bg-[#00ff88]/10 border border-[#00ff88]/30 text-[#00ff88] text-xs font-bold uppercase tracking-[0.2em] group-hover:bg-[#00ff88] group-hover:text-[#0a0a0f] transition-all duration-300"
                   style={{
                     fontFamily: "var(--font-sharetech), monospace",
                     clipPath: "polygon(0 4px, 4px 0, calc(100% - 4px) 0, 100% 4px, 100% calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 0 calc(100% - 4px))",
                   }}
                 >
-                  Launch Pricing Tool
+                  Estimate your Project
                   <span className="group-hover:translate-x-1 transition-transform">{'>'}</span>
                 </div>
               </div>

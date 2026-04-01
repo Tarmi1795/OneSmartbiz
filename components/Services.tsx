@@ -1,4 +1,5 @@
 "use client";
+import FeatureCarousel from "@/components/ui/feature-carousel";
 
 const services = [
   {
@@ -7,7 +8,7 @@ const services = [
     subtitle: "High-Performance Engineering",
     color: "#00ff88",
     description:
-      "Cutting-edge websites and mobile applications built with React, Next.js, and Native platforms. Optimized for speed, SEO, and user experience — from corporate portals to bespoke e-commerce systems.",
+      "Enterprise-grade web engineering and bespoke mobile applications optimized for rapid growth in the Qatar market. We deliver sub-1.2s load times and 98/100 SEO scores through strategic Next.js and React implementations.",
     stack: ["React", "Next.js", "TypeScript", "Node.js", "React Native"],
     metrics: [{ label: "Avg Load Time", value: "<1.2s" }, { label: "SEO Score", value: "98/100" }],
   },
@@ -17,7 +18,7 @@ const services = [
     subtitle: "Visual Storytelling",
     color: "#ff00ff",
     description:
-      "High-end video production, motion graphics, and visual effects that capture attention in a crowded digital landscape. Compelling narratives that resonate across social media and broadcast channels.",
+      "Award-winning video production and high-end VFX that dominate the digital attention economy. We produce high-impact motion graphics and cinematic narratives that amplify brand authority across GCC social and broadcast channels.",
     stack: ["After Effects", "Cinema 4D", "DaVinci Resolve", "Premiere Pro"],
     metrics: [{ label: "Avg View Rate", value: "+340%" }, { label: "Brand Lift", value: "+62%" }],
   },
@@ -27,7 +28,7 @@ const services = [
     subtitle: "Precision & Compliance",
     color: "#00d4ff",
     description:
-      "Comprehensive financial solutions including Audit, Automation, Financial Statements, Bookkeeping, and Tax Filing services tailored for Qatar's business landscape.",
+      "Automated financial intelligence systems and professional audit compliance tailored specifically for Qatar’s regulatory landscape. Enhance business accuracy with bookkeeping, financial statements, and seamless tax filing integrations.",
     stack: ["Audit", "Automation", "Financial Statement", "Bookkeeping", "Tax Filing"],
     metrics: [{ label: "Accuracy", value: "100%" }, { label: "Compliance", value: "Verified" }],
   },
@@ -77,125 +78,7 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px" style={{ background: "#2a2a3a" }}>
-          {services.map((svc, i) => (
-            <div
-              key={svc.id}
-              className="group relative flex flex-col p-8 transition-all duration-300 hover:-translate-y-1"
-              style={{
-                background: "#12121a",
-                borderTop: `2px solid ${svc.color}`,
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLDivElement).style.boxShadow = `0 0 30px ${svc.color}15, inset 0 0 20px ${svc.color}05`;
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
-              }}
-            >
-              <div className="flex items-start justify-between mb-6">
-                <span
-                  className="text-5xl font-black leading-none opacity-10"
-                  style={{
-                    fontFamily: "var(--font-orbitron), monospace",
-                    color: svc.color,
-                  }}
-                >
-                  {svc.id}
-                </span>
-                <div
-                  className="w-10 h-10 flex items-center justify-center border"
-                  style={{
-                    borderColor: svc.color,
-                    clipPath: "polygon(0 4px,4px 0,calc(100% - 4px) 0,100% 4px,100% calc(100% - 4px),calc(100% - 4px) 100%,4px 100%,0 calc(100% - 4px))",
-                    boxShadow: `0 0 8px ${svc.color}40`,
-                  }}
-                >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={svc.color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    {i === 0 && <><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></>}
-                    {i === 1 && <><polygon points="23 7 16 12 23 17 23 7" /><rect x="1" y="5" width="15" height="14" rx="2" ry="2" /></>}
-                    {i === 2 && <><line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></>}
-                  </svg>
-                </div>
-              </div>
-
-              <div className="space-y-2 mb-4">
-                <p
-                  className="text-[10px] uppercase tracking-[0.25em]"
-                  style={{ fontFamily: "var(--font-sharetech), monospace", color: svc.color }}
-                >
-                  {svc.subtitle}
-                </p>
-                <h3
-                  className="text-xl font-bold uppercase tracking-wide text-[#e0e0e0]"
-                  style={{ fontFamily: "var(--font-orbitron), monospace" }}
-                >
-                  {svc.title}
-                </h3>
-              </div>
-
-                <p
-                  className="text-sm text-[#6b7280] leading-relaxed mb-6 flex-1"
-                  style={{ fontFamily: "var(--font-sans), sans-serif" }}
-                >
-                {svc.description}
-              </p>
-
-              <div className="space-y-4">
-                <div className="flex flex-wrap gap-2">
-                  {svc.stack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="text-[10px] uppercase tracking-[0.15em] px-2 py-1 border"
-                      style={{
-                        fontFamily: "var(--font-sharetech), monospace",
-                        borderColor: "#2a2a3a",
-                        color: "#6b7280",
-                        background: "#0a0a0f",
-                      }}
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="grid grid-cols-2 gap-px" style={{ background: "#2a2a3a" }}>
-                  {svc.metrics.map((m) => (
-                    <div key={m.label} className="flex flex-col items-center py-3 gap-1" style={{ background: "#12121a" }}>
-                      <span
-                        className="text-lg font-black"
-                        style={{
-                          fontFamily: "var(--font-orbitron), monospace",
-                          color: svc.color,
-                          textShadow: `0 0 8px ${svc.color}60`,
-                        }}
-                      >
-                        {m.value}
-                      </span>
-                      <span
-                        className="text-[9px] uppercase tracking-[0.15em] text-[#6b7280] text-center"
-                        style={{ fontFamily: "var(--font-sharetech), monospace" }}
-                      >
-                        {m.label}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-                <a
-                  href="#contact"
-                  className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] transition-colors duration-200 group/link"
-                  style={{ fontFamily: "var(--font-sharetech), monospace", color: svc.color }}
-                >
-                  <span className="group-hover/link:translate-x-1 transition-transform duration-200">
-                    {`>`} Get Started
-                  </span>
-                  <span className="flex-1 h-px opacity-20 group-hover/link:opacity-60 transition-opacity duration-200" style={{ background: svc.color }} />
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
+        <FeatureCarousel />
       </div>
     </section>
   );

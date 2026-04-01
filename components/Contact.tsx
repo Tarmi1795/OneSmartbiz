@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const services = [
   "Web Development",
@@ -178,60 +179,74 @@ Message: ${form.message}`;
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="p-6 flex flex-col gap-5">
-                <div className="font-mono text-xs text-[#444] mb-2">
-                  <span className="text-[#00ff88]">$</span> Fill in the form below
+                <div className="flex flex-col gap-4 mb-2">
+                  <div className="flex justify-between items-center px-1">
+                    <span className="font-mono text-[10px] text-white/40 tracking-[0.25em] uppercase">Transmission Protocol Status</span>
+                    <span className="font-mono text-[10px] text-[#00ff88]">{Math.round(((form.name ? 1 : 0) + (form.service ? 1 : 0) + (form.message ? 1 : 0)) / 3 * 100)}% COMPLETE</span>
+                  </div>
+                  <div className="h-[2px] w-full bg-white/5 relative overflow-hidden">
+                    <motion.div 
+                      className="absolute top-0 left-0 h-full bg-[#00ff88] shadow-[0_0_10px_#00ff88]"
+                      initial={{ width: 0 }}
+                      animate={{ width: `${((form.name ? 1 : 0) + (form.service ? 1 : 0) + (form.message ? 1 : 0)) / 3 * 100}%` }}
+                    />
+                  </div>
                 </div>
 
-                <div className="flex flex-col gap-1.5">
-                   <label className="font-mono text-xs text-[#666] tracking-widest">YOUR NAME</label>
-                  <div className="flex items-center border border-[#1a1a1a] focus-within:border-[#00ff88]/50 transition-colors"
-                    style={{ clipPath: "polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%)" }}>
-                    <span className="font-mono text-[#00ff88] px-3 text-sm select-none">›</span>
+                <div className="font-mono text-xs text-[#444] mb-2 px-1">
+                  <span className="text-[#00ff88]">$</span> Initializing form handshaking...
+                </div>
+
+                <div className="flex flex-col gap-2 group/field">
+                   <label className="font-mono text-[10px] text-[#666] tracking-[0.3em] uppercase px-1 group-focus-within/field:text-[#00ff88] transition-colors">Sender Identity</label>
+                  <div className="flex items-center border border-white/5 bg-white/[0.02] focus-within:border-[#00ff88]/50 focus-within:bg-[#00ff88]/5 transition-all duration-300 shadow-[0_0_0_transparent] focus-within:shadow-[0_0_20px_rgba(0,255,136,0.1)]"
+                    style={{ clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%)" }}>
+                    <span className="font-mono text-[#00ff88] px-4 text-xs select-none opacity-40 group-focus-within/field:opacity-100 transition-opacity">ID::</span>
                     <input
                       type="text"
                       name="name"
                       value={form.name}
                       onChange={handleChange}
                       required
-                      placeholder="Your name..."
-                      className="flex-1 bg-transparent py-3 pr-3 font-mono text-sm text-white placeholder-[#333] outline-none"
+                      placeholder="ENTER NAME..."
+                      className="flex-1 bg-transparent py-4 pr-4 font-mono text-xs text-white placeholder-white/10 outline-none uppercase tracking-widest"
                     />
                   </div>
                 </div>
 
-                <div className="flex flex-col gap-1.5">
-                  <label className="font-mono text-xs text-[#666] tracking-widest">SERVICE INTEREST</label>
-                  <div className="flex items-center border border-[#1a1a1a] focus-within:border-[#ff00ff]/50 transition-colors"
-                    style={{ clipPath: "polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%)" }}>
-                    <span className="font-mono text-[#ff00ff] px-3 text-sm select-none">›</span>
+                <div className="flex flex-col gap-2 group/field">
+                  <label className="font-mono text-[10px] text-[#666] tracking-[0.3em] uppercase px-1 group-focus-within/field:text-[#ff00ff] transition-colors">Target Category</label>
+                  <div className="flex items-center border border-white/5 bg-white/[0.02] focus-within:border-[#ff00ff]/50 focus-within:bg-[#ff00ff]/5 transition-all duration-300 shadow-[0_0_0_transparent] focus-within:shadow-[0_0_20px_rgba(255,0,255,0.1)]"
+                    style={{ clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%)" }}>
+                    <span className="font-mono text-[#ff00ff] px-4 text-xs select-none opacity-40 group-focus-within/field:opacity-100 transition-opacity">CH::</span>
                     <select
                       name="service"
                       value={form.service}
                       onChange={handleChange}
                       required
-                      className="flex-1 bg-transparent py-3 pr-3 font-mono text-sm text-white outline-none appearance-none cursor-pointer"
-                      style={{ color: form.service ? "white" : "#333" }}>
-                      <option value="" disabled style={{ background: "#0a0a0a" }}>Select a service...</option>
+                      className="flex-1 bg-transparent py-4 pr-10 font-mono text-xs text-white outline-none appearance-none cursor-pointer uppercase tracking-widest"
+                      style={{ color: form.service ? "white" : "rgba(255,255,255,0.1)" }}>
+                      <option value="" disabled style={{ background: "#0a0a0a" }}>CHOOSE SERVICE PROTOCOL...</option>
                       {services.map((s) => (
-                        <option key={s} value={s} style={{ background: "#0a0a0a", color: "white" }}>{s}</option>
+                        <option key={s} value={s} style={{ background: "#0a0a0a", color: "white" }}>{s.toUpperCase()}</option>
                       ))}
                     </select>
                   </div>
                 </div>
 
-                <div className="flex flex-col gap-1.5">
-                   <label className="font-mono text-xs text-[#666] tracking-widest">YOUR MESSAGE</label>
-                  <div className="flex border border-[#1a1a1a] focus-within:border-[#00d4ff]/50 transition-colors"
-                    style={{ clipPath: "polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%)" }}>
-                    <span className="font-mono text-[#00d4ff] px-3 pt-3 text-sm select-none">›</span>
+                <div className="flex flex-col gap-2 group/field">
+                   <label className="font-mono text-[10px] text-[#666] tracking-[0.3em] uppercase px-1 group-focus-within/field:text-[#00d4ff] transition-colors">Core Objective</label>
+                  <div className="flex border border-white/5 bg-white/[0.02] focus-within:border-[#00d4ff]/50 focus-within:bg-[#00d4ff]/5 transition-all duration-300 shadow-[0_0_0_transparent] focus-within:shadow-[0_0_20px_rgba(0,212,255,0.1)]"
+                    style={{ clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%)" }}>
+                    <span className="font-mono text-[#00d4ff] px-4 pt-5 text-xs select-none opacity-40 group-focus-within/field:opacity-100 transition-opacity">OBJ::</span>
                     <textarea
                       name="message"
                       value={form.message}
                       onChange={handleChange}
                       required
                       rows={5}
-                      placeholder="Describe your project or inquiry..."
-                      className="flex-1 bg-transparent py-3 pr-3 font-mono text-sm text-white placeholder-[#333] outline-none resize-none"
+                      placeholder="DESCRIBE SCOPE OF WORK..."
+                      className="flex-1 bg-transparent py-4 pr-4 font-mono text-xs text-white placeholder-white/10 outline-none resize-none uppercase tracking-widest leading-relaxed"
                     />
                   </div>
                 </div>

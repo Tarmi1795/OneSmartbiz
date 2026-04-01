@@ -182,14 +182,19 @@ export async function generateStaticParams() {
   return Object.keys(posts).map((slug) => ({ slug }));
 }
 
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
+
 export default async function BlogPost({ params }: Props) {
   const { slug } = await params;
   const post = posts[slug];
   if (!post) notFound();
 
   return (
-    <main className="min-h-screen bg-black text-white">
-      <article className="max-w-3xl mx-auto px-6 py-20">
+    <>
+      <Nav />
+      <main className="min-h-screen bg-black text-white pt-20">
+        <article className="max-w-3xl mx-auto px-6 py-20">
         <Link href="/blog" className="text-cyan-400 text-sm hover:underline mb-8 block">← Back to Blog</Link>
 
         <div className="flex items-center gap-3 mb-4">
@@ -301,5 +306,7 @@ export default async function BlogPost({ params }: Props) {
         </div>
       </article>
     </main>
-  );
+    <Footer />
+  </>
+);
 }
