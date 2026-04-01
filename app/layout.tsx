@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "One Smart Biz — Strategic Digital Solutions | Doha, Qatar",
     description: "High-performance web engineering, multimedia production, and financial intelligence for modern enterprises.",
-    url: "https://onesmartbiz.pro",
+    url: "https://www.onesmartbiz.pro",
     siteName: "One Smart Biz",
     images: [
       {
@@ -57,6 +57,15 @@ export const metadata: Metadata = {
     description: "Leading digital consultancy in Doha, Qatar.",
     images: ["https://iili.io/qN7uhLF.png"],
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+    nocache: false,
+  },
+  alternates: {
+    canonical: "https://www.onesmartbiz.pro",
+  },
 };
 
 
@@ -73,6 +82,134 @@ export default function RootLayout({
       >
         {children}
         <WhatsAppChat />
+        {/* Schema.org: LocalBusiness */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ProfessionalService",
+              "@id": "https://www.onesmartbiz.pro/#organization",
+              "name": "One Smart Biz",
+              "alternateName": "OSB",
+              "description": "Strategic digital solutions for modern businesses in Qatar and the GCC. High-performance web engineering, multimedia production, and financial intelligence.",
+              "url": "https://www.onesmartbiz.pro",
+              "logo": "https://www.onesmartbiz.pro/logo.png",
+              "image": "https://iili.io/qN7uhLF.png",
+              "telephone": "+974-55855221",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Doha",
+                "addressCountry": "QA"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "25.2854",
+                "longitude": "51.5310"
+              },
+              "areaServed": [
+                { "@type": "Country", "name": "Qatar" },
+                { "@type": "Country", "name": "Saudi Arabia" },
+                { "@type": "Country", "name": "UAE" },
+                { "@type": "Country", "name": "Bahrain" },
+                { "@type": "Country", "name": "Kuwait" },
+                { "@type": "Country", "name": "Oman" }
+              ],
+              "priceRange": "$$",
+              "sameAs": [
+                "https://www.facebook.com/OneBiz"
+              ],
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Digital Services",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Web & App Development",
+                      "description": "Cutting-edge websites and mobile applications built with React, Next.js, and Native platforms."
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Multimedia & VFX",
+                      "description": "High-end video production, motion graphics, and visual effects for social media and broadcast."
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Financial Services",
+                      "description": "Audit, Automation, Financial Statements, Bookkeeping, and Tax Filing for Qatar businesses."
+                    }
+                  }
+                ]
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "reviewCount": "150",
+                "bestRating": "5"
+              }
+            })
+          }}
+        />
+        {/* Schema.org: FAQPage */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "What digital services does One Smart Biz offer in Qatar?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "One Smart Biz offers Web & App Development (React, Next.js, React Native), Multimedia & VFX Production, and Financial Services (audit, bookkeeping, tax filing) — all tailored for Qatar's business landscape."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How much does website development cost in Qatar?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Website development in Qatar ranges from QAR 5,000 for a basic business site to QAR 50,000+ for custom e-commerce or enterprise platforms. Use our online calculator at onesmartbiz.pro/calculator for instant pricing."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How long does it take to build a website in Doha?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A standard business website takes 2-4 weeks. Custom web applications typically take 6-12 weeks. One Smart Biz has delivered full React Native apps in 8 weeks."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Does One Smart Biz provide financial services for Qatar companies?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. We offer audit, financial statements, bookkeeping, tax filing, and financial automation — all compliant with Qatar's regulatory requirements."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What makes One Smart Biz different from other digital agencies in Qatar?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We combine engineering, creative, and financial services under one roof. We deliver sub-1.2s load times, 98/100 SEO scores, and 150+ completed projects with 98% client satisfaction."
+                  }
+                }
+              ]
+            })
+          }}
+        />
       </body>
     </html>
   );
