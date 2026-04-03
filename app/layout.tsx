@@ -70,6 +70,7 @@ export const metadata: Metadata = {
 
 
 import WhatsAppChat from "@/components/WhatsAppChat";
+import SmoothScroll from "@/components/SmoothScroll";
 
 export default function RootLayout({
   children,
@@ -80,8 +81,10 @@ export default function RootLayout({
         className={`${inter.variable} ${orbitron.variable} ${jetbrainsMono.variable} ${shareTechMono.variable} cyber-scanline-sweep antialiased`}
         style={{ fontFamily: "var(--font-inter), system-ui, -apple-system, sans-serif" }}
       >
-        {children}
-        <WhatsAppChat />
+        <SmoothScroll>
+          {children}
+          <WhatsAppChat />
+        </SmoothScroll>
         {/* Schema.org: LocalBusiness */}
         <script
           type="application/ld+json"

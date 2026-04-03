@@ -22,42 +22,42 @@ const FEATURES = [
     id: "web-dev",
     label: "Web Development",
     icon: CommandFreeIcons,
-    image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1200",
-    description: "Cutting-edge websites built with React and Next.js.",
+    image: "https://iili.io/BxFPDzb.md.jpg",
+    description: "Cutting-edge websites built with React, Next.js and more .",
   },
   {
     id: "mobile-apps",
-    label: "Mobile Native",
+    label: "Mobile Native Apps",
     icon: SmartPhone01Icon,
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1200",
     description: "A world-class experience on every single device.",
   },
   {
     id: "vfx",
-    label: "Video Production",
+    label: "Social Media Management",
     icon: GlobalSearchIcon,
-    image: "https://images.unsplash.com/photo-1578574577315-3fbeb0cecdc2?q=80&w=1200",
+    image: "https://iili.io/BxKOKZP.jpg",
     description: "Cinematic motion graphics and visual storytelling.",
   },
   {
     id: "financial",
-    label: "Financial Automation",
+    label: "Financial and Auditing Services",
     icon: DashboardSquare01Icon,
-    image: "https://images.unsplash.com/photo-1551288049-bbda38a10ad5?q=80&w=1200",
+    image: "https://iili.io/BxFF4VV.jpg",
     description: "Accurate auditing and bookkeeping in real-time.",
   },
   {
     id: "ai-systems",
-    label: "AI Integrations",
+    label: "AI Business Integrations ",
     icon: AiCloudIcon,
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200",
+    image: "https://iili.io/BxdoSP2.jpg",
     description: "Transforming insights with generative models.",
   },
   {
     id: "branding",
     label: "Brand Identity",
     icon: MagicWandIcon,
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1200",
+    image: "https://iili.io/Bx3XhJI.jpg",
     description: "Designing memorable digital footprints.",
   },
 ];
@@ -73,6 +73,7 @@ const wrap = (min: number, max: number, v: number) => {
 export default function FeatureCarousel() {
   const [step, setStep] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const currentIndex =
     ((step % FEATURES.length) + FEATURES.length) % FEATURES.length;
@@ -116,15 +117,15 @@ export default function FeatureCarousel() {
         <div className="w-full lg:w-[40%] min-h-[350px] md:min-h-[450px] lg:h-full relative z-30 flex flex-col items-start justify-center overflow-hidden px-8 md:px-16 lg:pl-16 bg-[#0a0a0f] ">
           <div className="absolute inset-x-0 top-0 h-12 md:h-20 lg:h-16 bg-gradient-to-b from-[#0a0a0f] via-[#0a0a0f]/80 to-transparent z-40" />
           <div className="absolute inset-x-0 bottom-0 h-12 md:h-20 lg:h-16 bg-gradient-to-t from-[#0a0a0f] via-[#0a0a0f]/80 to-transparent z-40" />
-          
+
           <div className="absolute top-10 right-10 flex flex-col gap-2 z-50">
-            <button 
+            <button
               onClick={prevStep}
               className="p-2 rounded-full border border-white/10 bg-white/5 hover:bg-[#00ff88]/20 hover:border-[#00ff88]/50 text-white/50 hover:text-[#00ff88] transition-all"
             >
               <HugeiconsIcon icon={ArrowUp01Icon} size={20} />
             </button>
-            <button 
+            <button
               onClick={nextStep}
               className="p-2 rounded-full border border-white/10 bg-white/5 hover:bg-[#00ff88]/20 hover:border-[#00ff88]/50 text-white/50 hover:text-[#00ff88] transition-all"
             >
@@ -221,7 +222,13 @@ export default function FeatureCarousel() {
                     damping: 25,
                     mass: 0.8,
                   }}
-                  className="absolute inset-0 rounded-[2rem] md:rounded-[2.8rem] overflow-hidden border-4 md:border-8 border-[#0a0a0f] bg-[#0a0a0f] origin-center"
+                  className={cn(
+                    "absolute inset-0 rounded-[2rem] md:rounded-[2.8rem] overflow-hidden border-4 md:border-8 border-[#0a0a0f] bg-[#0a0a0f] origin-center",
+                    isActive ? "cursor-zoom-in" : "cursor-default"
+                  )}
+                  onClick={() => {
+                    if (isActive) setSelectedImage(feature.image);
+                  }}
                 >
                   <img
                     src={feature.image}
@@ -266,12 +273,90 @@ export default function FeatureCarousel() {
                       Sys. Active
                     </span>
                   </div>
+
+                  {/* Expand Hint Icon */}
+                  <div
+                    className={cn(
+                      "absolute top-8 right-8 w-10 h-10 flex items-center justify-center transition-all duration-300 bg-black/60 rounded-full border border-white/10 backdrop-blur-md text-[#00ff88]",
+                      isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[-10px]"
+                    )}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+                      />
+                    </svg>
+                  </div>
                 </motion.div>
               );
             })}
           </div>
         </div>
       </div>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedImage(null)}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10 bg-black/95 backdrop-blur-xl cursor-zoom-out"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="relative max-w-5xl w-full aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={selectedImage}
+                alt="Full preview"
+                className="w-full h-full object-cover"
+              />
+
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute top-6 right-6 w-12 h-12 rounded-full bg-black/50 border border-white/10 flex items-center justify-center text-white hover:bg-[#00ff88] hover:text-[#0a0a0f] transition-all duration-300 z-50 group"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6 transform group-hover:rotate-90 transition-transform duration-300"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+
+              <div className="absolute bottom-6 left-6 px-4 py-2 bg-black/50 backdrop-blur-md border border-white/10 rounded-full">
+                <span className="text-[#00ff88] text-[10px] font-bold uppercase tracking-[0.3em]" style={{ fontFamily: "var(--font-sharetech), monospace" }}>
+                  Full System View
+                </span>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

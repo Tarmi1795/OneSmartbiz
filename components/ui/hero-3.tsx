@@ -1,8 +1,14 @@
 "use client";
 
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence, useMotionValue, useAnimationFrame, useTransform } from "framer-motion";
 import { cn } from "@/lib/utils";
+
+// Wrap function to keep the value within a range
+const wrap = (min: number, max: number, v: number) => {
+  const rangeSize = max - min;
+  return ((((v - min) % rangeSize) + rangeSize) % rangeSize) + min;
+};
 
 // Props interface for the component
 interface AnimatedMarqueeHeroProps {
@@ -47,6 +53,38 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
   children,
 }) => {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  
+  // Continuous Motion Logic
+  const baseX = useMotionValue(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [itemWidth, setItemWidth] = useState(424); // Default for desktop (400 + 24 gap)
+
+  useEffect(() => {
+    const updateWidth = () => {
+      const isMobile = window.innerWidth < 768;
+      setItemWidth(isMobile ? 324 : 424); // 300+24 or 400+24
+    };
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
+
+  const totalWidth = items.length * itemWidth;
+
+  useAnimationFrame((time, delta) => {
+    if (!isDragging && !hoveredItem) {
+      // Move left by a fraction of the delta (speed control)
+      const moveBy = delta * 0.05; 
+      let newX = baseX.get() - moveBy;
+      
+      // Infinite wrap: if we've moved past one full set, reset by one set width
+      if (newX <= -totalWidth) {
+        newX += totalWidth;
+      }
+      baseX.set(newX);
+    }
+  });
 
   // Animation variants for the text content
   const FADE_IN_ANIMATION_VARIANTS: any = {
@@ -55,10 +93,11 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
   };
 
   // Duplicate images for a seamless loop
-  const duplicatedImages = [...items, ...items];
+  const duplicatedImages = [...items, ...items, ...items]; // Use 3 to ensure enough coverage
 
   return (
     <section
+      ref={containerRef}
       className={cn(
         "relative w-full overflow-hidden flex flex-col items-center justify-start text-center px-4",
         className
@@ -150,23 +189,20 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
       {/* Animated Image Marquee */}
       <div className="relative w-full h-80 md:h-96 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] mt-8 overflow-hidden z-20 cursor-grab active:cursor-grabbing">
         <motion.div
-          className="flex gap-6 absolute left-0"
-          drag="x"
-          dragConstraints={{ left: -((items.length * 400) + (items.length * 24)), right: 0 }}
-          animate={hoveredItem ? "paused" : "running"}
-          variants={{
-            running: {
-              x: ["0%", "-50%"],
-              transition: {
-                ease: "linear",
-                duration: 60,
-                repeat: Infinity,
-              },
-            },
-            paused: {
-              transition: { duration: 0.5 }
-            }
-          }}
+           style={{ x: baseX }}
+           className="flex gap-6 absolute left-0"
+           drag="x"
+           onDragStart={() => setIsDragging(true)}
+           onDragEnd={(e, info) => {
+             // Wrap current position to stay within the first two sets
+             let currentX = baseX.get();
+             if (currentX <= -totalWidth) {
+               baseX.set(currentX + totalWidth);
+             } else if (currentX > 0) {
+               baseX.set(currentX - totalWidth);
+             }
+             setTimeout(() => setIsDragging(false), 100);
+           }}
         >
           {duplicatedImages.map((item, index) => {
             const isHovered = hoveredItem === `${item.id}-${index}`;
@@ -182,7 +218,7 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
               onMouseEnter={() => setHoveredItem(`${item.id}-${index}`)}
               onMouseLeave={() => setHoveredItem(null)}
               onClick={() => {
-                if (item.link) window.open(item.link, '_blank');
+                if (!isDragging && item.link) window.open(item.link, '_blank');
               }}
               whileHover={{ scale: 1.02, zIndex: 30 }}
               style={{
