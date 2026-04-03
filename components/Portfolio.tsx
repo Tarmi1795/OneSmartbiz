@@ -5,6 +5,38 @@ import { AnimatedMarqueeHero } from "./ui/hero-3";
 
 const projects = [
   {
+    id: "artefakt",
+    title: "Artefakt",
+    category: "Video",
+    description: "A hybrid production company specializing in high-end commercial work and unconventional visual storytelling.",
+    image: "/projects/artefakt.png",
+    link: "https://artefakt.mov/",
+  },
+  {
+    id: "studiox",
+    title: "Studio X",
+    category: "Branding",
+    description: "A senior-led design studio creating high-performance physical environments that shape customer experience and improve business performance.",
+    image: "/projects/studiox.png",
+    link: "https://www.thisisstudiox.com/",
+  },
+  {
+    id: "365days",
+    title: "365days+1",
+    category: "Web Design",
+    description: "An immersive digital art project featuring 366 paintings that capture the essence of a year, inviting viewers on a contemplative journey through time.",
+    image: "/projects/365days.png",
+    link: "https://www.kamimae.com/365days/",
+  },
+  {
+    id: "utopiatokyo",
+    title: "Utopia Tokyo",
+    category: "Branding",
+    description: "A narrative-driven digital experience exploring a cyberpunk Tokyo, where holographic billboards and constant surveillance create a high-tech society masking deeper societal trades.",
+    image: "/projects/utopiatokyo.png",
+    link: "https://www.utopiatokyo.com/",
+  },
+  {
     id: "tarmi-fintrack",
     title: "Tarmi Fintrack",
     category: "Apps",
