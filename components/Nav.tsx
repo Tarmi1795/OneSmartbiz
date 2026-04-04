@@ -1,28 +1,62 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Services", href: "/#services" },
-  { label: "Business Advisor", href: "/#neural" },
-  { label: "Projects", href: "/#portfolio" },
-  { label: "About", href: "/#about" },
+  { label: "Services", href: "#services" },
+  { label: "Business Advisor", href: "#neural" },
+  { label: "Projects", href: "#portfolio" },
+  { label: "About", href: "#about" },
   { label: "Blog", href: "/blog" },
-  { label: "Testimonials", href: "/#testimonials" },
+  { label: "Testimonials", href: "#testimonials" },
   { label: "Pricing", href: "/calculator" },
 ];
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    setMobileOpen(false);
+    
+    if (href === "/") {
+      if (pathname === "/") {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    } else if (href.startsWith("#")) {
+      e.preventDefault();
+      const targetId = href.replace("#", "");
+      const element = document.getElementById(targetId);
+      
+      if (pathname === "/") {
+        if (element) {
+          const offset = 80;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+        }
+      } else {
+        router.push(`/${href}`);
+      }
+    }
+  };
 
   return (
     <motion.nav
@@ -68,26 +102,37 @@ export default function Nav() {
         </motion.a>
 
         <div className="hidden lg:flex items-center gap-6">
-          {navLinks.map((link, i) => (
-            <motion.a
-              key={link.href}
-              href={link.href}
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 + i * 0.05 }}
-              className="relative text-[10px] uppercase tracking-[0.25em] text-gray-400 hover:text-[#00ff88] transition-colors duration-300 group px-2 py-1"
-              style={{ fontFamily: "var(--font-mono), monospace" }}
-            >
-              <span className="relative z-10">{link.label}</span>
-              <motion.span 
-                className="absolute inset-0 bg-[#00ff88]/5 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 -z-0" 
-              />
-              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#00ff88] group-hover:w-full transition-all duration-300 shadow-[0_0_10px_#00ff88]" />
-            </motion.a>
-          ))}
+          {navLinks.map((link, i) => {
+            const isHash = link.href.startsWith("#");
+            const Tag = isHash ? motion.a : Link;
+
+            return (
+              <motion.div
+                key={link.href}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 + i * 0.05 }}
+              >
+                <Tag
+                  href={link.href}
+                  onClick={(e: any) => isHash && handleNavClick(e, link.href)}
+                  className="relative text-[10px] uppercase tracking-[0.25em] text-gray-400 hover:text-[#00ff88] transition-colors duration-300 group px-2 py-1 flex items-center"
+                  style={{ fontFamily: "var(--font-mono), monospace" }}
+                >
+                  <span className="relative z-10">{link.label}</span>
+                  <motion.span 
+                    className="absolute inset-0 bg-[#00ff88]/5 scale-x-0 transition-transform duration-300 origin-left" 
+                    whileHover={{ scaleX: 1 }}
+                  />
+                  <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#00ff88] group-hover:w-full transition-all duration-300 shadow-[0_0_10px_#00ff88]" />
+                </Tag>
+              </motion.div>
+            );
+          })}
           
           <motion.a
-            href="/#contact"
+            href="#contact"
+            onClick={(e) => handleNavClick(e, "#contact")}
             whileHover={{ 
               scale: 1.05, 
               boxShadow: "0 0 25px #00ff88",
@@ -131,29 +176,51 @@ export default function Nav() {
             style={{ background: "rgba(10,10,15,0.98)" }}
           >
             <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col gap-4">
-              {navLinks.map((link, i) => (
-                <motion.a
-                  key={link.href}
-                  href={link.href}
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: i * 0.05 }}
-                  onClick={() => setMobileOpen(false)}
-                  className="text-xs uppercase tracking-[0.25em] text-gray-400 hover:text-[#00ff88] transition-colors duration-200 py-3 border-b border-white/5 flex items-center group"
-                  style={{ fontFamily: "var(--font-mono), monospace" }}
-                >
-                  <motion.span 
-                    className="w-0 group-hover:w-4 h-[2px] bg-[#00ff88] mr-0 group-hover:mr-3 transition-all duration-300"
-                  />
-                  {link.label}
-                </motion.a>
-              ))}
+              {navLinks.map((link, i) => {
+                const isHash = link.href.startsWith("#");
+                const isHome = link.href === "/";
+
+                if (isHash || isHome) {
+                  return (
+                    <motion.a
+                      key={link.href}
+                      href={link.href}
+                      onClick={(e) => handleNavClick(e, link.href)}
+                      initial={{ x: -20, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ delay: i * 0.05 }}
+                      className="text-xs uppercase tracking-[0.25em] text-gray-400 hover:text-[#00ff88] transition-colors duration-200 py-3 border-b border-white/5 flex items-center group"
+                      style={{ fontFamily: "var(--font-mono), monospace" }}
+                    >
+                      <motion.span 
+                        className="w-0 group-hover:w-4 h-[2px] bg-[#00ff88] mr-0 group-hover:mr-3 transition-all duration-300"
+                      />
+                      {link.label}
+                    </motion.a>
+                  );
+                }
+
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="text-xs uppercase tracking-[0.25em] text-gray-400 hover:text-[#00ff88] transition-colors duration-200 py-3 border-b border-white/5 flex items-center group"
+                    style={{ fontFamily: "var(--font-mono), monospace" }}
+                  >
+                    <motion.span 
+                      className="w-0 group-hover:w-4 h-[2px] bg-[#00ff88] mr-0 group-hover:mr-3 transition-all duration-300"
+                    />
+                    {link.label}
+                  </Link>
+                );
+              })}
               <motion.a
-                href="/#contact"
+                href="#contact"
+                onClick={(e) => handleNavClick(e, "#contact")}
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.4 }}
-                onClick={() => setMobileOpen(false)}
                 className="text-xs uppercase tracking-[0.3em] font-black px-5 py-4 text-center text-[#0a0a0f] bg-[#00ff88] mt-4"
                 style={{
                   clipPath: "polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px)",

@@ -147,13 +147,178 @@ const posts: Record<string, { title: string; description: string; keywords: stri
       "Month 1: Technical fixes. Month 3: +40-80% organic traffic. Month 6: +150-300% traffic, 50-100 keywords ranking.",
     ],
   },
+  "best-website-design-companies-qatar-2026": {
+    title: "Best Website Design Companies in Qatar: Top 5 Agencies for 2026",
+    description: "A curated list of the top website design agencies in Doha, Qatar. See why OneSmartBiz is leading the market in performance and high-end aesthetics.",
+    keywords: "website design qatar, best web design companies doha, web agency qatar, onesmartbiz",
+    date: "2026-04-04",
+    category: "Web Development",
+    content: [
+      "The digital landscape in Qatar is evolving rapidly. With the push toward Qatar National Vision 2030, businesses are investing more than ever in high-end digital presence.",
+      "## Top Website Design Agencies in Qatar",
+      "**1. OneSmartBiz** — Specializing in high-performance Next.js builds, scrollytelling, and immersive UX for premium brands in Doha.",
+      "**2. Qatar Design Hub** — Known for traditional corporate branding and reliable CMS integrations.",
+      "**3. Doha Digital Agency** — Focused on social media marketing and entry-level small business websites.",
+      "**4. Gulf Web Solutions** — Providing affordable e-commerce setups and SEO maintenance.",
+      "**5. Lusail Tech Works** — Emerging agency focusing on smart city tech and government portals.",
+      "## Why OneSmartBiz Stands Out",
+      "While many agencies use generic WordPress templates, OneSmartBiz builds custom, high-speed architectures that rank better on Google and convert at higher rates. Our focus on **Performance, Aesthetics, and Conversion** makes us the partner of choice for Qatar's elite enterprises.",
+    ],
+  },
+  "choosing-platform-small-business-websites-guide": {
+    title: "Choosing a Platform for Small Business Websites: 2026 Comparison Guide",
+    description: "Should you use WordPress, Shopify, or a custom Next.js build? We compare the best platforms for small businesses in Qatar.",
+    keywords: "website platform qatar, wordpress vs shopify qatar, small business website doha",
+    date: "2026-04-04",
+    category: "Web Development",
+    content: [
+      "Choosing the right foundation for your website is a decision that will impact your business for years. In 2026, the options are more diverse than ever.",
+      "## 2026 Platform Comparison",
+      "| Platform | Best For | Speed | Scalability |",
+      "|----------|----------|-------|-------------|",
+      "| Custom Next.js | High Growth / Premium Brands | ★★★★★ | Unlimited |",
+      "| Shopify | E-Commerce | ★★★★☆ | High |",
+      "| WordPress | Blogging / Simple Sites | ★★☆☆☆ | Medium |",
+      "| Wix / Squarespace | Solopreneurs | ★★☆☆☆ | Low |",
+      "## Which One is Right for You?",
+      "If you are a startup in Qatar looking for a quick, cheap presence, WordPress is a viable choice. However, if you are looking to scale and dominate your niche in Doha, a **custom Next.js solution** provides the speed and SEO flexibility that no template can match.",
+    ],
+  },
+  "top-website-design-software-drag-drop-2026": {
+    title: "Top Website Design Software with Drag-and-Drop Features for 2026",
+    description: "The best tools for building websites without deep coding knowledge, and when it's time to upgrade to a professional custom solution.",
+    keywords: "drag and drop website builder qatar, best website software 2026, wix vs squarespace qatar",
+    date: "2026-04-04",
+    category: "Design",
+    content: [
+      "For small businesses and individuals in Qatar looking to build their first site, drag-and-drop builders offer an accessible entry point.",
+      "## Best Drag-and-Drop Builders in 2026",
+      "- **Framer** — The current leader in high-end design animation and layout flexibility.",
+      "- **Webflow** — Powerful but complex; great for bridge between design and code.",
+      "- **Squarespace** — Beautiful templates with limited customization.",
+      "- **Wix Studio** — Much improved for agencies, though still heavy on code bloat.",
+      "## The Catch: Performance vs. Ease",
+      "While these tools are easy to use, they often come with **performance penalties**. For a high-ranking business in Qatar, every millisecond counts. This is why OneSmartBiz uses these tools only for prototyping, moving to hand-crafted code for final production.",
+    ],
+  },
+  "mobile-first-web-layout-best-practices": {
+    title: "Mobile-First Web Layouts: Best Practices for 2026 UX",
+    description: "Why mobile-first design is non-negotiable in Qatar and the essential best practices for high-converting responsive layouts.",
+    keywords: "mobile first design qatar, responsive design doha, mobile ux best practices",
+    date: "2026-04-04",
+    category: "Design",
+    content: [
+      "In Qatar, over **75% of web traffic** comes from mobile devices. If your site isn't mobile-first, it's effectively invisible to the majority of your audience in Doha.",
+      "## Top Mobile-First Best Practices",
+      "- **Thumb-Zone Navigation** — Place key interactive elements where users can easily reach them with one hand.",
+      "- **Optimized Font Legibility** — Never go below 16px for body text to avoid zooming requirements.",
+      "- **Image Compression** — Use WebP format to ensure ultra-fast loading over 5G and limited connections.",
+      "- **Vertical Stack Hierarchy** — Ensure content flows logically in a single column without horizontal scrolling.",
+      "## The OneSmartBiz Standard",
+      "We design for the smallest screen first, ensuring that your premium experience in Qatar feels native and fast on any smartphone.",
+    ],
+  },
+  "cost-build-custom-website-qatar": {
+    title: "Average Cost to Build a Custom Website in Qatar: 2026 Pricing Report",
+    description: "Breakdown of the investment required for custom web development in Doha. From landing pages to enterprise-level platforms.",
+    keywords: "website cost qatar, custom web development price doha, web agency pricing qatar",
+    date: "2026-04-04",
+    category: "Web Development",
+    content: [
+      "Understanding the investment required for a custom website in Qatar is crucial for budgeting. Pricing varies based on complexity and functionality.",
+      "## 2026 Market Pricing in Doha",
+      "| Project Type | Average Cost (QAR) | Typical Features |",
+      "|--------------|-------------------|------------------|",
+      "| Simple Landing Page | 5,000 - 8,000 | Contact Form, One Section |",
+      "| Small Business Site | 12,000 - 25,000 | 5-10 Pages, SEO, CMS |",
+      "| E-Commerce Portal | 30,000 - 75,000 | Payment Gateway, Inventory |",
+      "| Enterprise App | 100,000+ | Custom API, Scalable Cloud |",
+      "## Quality Over Cost",
+      "A cheaper website often costs more in the long run through missed leads and poor performance. OneSmartBiz offers premium value with localized expertise in the Qatar market.",
+    ],
+  },
+  "professional-website-designers-doha-near-me": {
+    title: "Website Designer Near Me: Where to Find Professionals in Doha",
+    description: "A guide to finding and vetting the best local website designers in Qatar for your next project.",
+    keywords: "website designer near me qatar, hire web designer doha, web developer lusail",
+    date: "2026-04-04",
+    category: "Business",
+    content: [
+      "Searching for a 'website designer near me' in Doha can yield hundreds of results. Vetting them properly is the difference between success and failure.",
+      "## How to Vet a Local Qatar Designer",
+      "- **Local Portfolio** — Do they have experience with GCC brands and Arabic typography?",
+      "- **Technical Depth** — Can they build custom, or are they just using builders?",
+      "- **In-Person Availability** — For high-stakes projects in Lusail or West Bay, face-to-face meetings are often essential.",
+      "## Why Local Presence Matters",
+      "A designer in Qatar understands the local culture, regulatory requirements (like VAT and data privacy), and the specific aesthetic preferences of the Arab market.",
+      "OneSmartBiz is located in the heart of Doha, providing on-the-ground support for all your digital needs.",
+    ],
+  },
+  "how-to-design-website-yourself-2026-guide": {
+    title: "How to Design a Website by Yourself: The 2026 DIY Guide",
+    description: "Step-by-step instructions for entrepreneurs in Qatar looking to build their first digital presence without an agency.",
+    keywords: "design website yourself qatar, diy website guide doha, build own website doha",
+    date: "2026-04-04",
+    category: "Design",
+    content: [
+      "In the early stages of a startup in Qatar, budget is everything. Designing your own website is a great way to learn and save capital.",
+      "## Step 1: Define Your Objective",
+      "Is it a portfolio? A blog? Or a business landing page? Knowing your goal helps you choose the right tools.",
+      "## Step 2: Choose Your Tool",
+      "For beginners, we recommend **Framer** or **Squarespace**. They offer the best balance between ease of use and professional aesthetics.",
+      "## Step 3: Structure Your Content",
+      "Write your copy before you design. People come for the info, they stay for the design.",
+      "## Step 4: Focus on Mobile",
+      "In Doha, most of your users will be on mobile. Design for the phone first, the desktop second.",
+    ],
+  },
+  "cost-20-page-website-qatar-breakdown": {
+    title: "How Much is a 20-Page Website in Qatar? Detailed Pricing Breakdown",
+    description: "Analysis of the investment required for mid-sized corporate websites in Doha. From content creation to advanced SEO.",
+    keywords: "website cost qatar, 20 page website price doha, corporate website pricing qatar",
+    date: "2026-04-04",
+    category: "Web Development",
+    content: [
+      "A 20-page website is a significant asset for any established Qatar business. It requires strategy, deep SEO, and robust architecture.",
+      "## Cost Breakdown for a 20-Page Site",
+      "| Component | Price Range (QAR) | Notes |",
+      "|-----------|-------------------|-------|",
+      "| Strategy & Sitemap | 3,000 - 5,000 | Information Architecture |",
+      "| UX/UI Design | 8,000 - 15,000 | Bespoke layout for 20 pages |",
+      "| Development | 15,000 - 30,000 | Next.js/React preferred |",
+      "| SEO & Content | 5,000 - 10,000 | Bilingual optimization |",
+      "| **Total Estimate** | **31,000 - 60,000** | Full premium solution |",
+      "## Why 20 Pages?",
+      "Typical 20-page sites include detailed service pages, industry-specific solutions, case studies, and a comprehensive 'About' section for trust building.",
+    ],
+  },
+  "build-vs-buy-website-cost-analysis-qatar": {
+    title: "Is it Cheaper to Build Your Own Website? Build vs. Buy Analysis",
+    description: "The true cost of DIY vs. hiring a professional agency in Qatar. Hidden expenses, time investment, and ROI compared.",
+    keywords: "build vs buy website qatar, cost of diy website doha, hire agency vs build yourself",
+    date: "2026-04-04",
+    category: "Business",
+    content: [
+      "Is it really cheaper to build your own website? In Qatar's fast-moving market, time is often more valuable than riyals.",
+      "## Build (DIY) Analysis",
+      "- **Direct Cost:** QAR 500 - 2,000 (Subs + Domains)",
+      "- **Time Cost:** 80 - 150 hours (Learning + Building)",
+      "- **Risk:** Poor SEO, slow performance, low trust.",
+      "## Buy (Agency) Analysis",
+      "- **Direct Cost:** QAR 12,000 - 25,000",
+      "- **Time Cost:** 5 - 10 hours (Meetings + Review)",
+      "- **Benefit:** High conversion, zero-maintenance, expert SEO.",
+      "## The Verdict",
+      "If you're a student or solopreneur, **Build it yourself**. If you're a business with revenue, **Buy it**. The opportunity cost of your time far outweighs the agency fee.",
+    ],
+  },
 };
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const post = posts[slug];
   if (!post) return {};
@@ -184,6 +349,7 @@ export async function generateStaticParams() {
 
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { BlogPostClient } from "@/components/ui/blog-client";
 
 export default async function BlogPost({ params }: Props) {
   const { slug } = await params;
@@ -193,8 +359,8 @@ export default async function BlogPost({ params }: Props) {
   return (
     <>
       <Nav />
-      <main className="min-h-screen bg-black text-white pt-20">
-        <article className="max-w-3xl mx-auto px-6 py-20">
+      <main className="min-h-screen bg-[#0a0a0f] text-white pt-24 overflow-hidden">
+        <BlogPostClient>
         <Link href="/blog" className="text-cyan-400 text-sm hover:underline mb-8 block">← Back to Blog</Link>
 
         <div className="flex items-center gap-3 mb-4">
@@ -304,9 +470,9 @@ export default async function BlogPost({ params }: Props) {
             Get a Free Quote →
           </Link>
         </div>
-      </article>
-    </main>
-    <Footer />
-  </>
-);
+        </BlogPostClient>
+      </main>
+      <Footer />
+    </>
+  );
 }

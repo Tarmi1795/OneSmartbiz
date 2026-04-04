@@ -72,8 +72,20 @@ const wrap = (min: number, max: number, v: number) => {
 
 export default function FeatureCarousel() {
   const [step, setStep] = useState(0);
+  const [itemHeight, setItemHeight] = useState(65);
+  const [isMobile, setIsMobile] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setItemHeight(window.innerWidth < 768 ? 55 : 65);
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const currentIndex =
     ((step % FEATURES.length) + FEATURES.length) % FEATURES.length;
@@ -114,7 +126,7 @@ export default function FeatureCarousel() {
   return (
     <div className="w-full max-w-7xl mx-auto md:p-8">
       <div className="relative overflow-hidden rounded-[2.5rem] lg:rounded-[4rem] flex flex-col lg:flex-row min-h-[600px] lg:aspect-video border border-[#2a2a3a]">
-        <div className="w-full lg:w-[40%] min-h-[350px] md:min-h-[450px] lg:h-full relative z-30 flex flex-col items-start justify-center overflow-hidden px-8 md:px-16 lg:pl-16 bg-[#0a0a0f] ">
+        <div className="w-full lg:w-[40%] min-h-[450px] md:min-h-[450px] lg:h-full relative z-30 flex flex-col items-start justify-center overflow-hidden px-8 md:px-16 lg:pl-16 bg-[#0a0a0f] ">
           <div className="absolute inset-x-0 top-0 h-12 md:h-20 lg:h-16 bg-gradient-to-b from-[#0a0a0f] via-[#0a0a0f]/80 to-transparent z-40" />
           <div className="absolute inset-x-0 bottom-0 h-12 md:h-20 lg:h-16 bg-gradient-to-t from-[#0a0a0f] via-[#0a0a0f]/80 to-transparent z-40" />
 
@@ -147,11 +159,11 @@ export default function FeatureCarousel() {
                 <motion.div
                   key={feature.id}
                   style={{
-                    height: ITEM_HEIGHT,
+                    height: itemHeight,
                     width: "fit-content",
                   }}
                   animate={{
-                    y: wrappedDistance * ITEM_HEIGHT,
+                    y: wrappedDistance * itemHeight,
                     opacity: 1 - Math.abs(wrappedDistance) * 0.25,
                   }}
                   transition={{
@@ -160,14 +172,14 @@ export default function FeatureCarousel() {
                     damping: 22,
                     mass: 1,
                   }}
-                  className="absolute flex items-center justify-start"
+                  className="absolute flex items-center justify-start pb-2"
                 >
                   <button
                     onClick={() => handleChipClick(index)}
                     onMouseEnter={() => setIsPaused(true)}
                     onMouseLeave={() => setIsPaused(false)}
                     className={cn(
-                      "relative flex items-center gap-4 px-6 md:px-10 lg:px-8 py-3.5 md:py-5 lg:py-4 rounded-full transition-all duration-700 text-left group border",
+                      "relative flex items-center gap-3 md:gap-4 px-4 md:px-10 lg:px-8 py-2 md:py-5 lg:py-4 rounded-full transition-all duration-700 text-left group border",
                       isActive
                         ? "bg-[#1c1c2e] text-[#00ff88] border-[#00ff88] z-10 shadow-[0_0_15px_#00ff8840]"
                         : "bg-transparent text-white/60 border-white/10 hover:border-[#00ff88]/50 hover:text-white"
@@ -181,12 +193,12 @@ export default function FeatureCarousel() {
                     >
                       <HugeiconsIcon
                         icon={feature.icon}
-                        size={18}
+                        size={isMobile ? 14 : 18}
                         strokeWidth={2}
                       />
                     </div>
-
-                    <span className="font-bold text-sm md:text-[15px] tracking-widest whitespace-nowrap uppercase" style={{ fontFamily: "var(--font-sharetech), monospace" }}>
+ 
+                    <span className="font-bold text-[10px] md:text-[15px] tracking-widest whitespace-nowrap uppercase" style={{ fontFamily: "var(--font-sharetech), monospace" }}>
                       {feature.label}
                     </span>
                   </button>

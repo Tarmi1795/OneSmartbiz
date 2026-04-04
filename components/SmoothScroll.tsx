@@ -15,6 +15,21 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       touchMultiplier: 2,
     });
 
+    const handleAnchorClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const anchor = target.closest("a");
+      
+      if (anchor && anchor.hash && anchor.origin === window.location.origin && anchor.pathname === window.location.pathname) {
+        const targetElement = document.querySelector(anchor.hash);
+        if (targetElement) {
+          e.preventDefault();
+          lenis.scrollTo(anchor.hash, { offset: -80 });
+        }
+      }
+    };
+
+    window.addEventListener("click", handleAnchorClick);
+
     function raf(time: number) {
       lenis.raf(time);
       requestAnimationFrame(raf);
@@ -22,12 +37,8 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
 
     requestAnimationFrame(raf);
 
-    // Integrate with Framer Motion scroll values (optional but good practice)
-    lenis.on("scroll", () => {
-      // In case we want to trigger global scroll events for framer motion if native isn't enough
-    });
-
     return () => {
+      window.removeEventListener("click", handleAnchorClick);
       lenis.destroy();
     };
   }, []);

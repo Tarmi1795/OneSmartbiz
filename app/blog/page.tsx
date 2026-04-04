@@ -49,44 +49,88 @@ const posts = [
     date: "2026-04-01",
     category: "SEO",
   },
+  {
+    slug: "best-website-design-companies-qatar-2026",
+    title: "Best Website Design Companies in Qatar: Top 5 Agencies for 2026",
+    excerpt: "A curated list of the top website design agencies in Doha, Qatar. See why OneSmartBiz is leading the market in performance and high-end aesthetics.",
+    date: "2026-04-04",
+    category: "Web Development",
+  },
+  {
+    slug: "choosing-platform-small-business-websites-guide",
+    title: "Choosing a Platform for Small Business Websites: 2026 Comparison Guide",
+    excerpt: "Should you use WordPress, Shopify, or a custom Next.js build? We compare the best platforms for small businesses in Qatar.",
+    date: "2026-04-04",
+    category: "Web Development",
+  },
+  {
+    slug: "top-website-design-software-drag-drop-2026",
+    title: "Top Website Design Software with Drag-and-Drop Features for 2026",
+    excerpt: "The best tools for building websites without deep coding knowledge, and when it's time to upgrade to a professional custom solution.",
+    date: "2026-04-04",
+    category: "Design",
+  },
+  {
+    slug: "mobile-first-web-layout-best-practices",
+    title: "Mobile-First Web Layouts: Best Practices for 2026 UX",
+    excerpt: "Why mobile-first design is non-negotiable in Qatar and the essential best practices for high-converting responsive layouts.",
+    date: "2026-04-04",
+    category: "Design",
+  },
+  {
+    slug: "cost-build-custom-website-qatar",
+    title: "Average Cost to Build a Custom Website in Qatar: 2026 Pricing Report",
+    excerpt: "Breakdown of the investment required for custom web development in Doha. From landing pages to enterprise-level platforms.",
+    date: "2026-04-04",
+    category: "Web Development",
+  },
+  {
+    slug: "professional-website-designers-doha-near-me",
+    title: "Website Designer Near Me: Where to Find Professionals in Doha",
+    excerpt: "A guide to finding and vetting the best local website designers in Qatar for your next project.",
+    date: "2026-04-04",
+    category: "Business",
+  },
+  {
+    slug: "how-to-design-website-yourself-2026-guide",
+    title: "How to Design a Website by Yourself: The 2026 DIY Guide",
+    excerpt: "Step-by-step instructions for entrepreneurs in Qatar looking to build their first digital presence without an agency.",
+    date: "2026-04-04",
+    category: "Design",
+  },
+  {
+    slug: "cost-20-page-website-qatar-breakdown",
+    title: "How Much is a 20-Page Website in Qatar? Detailed Pricing Breakdown",
+    excerpt: "Analysis of the investment required for mid-sized corporate websites in Doha. From content creation to advanced SEO.",
+    date: "2026-04-04",
+    category: "Web Development",
+  },
+  {
+    slug: "build-vs-buy-website-cost-analysis-qatar",
+    title: "Is it Cheaper to Build Your Own Website? Build vs. Buy Analysis",
+    excerpt: "The true cost of DIY vs. hiring a professional agency in Qatar. Hidden expenses, time investment, and ROI compared.",
+    date: "2026-04-04",
+    category: "Business",
+  },
 ];
 
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { BlogListingClient } from "@/components/ui/blog-client";
 
 export default function BlogPage() {
   return (
     <>
       <Nav />
-      <main className="min-h-screen bg-black text-white pt-20">
-        <div className="max-w-4xl mx-auto px-6 py-20">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: "var(--font-orbitron)" }}>
-            Digital Insights
-          </h1>
-        <p className="text-gray-400 text-lg mb-12">
-          Expert articles on web development, video production, SEO, and financial automation for businesses in Qatar and the GCC.
-        </p>
-        <div className="space-y-8">
-          {posts.map((post) => (
-            <Link
-              key={post.slug}
-              href={`/blog/${post.slug}`}
-              className="block border border-gray-800 rounded-lg p-6 hover:border-cyan-500/50 transition-colors"
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-xs text-cyan-400 uppercase tracking-wider">{post.category}</span>
-                <span className="text-xs text-gray-600">•</span>
-                <span className="text-xs text-gray-500">{post.date}</span>
-              </div>
-              <h2 className="text-xl font-semibold mb-2 hover:text-cyan-400 transition-colors">
-                {post.title}
-              </h2>
-              <p className="text-gray-400 text-sm">{post.excerpt}</p>
-            </Link>
-          ))}
+      <main className="min-h-screen bg-[#0a0a0f] text-white pt-24 overflow-hidden">
+        <BlogListingClient posts={posts} />
+
+        {/* Decorative Elements */}
+        <div className="fixed inset-0 pointer-events-none z-0">
+          <div className="absolute top-1/4 -right-1/4 w-[500px] h-[500px] bg-cyan-500/5 blur-[120px] rounded-full animate-pulse" />
+          <div className="absolute bottom-1/4 -left-1/4 w-[500px] h-[500px] bg-purple-500/5 blur-[120px] rounded-full" />
         </div>
-      </div>
-    </main>
+      </main>
       <Footer />
     </>
   );
