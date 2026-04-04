@@ -32,8 +32,12 @@ export const metadata: Metadata = {
     "The leading digital consultancy in Doha, Qatar. High-performance web engineering, multimedia production, and financial intelligence for modern enterprises.",
   keywords: "digital agency doha, web development qatar, multimedia vfx, financial consultancy, GCC digital transformation",
   icons: {
-    icon: "/favicon.png",
+    icon: [
+      { url: "/favicon.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.png", sizes: "16x16", type: "image/png" },
+    ],
     apple: "/favicon.png",
+    shortcut: "/favicon.png",
   },
   openGraph: {
     title: "One Smart Biz — Strategic Digital Solutions | Doha, Qatar",
