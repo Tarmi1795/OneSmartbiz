@@ -112,6 +112,13 @@ const posts = [
     date: "2026-04-04",
     category: "Business",
   },
+  {
+    slug: "middle-east-website-design-trends-2026",
+    title: "Top Trends in Middle East Website Design for 2026: Why You Need a Local Expert",
+    excerpt: "Explore the latest trends in Middle East website design for 2026, including mobile-first strategies, cultural localization, and AI-driven personalization.",
+    date: "2026-04-08",
+    category: "Design",
+  },
 ];
 
 import Nav from "@/components/Nav";
