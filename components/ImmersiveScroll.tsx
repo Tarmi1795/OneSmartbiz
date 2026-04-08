@@ -20,7 +20,7 @@ export default function ImmersiveScroll() {
   const targetFrameRef = useRef(0);
 
   // Total frames
-  const frameCount = 150;
+  const frameCount = 180;
 
   // Preload images
   useEffect(() => {

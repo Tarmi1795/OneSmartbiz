@@ -165,7 +165,6 @@ export default function RootLayout({
             })
           }}
         />
-        {/* Schema.org: FAQPage */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -178,7 +177,23 @@ export default function RootLayout({
                   "name": "What digital services does One Smart Biz offer in Qatar?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "One Smart Biz offers Web & App Development (React, Next.js, React Native), Multimedia & VFX Production, and Financial Services (audit, bookkeeping, tax filing) — all tailored for Qatar's business landscape."
+                    "text": "We provide three core verticals: Web & App Development (React, Next.js, React Native), Multimedia & VFX Production (video, motion graphics, 3D animation), and Financial Services (audit, bookkeeping, tax filing, automation). All services are tailored specifically for Qatar's business and regulatory landscape."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What makes One Smart Biz different from other digital agencies in Qatar?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We combine engineering, creative, and financial services under one roof. Our projects deliver sub-1.2s load times, 98/100 SEO scores, and we've completed 150+ projects with a 98% client satisfaction rate. We also offer proprietary AI-powered business analysis tools."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Do you work with businesses outside of Qatar?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. While headquartered in Doha, Qatar, we serve clients across the entire GCC region — Saudi Arabia, UAE, Bahrain, Kuwait, and Oman — as well as international clients."
                   }
                 },
                 {
@@ -191,10 +206,58 @@ export default function RootLayout({
                 },
                 {
                   "@type": "Question",
-                  "name": "How long does it take to build a website in Doha?",
+                  "name": "How long does it take to build a website?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "A standard business website takes 2-4 weeks. Custom web applications typically take 6-12 weeks. One Smart Biz has delivered full React Native apps in 8 weeks."
+                    "text": "A standard business website takes 2–4 weeks. Custom web applications typically take 6–12 weeks. We've delivered full React Native apps in 8 weeks."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What technologies do you use for web development?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We specialize in React and Next.js for web, React Native for mobile, Node.js and Python for backend, and Supabase/PostgreSQL for databases. All deployed on edge networks for global performance."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Do you provide website maintenance and support after launch?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Post-launch support is available at QR 100/hour covering content updates, plugin management, security patches, and technical support. Retainer packages are also available."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Can you redesign my existing website?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Absolutely. We perform full redesigns and migrations from WordPress, Wix, Squarespace, or legacy systems. We handle content migration, SEO preservation, and deploy on a modern high-performance stack."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What types of video production services do you offer?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Corporate videos, product showcases, social media content (Reels, TikTok, YouTube Shorts), brand films, event coverage, motion graphics, 2D/3D animation, and VFX compositing."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How much does video production cost in Qatar?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Social media video packages start from QAR 2,000, corporate brand films from QAR 8,000, and full VFX-grade productions from QAR 15,000+."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Can you create content for social media marketing?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. We produce scroll-stopping content optimized for Instagram Reels, TikTok, YouTube Shorts, and LinkedIn Video. We handle scripting, filming, editing, and motion graphics."
                   }
                 },
                 {
@@ -202,15 +265,39 @@ export default function RootLayout({
                   "name": "Does One Smart Biz provide financial services for Qatar companies?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes. We offer audit, financial statements, bookkeeping, tax filing, and financial automation — all compliant with Qatar's regulatory requirements."
+                    "text": "Yes. We offer audit preparation, financial statement generation, bookkeeping, tax filing assistance, and financial automation — all compliant with Qatar's MOCI, QFC, and QCB regulatory requirements."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "What makes One Smart Biz different from other digital agencies in Qatar?",
+                  "name": "Can you automate our company's financial workflows?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "We combine engineering, creative, and financial services under one roof. We deliver sub-1.2s load times, 98/100 SEO scores, and 150+ completed projects with 98% client satisfaction."
+                    "text": "Yes. We build custom financial automation including automated invoicing, expense tracking, recurring transaction engines, AP/AR management, and real-time dashboards that can reduce manual bookkeeping by up to 80%."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What is the AI Business Advisor tool?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Our AI Business Advisor is a proprietary tool powered by Google Gemini that provides automated business analysis, market insights, and strategic recommendations. It's free to use on our website."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How do I get started with a project?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Reach out via WhatsApp at +974 5585 5221, email onebizfam@gmail.com, or use our pricing calculator. We'll schedule a free discovery call to discuss your goals and provide a formal proposal."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What are your payment terms?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We require a 30–50% deposit before project commencement. Progress payments are tied to milestones, and the final balance is due upon delivery. All payments are in QAR with optional USD and PHP conversions."
                   }
                 }
               ]
