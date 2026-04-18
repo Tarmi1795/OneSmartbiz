@@ -161,8 +161,8 @@ export default function TermsPage() {
               <div className="mt-4 p-6 bg-[#12121a] border border-[#2a2a3a]" style={{ clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%)" }}>
                 <p className="text-white font-semibold">One SmartBiz</p>
                 <p className="text-[#a0a0a0] text-sm mt-1">Doha, Qatar</p>
-                <p className="text-[#a0a0a0] text-sm">Email: <a href="mailto:onebizfam@gmail.com" className="text-[#00ff88] hover:underline">onebizfam@gmail.com</a></p>
-                <p className="text-[#a0a0a0] text-sm">WhatsApp: <a href="https://wa.me/97455855221" className="text-[#00ff88] hover:underline">+974 5585 5221</a></p>
+                <p className="text-[#a0a0a0] text-sm">Email: <a href="mailto:admin@onesmartbiz.pro" className="text-[#00ff88] hover:underline">admin@onesmartbiz.pro</a></p>
+                <p className="text-[#a0a0a0] text-sm">WhatsApp: <a href="https://wa.me/97431308665" className="text-[#00ff88] hover:underline">+974 5585 5221</a></p>
                 <p className="text-[#a0a0a0] text-sm">Website: <a href="https://onesmartbiz.pro" className="text-[#00ff88] hover:underline">onesmartbiz.pro</a></p>
               </div>
             </section>

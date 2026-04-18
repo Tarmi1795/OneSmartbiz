@@ -90,7 +90,7 @@ export default function FinancialServicesPage() {
             <Link href="/calculator" className="bg-cyan-500 hover:bg-cyan-400 text-black font-semibold px-8 py-3 rounded-lg transition-colors">
               Get Free Assessment →
             </Link>
-            <a href="https://wa.me/97455855221" target="_blank" rel="noopener noreferrer" className="border border-gray-700 hover:border-cyan-500/50 text-white px-8 py-3 rounded-lg transition-colors">
+            <a href="https://wa.me/97431308665" target="_blank" rel="noopener noreferrer" className="border border-gray-700 hover:border-cyan-500/50 text-white px-8 py-3 rounded-lg transition-colors">
               WhatsApp Us
             </a>
           </div>

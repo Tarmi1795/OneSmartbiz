@@ -401,7 +401,7 @@ export default function PricingCalculator() {
             {/* Configurator */}
             <div className="lg:col-span-2 backdrop-blur-xl bg-white/[0.03] border border-white/10 rounded-3xl p-8 relative overflow-hidden group/config">
               <div className="absolute top-0 left-0 w-64 h-64 bg-[#00ff88]/5 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2 pointer-events-none" />
-              
+
               <h3 className="font-display font-black text-white mb-2 uppercase tracking-[0.2em] text-sm border-b border-white/5 pb-6">
                 Project Features & Add-ons
               </h3>
@@ -524,7 +524,7 @@ export default function PricingCalculator() {
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#00ff88]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#ff0088]/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none" />
-                
+
                 <div className="relative z-10">
                   <div className="flex items-center justify-between mb-8 pb-4 border-b border-white/5">
                     <h3 className="font-display font-black text-[#00ff88] uppercase tracking-[0.2em] text-sm">
@@ -586,7 +586,7 @@ export default function PricingCalculator() {
                     {!includeBase && additionalPages === 0 && !Object.values(toggles).some(Boolean) && customItems.length === 0 && (
                       <div className="py-8 text-center border border-dashed border-white/5 rounded-2xl">
                         <p className="font-mono text-[10px] text-white/20 uppercase tracking-widest leading-relaxed">
-                          Initializing configuration...<br/>select components to proceed
+                          Initializing configuration...<br />select components to proceed
                         </p>
                       </div>
                     )}
@@ -613,7 +613,7 @@ export default function PricingCalculator() {
                         <FileText className="w-4 h-4 text-white/40 group-hover/btn:text-[#00ff88] transition-colors" />
                         Generate Proposal
                       </button>
-                      
+
                       <button
                         id="wa-btn"
                         onClick={async () => {
@@ -633,7 +633,7 @@ export default function PricingCalculator() {
                             Object.entries(toggles).filter(([_, v]) => v).map(([k]) => k).join(', ') +
                             (customItems.length > 0 ? `\n\n*Custom Requirements:*${customSummary}` : '') +
                             `\n\nGenerated via onesmartbiz.pro`;
-                          const waUrl = `https://wa.me/97455855221?text=${encodeURIComponent(summary)}`;
+                          const waUrl = `https://wa.me/97431308665?text=${encodeURIComponent(summary)}`;
                           window.open(waUrl, '_blank');
                         }}
                         className="w-full py-4 bg-[#00ff88] hover:bg-[#00e67a] active:scale-[0.98] rounded-2xl font-mono text-[10px] font-black text-black uppercase tracking-[0.2em] transition-all shadow-[0_10px_20px_rgba(0,255,136,0.2)] flex items-center justify-center gap-2"
@@ -642,7 +642,7 @@ export default function PricingCalculator() {
                         Initialize Inquiry
                       </button>
                     </div>
-                    
+
                     <p className="text-[9px] text-white/20 font-mono text-center uppercase tracking-widest px-4">
                       Estimates serve as a baseline for strategic planning
                     </p>

@@ -22,7 +22,7 @@ const services = [
 const socialLinks = [
   {
     label: "WhatsApp",
-    href: "https://wa.me/97455855221",
+    href: "https://wa.me/97431308665",
     color: "#00ff88",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
@@ -77,9 +77,9 @@ export default function Footer() {
             <div className="flex items-center gap-2 mb-6">
               <div className="relative group p-1">
                 <div className="absolute inset-0 bg-white/5 border border-white/10 rounded-md blur-[1px]" />
-                <img 
-                  src="/logo.gif" 
-                  alt="One Smart Biz Logo" 
+                <img
+                  src="/logo.gif"
+                  alt="One Smart Biz Logo"
                   className="h-10 w-auto object-contain relative z-10 brightness-110"
                 />
               </div>

@@ -8,7 +8,7 @@ export default function WhatsAppChat() {
   const [isOpen, setIsOpen] = useState(false);
   const controls = useDragControls();
 
-  const whatsappNumber = "97455855221"; // Real number updated
+  const whatsappNumber = "97431308665"; // Real number updated
   const message = encodeURIComponent("Hello One SmartBiz! I'm interested in your services.");
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
 
@@ -26,7 +26,7 @@ export default function WhatsAppChat() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               className="absolute bottom-20 right-0 w-72 bg-[#12121a] border border-[#2a2a3a] p-5 shadow-[0_0_30px_rgba(0,255,136,0.1)] cyber-chamfer-sm"
             >
-              <button 
+              <button
                 onClick={() => setIsOpen(false)}
                 className="absolute top-2 right-2 text-[#6b7280] hover:text-white"
               >

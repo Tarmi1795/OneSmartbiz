@@ -14,8 +14,8 @@ const services = [
 const contactInfo = [
   {
     label: "WHATSAPP",
-    value: "+97455855221",
-    href: "https://wa.me/97455855221",
+    value: "+97431308665",
+    href: "https://wa.me/97431308665",
     color: "#00ff88",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
@@ -25,8 +25,8 @@ const contactInfo = [
   },
   {
     label: "EMAIL",
-    value: "onebizfam@gmail.com",
-    href: "mailto:onebizfam@gmail.com",
+    value: "admin@onesmartbiz.pro",
+    href: "mailto:admin@onesmartbiz.pro",
     color: "#ff00ff",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
@@ -60,21 +60,21 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
-    
+
     // Construct WhatsApp message
     const message = `Hello One Smart Biz! I'm interested in your services.
 Name: ${form.name}
 Service: ${form.service}
 Message: ${form.message}`;
-    
-    const whatsappUrl = `https://wa.me/97455855221?text=${encodeURIComponent(message)}`;
-    
+
+    const whatsappUrl = `https://wa.me/97431308665?text=${encodeURIComponent(message)}`;
+
     // Wait for animation
     await new Promise((r) => setTimeout(r, 1200));
-    
+
     // Open WhatsApp
     window.open(whatsappUrl, "_blank");
-    
+
     setStatus("sent");
   };
 
@@ -137,7 +137,7 @@ Message: ${form.message}`;
               style={{ clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%)" }}>
               <div className="font-mono text-xs text-[#00ff88] mb-2">FASTEST RESPONSE</div>
               <a
-                href="https://wa.me/97455855221"
+                href="https://wa.me/97431308665"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 w-full justify-center py-3 bg-[#00ff88]/10 border border-[#00ff88]/40 text-[#00ff88] font-mono text-sm font-bold tracking-widest hover:bg-[#00ff88]/20 transition-all"
@@ -185,7 +185,7 @@ Message: ${form.message}`;
                     <span className="font-mono text-[10px] text-[#00ff88]">{Math.round(((form.name ? 1 : 0) + (form.service ? 1 : 0) + (form.message ? 1 : 0)) / 3 * 100)}% COMPLETE</span>
                   </div>
                   <div className="h-[2px] w-full bg-white/5 relative overflow-hidden">
-                    <motion.div 
+                    <motion.div
                       className="absolute top-0 left-0 h-full bg-[#00ff88] shadow-[0_0_10px_#00ff88]"
                       initial={{ width: 0 }}
                       animate={{ width: `${((form.name ? 1 : 0) + (form.service ? 1 : 0) + (form.message ? 1 : 0)) / 3 * 100}%` }}
@@ -198,7 +198,7 @@ Message: ${form.message}`;
                 </div>
 
                 <div className="flex flex-col gap-2 group/field">
-                   <label className="font-mono text-[10px] text-[#666] tracking-[0.3em] uppercase px-1 group-focus-within/field:text-[#00ff88] transition-colors">Sender Identity</label>
+                  <label className="font-mono text-[10px] text-[#666] tracking-[0.3em] uppercase px-1 group-focus-within/field:text-[#00ff88] transition-colors">Sender Identity</label>
                   <div className="flex items-center border border-white/5 bg-white/[0.02] focus-within:border-[#00ff88]/50 focus-within:bg-[#00ff88]/5 transition-all duration-300 shadow-[0_0_0_transparent] focus-within:shadow-[0_0_20px_rgba(0,255,136,0.1)]"
                     style={{ clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%)" }}>
                     <span className="font-mono text-[#00ff88] px-4 text-xs select-none opacity-40 group-focus-within/field:opacity-100 transition-opacity">ID::</span>
@@ -235,7 +235,7 @@ Message: ${form.message}`;
                 </div>
 
                 <div className="flex flex-col gap-2 group/field">
-                   <label className="font-mono text-[10px] text-[#666] tracking-[0.3em] uppercase px-1 group-focus-within/field:text-[#00d4ff] transition-colors">Core Objective</label>
+                  <label className="font-mono text-[10px] text-[#666] tracking-[0.3em] uppercase px-1 group-focus-within/field:text-[#00d4ff] transition-colors">Core Objective</label>
                   <div className="flex border border-white/5 bg-white/[0.02] focus-within:border-[#00d4ff]/50 focus-within:bg-[#00d4ff]/5 transition-all duration-300 shadow-[0_0_0_transparent] focus-within:shadow-[0_0_20px_rgba(0,212,255,0.1)]"
                     style={{ clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%)" }}>
                     <span className="font-mono text-[#00d4ff] px-4 pt-5 text-xs select-none opacity-40 group-focus-within/field:opacity-100 transition-opacity">OBJ::</span>
@@ -256,7 +256,7 @@ Message: ${form.message}`;
                   disabled={status === "sending"}
                   className="mt-2 w-full py-4 bg-[#00ff88]/10 border border-[#00ff88]/40 text-[#00ff88] font-display font-black text-sm tracking-widest uppercase hover:bg-[#00ff88]/20 hover:border-[#00ff88]/70 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   style={{ clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%)", boxShadow: status === "sending" ? "none" : "0 0 20px #00ff8833" }}>
-                   {status === "sending" ? (
+                  {status === "sending" ? (
                     <span className="flex items-center justify-center gap-2">
                       <span className="inline-block w-3 h-3 border border-[#00ff88] border-t-transparent rounded-full animate-spin" />
                       SENDING...
@@ -268,7 +268,7 @@ Message: ${form.message}`;
 
                 <p className="font-mono text-xs text-[#333] text-center">
                   Or reach us directly on{" "}
-                  <a href="https://wa.me/97455855221" className="text-[#00ff88] hover:underline">WhatsApp</a>
+                  <a href="https://wa.me/97431308665" className="text-[#00ff88] hover:underline">WhatsApp</a>
                   {" "}for instant response
                 </p>
               </form>

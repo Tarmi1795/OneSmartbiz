@@ -103,7 +103,7 @@ const faqs = [
     category: "general",
     question: "How do I get started with a project?",
     answer:
-      "Simply reach out via our WhatsApp at +974 5585 5221, email onebizfam@gmail.com, or use the pricing calculator on our website. We'll schedule a free discovery call where we discuss your goals, scope the project, and provide a formal proposal with a detailed timeline and cost breakdown.",
+      "Simply reach out via our WhatsApp at +974 5585 5221, email admin@onesmartbiz.pro, or use the pricing calculator on our website. We'll schedule a free discovery call where we discuss your goals, scope the project, and provide a formal proposal with a detailed timeline and cost breakdown.",
   },
   {
     category: "general",
@@ -129,11 +129,10 @@ function FAQItem({ faq, index }: { faq: typeof faqs[0]; index: number }) {
         className="w-full text-left group"
       >
         <div
-          className={`relative p-5 md:p-6 border transition-all duration-300 ${
-            isOpen
-              ? "bg-[#12121a] border-[#00ff88]/30 shadow-[0_0_30px_rgba(0,255,136,0.05)]"
-              : "bg-[#0c0c14] border-[#1a1a2e] hover:border-[#2a2a4a] hover:bg-[#10101a]"
-          }`}
+          className={`relative p-5 md:p-6 border transition-all duration-300 ${isOpen
+            ? "bg-[#12121a] border-[#00ff88]/30 shadow-[0_0_30px_rgba(0,255,136,0.05)]"
+            : "bg-[#0c0c14] border-[#1a1a2e] hover:border-[#2a2a4a] hover:bg-[#10101a]"
+            }`}
           style={{
             clipPath:
               "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))",
@@ -141,29 +140,25 @@ function FAQItem({ faq, index }: { faq: typeof faqs[0]; index: number }) {
         >
           {/* Corner accents */}
           <div
-            className={`absolute top-0 right-0 w-3 h-3 border-r border-t transition-colors duration-300 ${
-              isOpen ? "border-[#00ff88]/50" : "border-[#2a2a4a]"
-            }`}
+            className={`absolute top-0 right-0 w-3 h-3 border-r border-t transition-colors duration-300 ${isOpen ? "border-[#00ff88]/50" : "border-[#2a2a4a]"
+              }`}
           />
           <div
-            className={`absolute bottom-0 left-0 w-3 h-3 border-l border-b transition-colors duration-300 ${
-              isOpen ? "border-[#00ff88]/50" : "border-[#2a2a4a]"
-            }`}
+            className={`absolute bottom-0 left-0 w-3 h-3 border-l border-b transition-colors duration-300 ${isOpen ? "border-[#00ff88]/50" : "border-[#2a2a4a]"
+              }`}
           />
 
           <div className="flex items-start justify-between gap-4">
             <div className="flex items-start gap-3 md:gap-4">
               <span
-                className={`font-mono text-[10px] mt-1.5 tracking-wider transition-colors duration-300 shrink-0 ${
-                  isOpen ? "text-[#00ff88]" : "text-[#333]"
-                }`}
+                className={`font-mono text-[10px] mt-1.5 tracking-wider transition-colors duration-300 shrink-0 ${isOpen ? "text-[#00ff88]" : "text-[#333]"
+                  }`}
               >
                 {String(index + 1).padStart(2, "0")}
               </span>
               <h3
-                className={`text-sm md:text-base font-medium transition-colors duration-300 ${
-                  isOpen ? "text-white" : "text-[#999] group-hover:text-white"
-                }`}
+                className={`text-sm md:text-base font-medium transition-colors duration-300 ${isOpen ? "text-white" : "text-[#999] group-hover:text-white"
+                  }`}
                 style={{ fontFamily: "var(--font-inter), sans-serif" }}
               >
                 {faq.question}
@@ -172,11 +167,10 @@ function FAQItem({ faq, index }: { faq: typeof faqs[0]; index: number }) {
 
             {/* Toggle icon */}
             <div
-              className={`shrink-0 mt-1 w-6 h-6 border flex items-center justify-center transition-all duration-300 ${
-                isOpen
-                  ? "border-[#00ff88]/40 bg-[#00ff88]/10 rotate-45"
-                  : "border-[#2a2a4a] group-hover:border-[#444]"
-              }`}
+              className={`shrink-0 mt-1 w-6 h-6 border flex items-center justify-center transition-all duration-300 ${isOpen
+                ? "border-[#00ff88]/40 bg-[#00ff88]/10 rotate-45"
+                : "border-[#2a2a4a] group-hover:border-[#444]"
+                }`}
               style={{
                 clipPath:
                   "polygon(0 0, calc(100% - 4px) 0, 100% 4px, 100% 100%, 0 100%)",
@@ -184,9 +178,8 @@ function FAQItem({ faq, index }: { faq: typeof faqs[0]; index: number }) {
             >
               <svg
                 viewBox="0 0 12 12"
-                className={`w-3 h-3 transition-colors duration-300 ${
-                  isOpen ? "text-[#00ff88]" : "text-[#555]"
-                }`}
+                className={`w-3 h-3 transition-colors duration-300 ${isOpen ? "text-[#00ff88]" : "text-[#555]"
+                  }`}
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="1.5"
@@ -279,11 +272,10 @@ export default function FAQPage() {
                 key={cat.id}
                 id={`faq-filter-${cat.id}`}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`font-mono text-[10px] tracking-widest uppercase px-4 py-2 border transition-all duration-300 ${
-                  activeCategory === cat.id
-                    ? "bg-[#00ff88]/10 border-[#00ff88]/40 text-[#00ff88] shadow-[0_0_15px_rgba(0,255,136,0.1)]"
-                    : "bg-transparent border-[#1a1a2e] text-[#555] hover:border-[#333] hover:text-[#888]"
-                }`}
+                className={`font-mono text-[10px] tracking-widest uppercase px-4 py-2 border transition-all duration-300 ${activeCategory === cat.id
+                  ? "bg-[#00ff88]/10 border-[#00ff88]/40 text-[#00ff88] shadow-[0_0_15px_rgba(0,255,136,0.1)]"
+                  : "bg-transparent border-[#1a1a2e] text-[#555] hover:border-[#333] hover:text-[#888]"
+                  }`}
                 style={{
                   clipPath:
                     "polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%)",
@@ -354,7 +346,7 @@ export default function FAQPage() {
 
                 <div className="flex flex-col sm:flex-row gap-3">
                   <a
-                    href="https://wa.me/97455855221"
+                    href="https://wa.me/97431308665"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-mono text-xs tracking-wider uppercase px-6 py-3 bg-[#00ff88]/10 border border-[#00ff88]/30 text-[#00ff88] hover:bg-[#00ff88]/20 transition-all duration-300 text-center"
@@ -366,7 +358,7 @@ export default function FAQPage() {
                     WhatsApp Us
                   </a>
                   <a
-                    href="mailto:onebizfam@gmail.com"
+                    href="mailto:admin@onesmartbiz.pro"
                     className="font-mono text-xs tracking-wider uppercase px-6 py-3 border border-[#2a2a4a] text-[#888] hover:border-[#444] hover:text-white transition-all duration-300 text-center"
                     style={{
                       clipPath:

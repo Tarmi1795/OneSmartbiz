@@ -103,7 +103,7 @@ export default function RootLayout({
               "url": "https://www.onesmartbiz.pro",
               "logo": "https://www.onesmartbiz.pro/logo.png",
               "image": "https://iili.io/qN7uhLF.png",
-              "telephone": "+974-55855221",
+              "telephone": "+974-31308665",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Doha",
@@ -289,7 +289,7 @@ export default function RootLayout({
                   "name": "How do I get started with a project?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Reach out via WhatsApp at +974 5585 5221, email onebizfam@gmail.com, or use our pricing calculator. We'll schedule a free discovery call to discuss your goals and provide a formal proposal."
+                    "text": "Reach out via WhatsApp at +974 5585 5221, email admin@onesmartbiz.pro, or use our pricing calculator. We'll schedule a free discovery call to discuss your goals and provide a formal proposal."
                   }
                 },
                 {
