@@ -128,7 +128,7 @@ export default function RootLayout({
               ],
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",
-                "name": "Digital Services",
+                "name": "Business and Digital Services",
                 "itemListElement": [
                   {
                     "@type": "Offer",
@@ -152,6 +152,22 @@ export default function RootLayout({
                       "@type": "Service",
                       "name": "Financial Services",
                       "description": "Audit, Automation, Financial Statements, Bookkeeping, and Tax Filing for Qatar businesses."
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "VISA Assistance",
+                      "description": "Visa assistance and documentation support for Qatar founders, employees, and business mobility."
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Business Formation and Setup",
+                      "description": "Company formation, licensing, documentation, and setup guidance for businesses launching in Qatar."
                     }
                   }
                 ]
@@ -177,7 +193,7 @@ export default function RootLayout({
                   "name": "What digital services does One Smart Biz offer in Qatar?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "We provide three core verticals: Web & App Development (React, Next.js, React Native), Multimedia & VFX Production (video, motion graphics, 3D animation), and Financial Services (audit, bookkeeping, tax filing, automation). All services are tailored specifically for Qatar's business and regulatory landscape."
+                    "text": "We provide five core service areas: Web & App Development (React, Next.js, React Native), Multimedia & VFX Production (video, motion graphics, 3D animation), Financial Services (audit, bookkeeping, tax filing, automation), VISA Assistance, and Business Formation and Setup. All services are tailored specifically for Qatar's business and regulatory landscape."
                   }
                 },
                 {
@@ -185,7 +201,7 @@ export default function RootLayout({
                   "name": "What makes One Smart Biz different from other digital agencies in Qatar?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "We combine engineering, creative, and financial services under one roof. Our projects deliver sub-1.2s load times, 98/100 SEO scores, and we've completed 150+ projects with a 98% client satisfaction rate. We also offer proprietary AI-powered business analysis tools."
+                    "text": "We combine engineering, creative, financial, visa, and business setup services under one roof. Our projects deliver sub-1.2s load times, 98/100 SEO scores, and we've completed 150+ projects with a 98% client satisfaction rate. We also offer proprietary AI-powered business analysis tools."
                   }
                 },
                 {

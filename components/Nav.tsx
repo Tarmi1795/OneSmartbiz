@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -15,6 +16,34 @@ const navLinks = [
   { label: "FAQ", href: "/faq" },
   { label: "Testimonials", href: "#testimonials" },
   { label: "Pricing", href: "/calculator" },
+];
+
+const serviceLinks = [
+  {
+    label: "Web & App Development",
+    href: "/services/web-development",
+    description: "Sites, apps, and digital platforms",
+  },
+  {
+    label: "Multimedia & VFX",
+    href: "/services/multimedia-vfx",
+    description: "Video, motion, and visual storytelling",
+  },
+  {
+    label: "Financial Services",
+    href: "/services/financial-services",
+    description: "Audit, bookkeeping, tax, and automation",
+  },
+  {
+    label: "VISA Assistance",
+    href: "/#services",
+    description: "Documentation and mobility support",
+  },
+  {
+    label: "Business Formation",
+    href: "/#services",
+    description: "Company setup, licensing, and launch guidance",
+  },
 ];
 
 export default function Nav() {
@@ -106,6 +135,77 @@ export default function Nav() {
           {navLinks.map((link, i) => {
             const isHash = link.href.startsWith("#");
             const Tag = isHash ? motion.a : Link;
+            const hasServiceDropdown = link.label === "Services";
+
+            if (hasServiceDropdown) {
+              return (
+                <motion.div
+                  key={link.href}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 + i * 0.05 }}
+                  className="relative group/services"
+                >
+                  <motion.a
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className="relative text-[10px] uppercase tracking-[0.25em] text-gray-400 hover:text-[#00ff88] transition-colors duration-300 group px-2 py-1 flex items-center gap-1.5"
+                    style={{ fontFamily: "var(--font-mono), monospace" }}
+                  >
+                    <span className="relative z-10">{link.label}</span>
+                    <ChevronDown
+                      size={12}
+                      strokeWidth={2}
+                      className="relative z-10 transition-transform duration-300 group-hover/services:rotate-180"
+                      aria-hidden="true"
+                    />
+                    <motion.span
+                      className="absolute inset-0 bg-[#00ff88]/5 scale-x-0 transition-transform duration-300 origin-left"
+                      whileHover={{ scaleX: 1 }}
+                    />
+                    <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#00ff88] group-hover:w-full transition-all duration-300 shadow-[0_0_10px_#00ff88]" />
+                  </motion.a>
+
+                  <div className="absolute left-1/2 top-full z-50 w-[380px] -translate-x-1/2 pt-5 opacity-0 translate-y-2 pointer-events-none transition-all duration-300 group-hover/services:opacity-100 group-hover/services:translate-y-0 group-hover/services:pointer-events-auto group-focus-within/services:opacity-100 group-focus-within/services:translate-y-0 group-focus-within/services:pointer-events-auto">
+                    <div
+                      className="relative overflow-hidden border border-[#00ff88]/20 bg-[#0a0a0f]/95 p-2 shadow-[0_18px_60px_rgba(0,0,0,0.45),0_0_35px_rgba(0,255,136,0.08)] backdrop-blur-xl"
+                      style={{
+                        clipPath:
+                          "polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px)",
+                      }}
+                    >
+                      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#00ff88] to-transparent opacity-70" />
+                      <a
+                        href="#services"
+                        onClick={(e) => handleNavClick(e, "#services")}
+                        className="mb-1 flex items-center justify-between border-b border-white/5 px-4 py-3 text-[10px] uppercase tracking-[0.25em] text-[#00ff88] transition-colors hover:text-white"
+                        style={{ fontFamily: "var(--font-mono), monospace" }}
+                      >
+                        <span>All Services</span>
+                        <span className="h-px w-8 bg-[#00ff88]/70" />
+                      </a>
+                      {serviceLinks.map((service) => (
+                        <Link
+                          key={service.label}
+                          href={service.href}
+                          className="group/item block px-4 py-3 transition-colors hover:bg-[#00ff88]/8 focus-visible:bg-[#00ff88]/8 focus-visible:outline-none"
+                        >
+                          <span
+                            className="block text-[11px] uppercase tracking-[0.22em] text-gray-200 transition-colors group-hover/item:text-[#00ff88]"
+                            style={{ fontFamily: "var(--font-mono), monospace" }}
+                          >
+                            {service.label}
+                          </span>
+                          <span className="mt-1 block text-xs leading-relaxed text-gray-500">
+                            {service.description}
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            }
 
             return (
               <motion.div
@@ -180,6 +280,48 @@ export default function Nav() {
               {navLinks.map((link, i) => {
                 const isHash = link.href.startsWith("#");
                 const isHome = link.href === "/";
+                const hasServiceDropdown = link.label === "Services";
+
+                if (hasServiceDropdown) {
+                  return (
+                    <motion.div
+                      key={link.href}
+                      initial={{ x: -20, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ delay: i * 0.05 }}
+                      className="border-b border-white/5 pb-3"
+                    >
+                      <a
+                        href={link.href}
+                        onClick={(e) => handleNavClick(e, link.href)}
+                        className="text-xs uppercase tracking-[0.25em] text-gray-400 hover:text-[#00ff88] transition-colors duration-200 py-3 flex items-center justify-between group"
+                        style={{ fontFamily: "var(--font-mono), monospace" }}
+                      >
+                        <span className="flex items-center">
+                          <motion.span
+                            className="w-0 group-hover:w-4 h-[2px] bg-[#00ff88] mr-0 group-hover:mr-3 transition-all duration-300"
+                          />
+                          {link.label}
+                        </span>
+                        <ChevronDown size={14} className="text-[#00ff88]" aria-hidden="true" />
+                      </a>
+
+                      <div className="ml-4 mt-1 flex flex-col border-l border-[#00ff88]/20 pl-4">
+                        {serviceLinks.map((service) => (
+                          <Link
+                            key={service.label}
+                            href={service.href}
+                            onClick={() => setMobileOpen(false)}
+                            className="py-2.5 text-[11px] uppercase tracking-[0.2em] text-gray-500 transition-colors hover:text-[#00ff88]"
+                            style={{ fontFamily: "var(--font-mono), monospace" }}
+                          >
+                            {service.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </motion.div>
+                  );
+                }
 
                 if (isHash || isHome) {
                   return (

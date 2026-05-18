@@ -56,13 +56,13 @@ export default function Services() {
             style={{ fontFamily: "var(--font-sharetech), monospace" }}
           >
             <span className="w-8 h-px bg-[#00ff88] shadow-[0_0_4px_#00ff88]" />
-            OUR CORE SPECIALTIES
+            OUR SERVICE PORTFOLIO
           </div>
           <h2
             className="text-4xl md:text-5xl font-black uppercase tracking-wide text-[#e0e0e0]"
             style={{ fontFamily: "var(--font-orbitron), monospace" }}
           >
-            Our Core{" "}
+            Our Complete{" "}
             <span
               className="neon-text"
             >
@@ -74,7 +74,7 @@ export default function Services() {
             style={{ fontFamily: "var(--font-sans), sans-serif" }}
           >
             <span className="text-[#00ff88]">{`>`} </span>
-            Complete digital solutions designed to help your business reach its full potential in Qatar and beyond.
+            Digital, financial, immigration, and company setup services designed to help your business launch, operate, and grow in Qatar and beyond.
           </p>
         </div>
 

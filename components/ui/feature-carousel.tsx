@@ -3,14 +3,14 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion"; // Changed to framer-motion due to nextjs
 import {
-  Pizza04Icon,
   CommandFreeIcons,
   GlobalSearchIcon,
   AiCloudIcon,
   SmartPhone01Icon,
-  CheckmarkCircle01Icon,
   DashboardSquare01Icon,
   MagicWandIcon,
+  DocumentValidationIcon,
+  Building04Icon,
   ArrowUp01Icon,
   ArrowDown01Icon,
 } from "@hugeicons/core-free-icons";
@@ -45,6 +45,20 @@ const FEATURES = [
     icon: DashboardSquare01Icon,
     image: "https://iili.io/BxFF4VV.jpg",
     description: "Accurate auditing and bookkeeping in real-time.",
+  },
+  {
+    id: "visa-assistance",
+    label: "Visa Assistance",
+    icon: DocumentValidationIcon,
+    image: "/services/visa-assistance.png",
+    description: "End-to-end Qatar visa support for founders, teams, and business mobility.",
+  },
+  {
+    id: "business-formation",
+    label: "Business Formation",
+    icon: Building04Icon,
+    image: "/services/business-formation.png",
+    description: "Company setup, licensing, documentation, and launch guidance for Qatar businesses.",
   },
   {
     id: "ai-systems",
