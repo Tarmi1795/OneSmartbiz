@@ -217,7 +217,7 @@ export default function RootLayout({
                   "name": "How much does website development cost in Qatar?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Website development in Qatar ranges from QAR 5,000 for a basic business site to QAR 50,000+ for custom e-commerce or enterprise platforms. Use our online calculator at onesmartbiz.pro/calculator for instant pricing."
+                    "text": "Website development in Qatar can start from QAR 750 for a focused landing page, QAR 1,500-4,500 for a professional business website, and QAR 4,500-9,500 for e-commerce. Custom web apps typically start from QAR 9,500+ depending on integrations and workflows."
                   }
                 },
                 {
@@ -281,7 +281,7 @@ export default function RootLayout({
                   "name": "Does One Smart Biz provide financial services for Qatar companies?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes. We offer audit preparation, financial statement generation, bookkeeping, tax filing assistance, and financial automation — all compliant with Qatar's MOCI, QFC, and QCB regulatory requirements."
+                    "text": "Yes. We offer audit preparation, financial statement generation, bookkeeping, tax filing assistance, and financial automation - all compliant with Qatar's MOCI, QFC, and QCB regulatory requirements."
                   }
                 },
                 {
@@ -290,6 +290,22 @@ export default function RootLayout({
                   "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "Yes. We build custom financial automation including automated invoicing, expense tracking, recurring transaction engines, AP/AR management, and real-time dashboards that can reduce manual bookkeeping by up to 80%."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Do you provide visa assistance in Qatar?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. We support founders, employees, and business teams with visa readiness checklists, document review, coordination, renewal planning, and business mobility support."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Can you help with business formation and company setup?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. We help compare setup routes, organize documents, prepare licensing checklists, coordinate company formation steps, and connect setup with visa, finance, website, and launch priorities."
                   }
                 },
                 {
@@ -313,7 +329,7 @@ export default function RootLayout({
                   "name": "What are your payment terms?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "We require a 30–50% deposit before project commencement. Progress payments are tied to milestones, and the final balance is due upon delivery. All payments are in QAR with optional USD and PHP conversions."
+                    "text": "We require a 30-50% deposit before project commencement. Progress payments are tied to milestones, and the final balance is due upon delivery. All payments are in QAR with optional USD and PHP conversions."
                   }
                 }
               ]

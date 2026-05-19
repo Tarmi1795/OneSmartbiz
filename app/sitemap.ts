@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { serviceCatalog } from "@/lib/services";
 
 // This is the registry of blog posts we've built
 // Ideally, this shared data would be in a separate file, 
@@ -47,5 +48,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...corePages, ...blogPages];
+  const servicePages = serviceCatalog.map((service) => ({
+    url: `${baseUrl}${service.href}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
+  return [...corePages, ...servicePages, ...blogPages];
 }

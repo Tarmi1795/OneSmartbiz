@@ -1,15 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-
-const services = [
-  "Web Development",
-  "Multimedia Production",
-  "Financial Systems",
-  "Full-Stack Solutions",
-  "Consulting",
-];
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { contactServiceOptions } from "@/lib/services";
 
 const contactInfo = [
   {
@@ -37,7 +30,7 @@ const contactInfo = [
   },
   {
     label: "LOCATION",
-    value: "Remote • Worldwide",
+    value: "Remote / Worldwide",
     href: null,
     color: "#00d4ff",
     icon: (
@@ -52,6 +45,18 @@ const contactInfo = [
 export default function Contact() {
   const [form, setForm] = useState({ name: "", service: "", message: "" });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
+  useEffect(() => {
+    const requestedService = new URLSearchParams(window.location.search).get("service");
+
+    if (requestedService && contactServiceOptions.includes(requestedService)) {
+      const frame = window.requestAnimationFrame(() => {
+        setForm((prev) => ({ ...prev, service: requestedService }));
+      });
+
+      return () => window.cancelAnimationFrame(frame);
+    }
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -174,7 +179,7 @@ Message: ${form.message}`;
                 <div className="font-mono text-sm text-[#888]">Thank you! Our experts will get back to you soon.</div>
                 <button onClick={() => { setStatus("idle"); setForm({ name: "", service: "", message: "" }); }}
                   className="mt-6 font-mono text-xs text-[#444] hover:text-[#00ff88] transition-colors tracking-widest">
-                  SEND ANOTHER →
+                  SEND ANOTHER -&gt;
                 </button>
               </div>
             ) : (
@@ -227,7 +232,7 @@ Message: ${form.message}`;
                       className="flex-1 bg-transparent py-4 pr-10 font-mono text-xs text-white outline-none appearance-none cursor-pointer uppercase tracking-widest"
                       style={{ color: form.service ? "white" : "rgba(255,255,255,0.1)" }}>
                       <option value="" disabled style={{ background: "#0a0a0a" }}>CHOOSE SERVICE PROTOCOL...</option>
-                      {services.map((s) => (
+                      {contactServiceOptions.map((s) => (
                         <option key={s} value={s} style={{ background: "#0a0a0a", color: "white" }}>{s.toUpperCase()}</option>
                       ))}
                     </select>
@@ -262,7 +267,7 @@ Message: ${form.message}`;
                       SENDING...
                     </span>
                   ) : (
-                    "SEND MESSAGE →"
+                    "SEND MESSAGE ->"
                   )}
                 </button>
 

@@ -1,14 +1,15 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, type MouseEvent } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { serviceNavItems } from "@/lib/services";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Services", href: "#services" },
+  { label: "Services", href: "/services" },
   { label: "Business Advisor", href: "#neural" },
   { label: "Projects", href: "#portfolio" },
   { label: "About", href: "#about" },
@@ -16,34 +17,6 @@ const navLinks = [
   { label: "FAQ", href: "/faq" },
   { label: "Testimonials", href: "#testimonials" },
   { label: "Pricing", href: "/calculator" },
-];
-
-const serviceLinks = [
-  {
-    label: "Web & App Development",
-    href: "/services/web-development",
-    description: "Sites, apps, and digital platforms",
-  },
-  {
-    label: "Multimedia & VFX",
-    href: "/services/multimedia-vfx",
-    description: "Video, motion, and visual storytelling",
-  },
-  {
-    label: "Financial Services",
-    href: "/services/financial-services",
-    description: "Audit, bookkeeping, tax, and automation",
-  },
-  {
-    label: "VISA Assistance",
-    href: "/#services",
-    description: "Documentation and mobility support",
-  },
-  {
-    label: "Business Formation",
-    href: "/#services",
-    description: "Company setup, licensing, and launch guidance",
-  },
 ];
 
 export default function Nav() {
@@ -58,7 +31,7 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
     setMobileOpen(false);
     
     if (href === "/") {
@@ -176,15 +149,14 @@ export default function Nav() {
                     >
                       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#00ff88] to-transparent opacity-70" />
                       <a
-                        href="#services"
-                        onClick={(e) => handleNavClick(e, "#services")}
+                        href="/services"
                         className="mb-1 flex items-center justify-between border-b border-white/5 px-4 py-3 text-[10px] uppercase tracking-[0.25em] text-[#00ff88] transition-colors hover:text-white"
                         style={{ fontFamily: "var(--font-mono), monospace" }}
                       >
                         <span>All Services</span>
                         <span className="h-px w-8 bg-[#00ff88]/70" />
                       </a>
-                      {serviceLinks.map((service) => (
+                      {serviceNavItems.map((service) => (
                         <Link
                           key={service.label}
                           href={service.href}
@@ -216,7 +188,7 @@ export default function Nav() {
               >
                 <Tag
                   href={link.href}
-                  onClick={(e: any) => isHash && handleNavClick(e, link.href)}
+                  onClick={(e: MouseEvent<HTMLAnchorElement>) => isHash && handleNavClick(e, link.href)}
                   className="relative text-[10px] uppercase tracking-[0.25em] text-gray-400 hover:text-[#00ff88] transition-colors duration-300 group px-2 py-1 flex items-center"
                   style={{ fontFamily: "var(--font-mono), monospace" }}
                 >
@@ -307,7 +279,7 @@ export default function Nav() {
                       </a>
 
                       <div className="ml-4 mt-1 flex flex-col border-l border-[#00ff88]/20 pl-4">
-                        {serviceLinks.map((service) => (
+                        {serviceNavItems.map((service) => (
                           <Link
                             key={service.label}
                             href={service.href}

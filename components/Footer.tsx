@@ -1,22 +1,16 @@
 "use client";
 
+import { serviceNavItems } from "@/lib/services";
+
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Services", href: "/#services" },
+  { label: "Services", href: "/services" },
   { label: "Business Advisor", href: "/#neural" },
   { label: "Projects", href: "/#portfolio" },
   { label: "About", href: "/#about" },
   { label: "Blog", href: "/blog" },
   { label: "Testimonials", href: "/#testimonials" },
   { label: "Pricing", href: "/calculator" },
-];
-
-const services = [
-  "Web Development",
-  "Multimedia Production",
-  "Financial Systems",
-  "Full-Stack Solutions",
-  "Business Consulting",
 ];
 
 const socialLinks = [
@@ -85,7 +79,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="font-mono text-xs text-[#555] leading-relaxed mb-6" style={{ fontFamily: "var(--font-sans), sans-serif" }}>
-              Transforming businesses through intelligent digital solutions. Web development, multimedia, and financial systems.
+              Transforming businesses through digital platforms, multimedia, finance, visa support, and company setup.
             </p>
             <div className="flex items-center gap-3">
               {socialLinks.map((s) => (
@@ -127,7 +121,7 @@ export default function Footer() {
                   <a
                     href={link.href}
                     className="font-mono text-xs text-[#555] hover:text-[#00ff88] transition-colors flex items-center gap-2 group">
-                    <span className="text-[#333] group-hover:text-[#00ff88] transition-colors">›</span>
+                    <span className="text-[#333] group-hover:text-[#00ff88] transition-colors">&gt;</span>
                     {link.label.toUpperCase()}
                   </a>
                 </li>
@@ -142,13 +136,13 @@ export default function Footer() {
               SERVICES
             </div>
             <ul className="flex flex-col gap-2">
-              {services.map((s) => (
-                <li key={s}>
+              {serviceNavItems.map((s) => (
+                <li key={s.label}>
                   <a
-                    href="#services"
+                    href={s.href}
                     className="font-mono text-xs text-[#555] hover:text-[#ff00ff] transition-colors flex items-center gap-2 group">
-                    <span className="text-[#333] group-hover:text-[#ff00ff] transition-colors">›</span>
-                    {s.toUpperCase()}
+                    <span className="text-[#333] group-hover:text-[#ff00ff] transition-colors">&gt;</span>
+                    {s.label.toUpperCase()}
                   </a>
                 </li>
               ))}
@@ -190,7 +184,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="font-mono text-xs text-[#333]">
-            © {year} ONE SMART BIZ. ALL SYSTEMS OPERATIONAL.
+            &copy; {year} ONE SMART BIZ. ALL SYSTEMS OPERATIONAL.
           </div>
           <div className="flex items-center gap-6">
             <a href="/privacy-policy" className="font-mono text-xs text-[#555] hover:text-[#00ff88] transition-colors">Privacy Policy</a>

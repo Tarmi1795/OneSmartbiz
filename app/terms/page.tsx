@@ -15,7 +15,7 @@ export default function TermsPage() {
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <div className="mb-12">
             <Link href="/" className="text-xs text-[#00ff88] hover:underline mb-4 inline-block" style={{ fontFamily: "var(--font-sans), sans-serif" }}>
-              ← Back to Home
+              Back to Home
             </Link>
             <h1 className="text-3xl md:text-4xl font-bold text-white uppercase tracking-wide mt-2" style={{ fontFamily: "var(--font-heading), sans-serif" }}>
               Terms & Conditions
@@ -35,11 +35,13 @@ export default function TermsPage() {
 
             <section>
               <h2 className="text-xl font-semibold text-[#00ff88] mb-4" style={{ fontFamily: "var(--font-heading), sans-serif" }}>2. Services Overview</h2>
-              <p className="text-[#a0a0a0] leading-relaxed mb-3">One SmartBiz provides the following digital services:</p>
+              <p className="text-[#a0a0a0] leading-relaxed mb-3">One SmartBiz provides the following business and digital services:</p>
               <ul className="list-disc list-inside text-[#a0a0a0] leading-relaxed space-y-2 ml-2">
                 <li><strong className="text-white">Web & App Development:</strong> Custom websites, web applications, and mobile app development</li>
                 <li><strong className="text-white">Multimedia & VFX:</strong> Video production, motion graphics, and visual effects</li>
                 <li><strong className="text-white">Financial Services:</strong> Audit, bookkeeping, tax filing, and financial consulting</li>
+                <li><strong className="text-white">VISA Assistance:</strong> Visa readiness, document review, coordination, and renewal support</li>
+                <li><strong className="text-white">Business Formation:</strong> Company setup guidance, licensing support, and launch planning</li>
                 <li><strong className="text-white">Business Consulting:</strong> Strategic digital advisory and AI-powered business analysis</li>
               </ul>
             </section>
@@ -74,7 +76,7 @@ export default function TermsPage() {
               <h2 className="text-xl font-semibold text-[#00ff88] mb-4" style={{ fontFamily: "var(--font-heading), sans-serif" }}>5. Payment Terms</h2>
               <p className="text-[#a0a0a0] leading-relaxed mb-3">Unless otherwise specified in a service agreement:</p>
               <ul className="list-disc list-inside text-[#a0a0a0] leading-relaxed space-y-2 ml-2">
-                <li>A deposit of 30–50% is required before project commencement</li>
+                <li>A deposit of 30-50% is required before project commencement</li>
                 <li>Progress payments are tied to agreed milestones</li>
                 <li>Final payment is due upon project delivery and acceptance</li>
                 <li>Late payments may incur additional charges</li>

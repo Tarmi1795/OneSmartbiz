@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion"; // Changed to framer-motion due to nextjs
 import {
   CommandFreeIcons,
@@ -23,6 +24,7 @@ const FEATURES = [
     label: "Web Development",
     icon: CommandFreeIcons,
     image: "https://iili.io/BxFPDzb.md.jpg",
+    href: "/services/web-development",
     description: "Cutting-edge websites built with React, Next.js and more .",
   },
   {
@@ -30,6 +32,7 @@ const FEATURES = [
     label: "Mobile Native Apps",
     icon: SmartPhone01Icon,
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1200",
+    href: "/services/web-development",
     description: "A world-class experience on every single device.",
   },
   {
@@ -37,6 +40,7 @@ const FEATURES = [
     label: "Social Media Management",
     icon: GlobalSearchIcon,
     image: "https://iili.io/BxKOKZP.jpg",
+    href: "/services/multimedia-vfx",
     description: "Cinematic motion graphics and visual storytelling.",
   },
   {
@@ -44,20 +48,23 @@ const FEATURES = [
     label: "Financial and Auditing Services",
     icon: DashboardSquare01Icon,
     image: "https://iili.io/BxFF4VV.jpg",
+    href: "/services/financial-services",
     description: "Accurate auditing and bookkeeping in real-time.",
   },
   {
     id: "visa-assistance",
     label: "Visa Assistance",
     icon: DocumentValidationIcon,
-    image: "/services/visa-assistance.png",
+    image: "/services/visa-assistance.webp",
+    href: "/services/visa-assistance",
     description: "End-to-end Qatar visa support for founders, teams, and business mobility.",
   },
   {
     id: "business-formation",
     label: "Business Formation",
     icon: Building04Icon,
-    image: "/services/business-formation.png",
+    image: "/services/business-formation.webp",
+    href: "/services/business-formation",
     description: "Company setup, licensing, documentation, and launch guidance for Qatar businesses.",
   },
   {
@@ -65,6 +72,7 @@ const FEATURES = [
     label: "AI Business Integrations ",
     icon: AiCloudIcon,
     image: "https://iili.io/BxdoSP2.jpg",
+    href: "/#contact",
     description: "Transforming insights with generative models.",
   },
   {
@@ -72,12 +80,12 @@ const FEATURES = [
     label: "Brand Identity",
     icon: MagicWandIcon,
     image: "https://iili.io/Bx3XhJI.jpg",
+    href: "/#contact",
     description: "Designing memorable digital footprints.",
   },
 ];
 
 const AUTO_PLAY_INTERVAL = 3000;
-const ITEM_HEIGHT = 65;
 
 const wrap = (min: number, max: number, v: number) => {
   const rangeSize = max - min;
@@ -284,6 +292,14 @@ export default function FeatureCarousel() {
                         <p className="text-[#e0e0e0] font-medium text-lg md:text-xl leading-relaxed tracking-wide" style={{ fontFamily: "var(--font-sans), sans-serif" }}>
                           {feature.description}
                         </p>
+                        <Link
+                          href={feature.href}
+                          onClick={(event) => event.stopPropagation()}
+                          className="mt-5 pointer-events-auto w-fit border border-[#00ff88]/40 bg-[#00ff88]/10 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.22em] text-[#00ff88] transition-all hover:bg-[#00ff88]/20"
+                          style={{ fontFamily: "var(--font-sharetech), monospace" }}
+                        >
+                          View Service
+                        </Link>
                       </motion.div>
                     )}
                   </AnimatePresence>

@@ -11,6 +11,7 @@ const faqCategories = [
   { id: "web", label: "Web & App" },
   { id: "media", label: "Multimedia" },
   { id: "finance", label: "Finance" },
+  { id: "setup", label: "Visa & Setup" },
   { id: "general", label: "General" },
 ];
 
@@ -19,31 +20,31 @@ const faqs = [
     category: "general",
     question: "What digital services does One Smart Biz offer in Qatar?",
     answer:
-      "We provide three core verticals: Web & App Development (React, Next.js, React Native), Multimedia & VFX Production (video, motion graphics, 3D animation), and Financial Services (audit, bookkeeping, tax filing, automation). All services are tailored specifically for Qatar's business and regulatory landscape.",
+      "We provide five core service areas: Web & App Development, Multimedia & VFX Production, Financial Services, VISA Assistance, and Business Formation. All services are tailored specifically for Qatar's business and regulatory landscape.",
   },
   {
     category: "general",
     question: "What makes One Smart Biz different from other digital agencies in Qatar?",
     answer:
-      "We combine engineering, creative, and financial services under one roof — eliminating the need for multiple vendors. Our projects deliver sub-1.2s load times, 98/100 SEO scores, and we've completed 150+ projects with a 98% client satisfaction rate. We also offer proprietary AI-powered business analysis tools that no other agency in the GCC provides.",
+      "We combine engineering, creative, financial, visa, and company setup services under one roof - eliminating the need for multiple vendors. Our projects deliver sub-1.2s load times, 98/100 SEO scores, and we've completed 150+ projects with a 98% client satisfaction rate. We also offer proprietary AI-powered business analysis tools that no other agency in the GCC provides.",
   },
   {
     category: "general",
     question: "Do you work with businesses outside of Qatar?",
     answer:
-      "Yes. While we are headquartered in Doha, Qatar, we serve clients across the entire GCC region — Saudi Arabia, UAE, Bahrain, Kuwait, and Oman — as well as international clients. All project coordination is handled digitally with structured milestone check-ins.",
+      "Yes. While we are headquartered in Doha, Qatar, we serve clients across the entire GCC region - Saudi Arabia, UAE, Bahrain, Kuwait, and Oman - as well as international clients. All project coordination is handled digitally with structured milestone check-ins.",
   },
   {
     category: "web",
     question: "How much does website development cost in Qatar?",
     answer:
-      "Website development in Qatar ranges from QAR 5,000 for a basic business site to QAR 50,000+ for custom e-commerce or enterprise platforms. The exact cost depends on complexity, number of pages, custom features, and integrations. Use our online pricing calculator at onesmartbiz.pro/calculator for an instant estimate.",
+      "Website development in Qatar can start from QAR 750 for a focused landing page, QAR 1,500-4,500 for a professional business website, and QAR 4,500-9,500 for e-commerce. Custom web apps with dashboards, APIs, or advanced workflows typically start from QAR 9,500+. The exact cost depends on pages, content, integrations, and launch requirements.",
   },
   {
     category: "web",
     question: "How long does it take to build a website?",
     answer:
-      "A standard business website takes 2–4 weeks. Custom web applications typically take 6–12 weeks depending on scope and complexity. We've delivered full React Native mobile apps in as little as 8 weeks. Every project begins with a discovery phase where we define exact timelines and milestones.",
+      "A standard business website takes 2-4 weeks. Custom web applications typically take 6-12 weeks depending on scope and complexity. We've delivered full React Native mobile apps in as little as 8 weeks. Every project begins with a discovery phase where we define exact timelines and milestones.",
   },
   {
     category: "web",
@@ -61,7 +62,7 @@ const faqs = [
     category: "web",
     question: "Can you redesign my existing website?",
     answer:
-      "Absolutely. We regularly perform full redesigns and migrations — whether you're on WordPress, Wix, Squarespace, or a legacy system. We handle content migration, SEO preservation, and deploy on a modern stack that dramatically improves performance and user experience.",
+      "Absolutely. We regularly perform full redesigns and migrations - whether you're on WordPress, Wix, Squarespace, or a legacy system. We handle content migration, SEO preservation, and deploy on a modern stack that dramatically improves performance and user experience.",
   },
   {
     category: "media",
@@ -79,13 +80,13 @@ const faqs = [
     category: "media",
     question: "Can you create content for social media marketing?",
     answer:
-      "Yes. We produce scroll-stopping content optimized for every major platform — Instagram Reels, TikTok, YouTube Shorts, and LinkedIn Video. We handle scripting, filming, editing, motion graphics, and can work with your marketing team on content calendars.",
+      "Yes. We produce scroll-stopping content optimized for every major platform - Instagram Reels, TikTok, YouTube Shorts, and LinkedIn Video. We handle scripting, filming, editing, motion graphics, and can work with your marketing team on content calendars.",
   },
   {
     category: "finance",
     question: "Does One Smart Biz provide financial services for Qatar companies?",
     answer:
-      "Yes. We offer comprehensive financial services including audit preparation, financial statement generation, bookkeeping, tax filing assistance, and financial automation — all compliant with Qatar's MOCI, QFC, and QCB regulatory requirements.",
+      "Yes. We offer comprehensive financial services including audit preparation, financial statement generation, bookkeeping, tax filing assistance, and financial automation - all compliant with Qatar's MOCI, QFC, and QCB regulatory requirements.",
   },
   {
     category: "finance",
@@ -100,6 +101,18 @@ const faqs = [
       "Our AI Business Advisor is a proprietary tool powered by Google Gemini that provides automated business analysis, market insights, and strategic recommendations based on the data you input. It's available for free on our website. Please note that results are for informational purposes only and should not replace professional financial advice.",
   },
   {
+    category: "setup",
+    question: "Do you provide visa assistance in Qatar?",
+    answer:
+      "Yes. We support founders, employees, and business teams with visa readiness checklists, document review, application coordination, renewal planning, and business mobility support. We cannot guarantee government approval, but we help reduce avoidable delays by making the file complete and organized.",
+  },
+  {
+    category: "setup",
+    question: "Can you help with business formation and company setup?",
+    answer:
+      "Yes. We help compare setup routes, organize documents, prepare licensing checklists, coordinate company formation steps, and connect setup with visa, finance, website, and launch priorities.",
+  },
+  {
     category: "general",
     question: "How do I get started with a project?",
     answer:
@@ -109,7 +122,7 @@ const faqs = [
     category: "general",
     question: "What are your payment terms?",
     answer:
-      "We typically require a 30–50% deposit before project commencement. Progress payments are tied to agreed milestones, and the final balance is due upon project delivery and acceptance. All payments are in QAR (Qatari Riyal) with optional USD and PHP conversions available.",
+      "We typically require a 30-50% deposit before project commencement. Progress payments are tied to agreed milestones, and the final balance is due upon project delivery and acceptance. All payments are in QAR (Qatari Riyal) with optional USD and PHP conversions available.",
   },
 ];
 
@@ -237,7 +250,7 @@ export default function FAQPage() {
               className="text-xs text-[#00ff88] hover:underline mb-4 inline-block"
               style={{ fontFamily: "var(--font-sans), sans-serif" }}
             >
-              ← Back to Home
+              Back to Home
             </Link>
 
             <div className="flex items-center gap-3 mt-2 mb-3">
