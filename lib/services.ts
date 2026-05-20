@@ -72,7 +72,7 @@ export const serviceCatalog: ServiceData[] = [
       "We design and build fast, scalable digital products for Qatar and GCC businesses: marketing sites, booking platforms, e-commerce, dashboards, and mobile apps with a clear path from launch to growth.",
     outcome:
       "Launch a polished digital platform that feels premium on day one and is structured to scale with your operations.",
-    image: "/projects/studiox.png",
+    image: "/services/web-app-development-osb.webp",
     accent: "#00ff88",
     secondaryAccent: "#00d4ff",
     metadata: {
@@ -195,7 +195,7 @@ export const serviceCatalog: ServiceData[] = [
       "We create brand films, reels, product videos, motion graphics, and VFX-led stories that make complex offers memorable and help premium brands stand out across GCC digital channels.",
     outcome:
       "Turn your message into campaign-ready assets that look premium, explain quickly, and travel across platforms.",
-    image: "/projects/artefakt.png",
+    image: "/services/multimedia-vfx-osb.jpeg",
     accent: "#ff00ff",
     secondaryAccent: "#00d4ff",
     metadata: {
@@ -320,7 +320,7 @@ export const serviceCatalog: ServiceData[] = [
       "We manage social presence with a business-first content system: platform strategy, content calendars, branded posts, reels, community touchpoints, paid campaign coordination, and performance reporting.",
     outcome:
       "Build a consistent social presence that looks premium, speaks clearly, and turns attention into real inquiries.",
-    image: "/projects/nomadeats.png",
+    image: "/services/social-media-management-osb.webp",
     accent: "#ff00ff",
     secondaryAccent: "#00ff88",
     metadata: {
@@ -438,7 +438,7 @@ export const serviceCatalog: ServiceData[] = [
       "We design practical AI and automation systems for growing teams: lead intake, reporting workflows, internal assistants, CRM handoffs, document processes, dashboards, and API integrations.",
     outcome:
       "Reduce admin load, speed up response times, and give your team smarter systems without adding unnecessary complexity.",
-    image: "/projects/falcon.png",
+    image: "/services/ai-automation-osb.webp",
     accent: "#00d4ff",
     secondaryAccent: "#ff00ff",
     metadata: {
@@ -556,7 +556,7 @@ export const serviceCatalog: ServiceData[] = [
       "We combine accounting discipline with automation thinking: audit preparation, financial statements, bookkeeping, tax filing support, reporting dashboards, and finance workflow improvement.",
     outcome:
       "Run cleaner books, reduce manual work, and make decisions from reliable financial information.",
-    image: "/projects/qipco.png",
+    image: "/services/financial-services-osb.webp",
     accent: "#00d4ff",
     secondaryAccent: "#00ff88",
     metadata: {

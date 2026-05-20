@@ -40,7 +40,7 @@ const FEATURES = [
     id: "multimedia-vfx",
     label: "Multimedia & VFX",
     icon: MagicWandIcon,
-    image: "/projects/artefakt.png",
+    image: "/services/multimedia-vfx-osb.jpeg",
     href: "/services/multimedia-vfx",
     description: "Video production, motion graphics, and premium visual storytelling.",
   },
