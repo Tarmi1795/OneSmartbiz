@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion"; // Changed to framer-motion due to nextjs
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import {
   CommandFreeIcons,
   GlobalSearchIcon,
@@ -36,12 +37,20 @@ const FEATURES = [
     description: "A world-class experience on every single device.",
   },
   {
-    id: "vfx",
+    id: "multimedia-vfx",
+    label: "Multimedia & VFX",
+    icon: MagicWandIcon,
+    image: "/projects/artefakt.png",
+    href: "/services/multimedia-vfx",
+    description: "Video production, motion graphics, and premium visual storytelling.",
+  },
+  {
+    id: "social-media",
     label: "Social Media Management",
     icon: GlobalSearchIcon,
     image: "https://iili.io/BxKOKZP.jpg",
-    href: "/services/multimedia-vfx",
-    description: "Cinematic motion graphics and visual storytelling.",
+    href: "/services/social-media-management",
+    description: "Content calendars, reels, and lead-focused social growth.",
   },
   {
     id: "financial",
@@ -69,11 +78,11 @@ const FEATURES = [
   },
   {
     id: "ai-systems",
-    label: "AI Business Integrations ",
+    label: "AI & Automation Services",
     icon: AiCloudIcon,
     image: "https://iili.io/BxdoSP2.jpg",
-    href: "/#contact",
-    description: "Transforming insights with generative models.",
+    href: "/services/ai-automation",
+    description: "AI assistants, workflow automation, and smarter operations.",
   },
   {
     id: "branding",
@@ -92,12 +101,23 @@ const wrap = (min: number, max: number, v: number) => {
   return ((((v - min) % rangeSize) + rangeSize) % rangeSize) + min;
 };
 
-export default function FeatureCarousel() {
+type FeatureCarouselProps = {
+  variant?: "section" | "hero";
+  className?: string;
+};
+
+export default function FeatureCarousel({
+  variant = "section",
+  className,
+}: FeatureCarouselProps) {
   const [step, setStep] = useState(0);
   const [itemHeight, setItemHeight] = useState(65);
   const [isMobile, setIsMobile] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const heroMenuScrollerRef = React.useRef<HTMLDivElement | null>(null);
+  const heroMenuRefs = React.useRef<(HTMLButtonElement | null)[]>([]);
+  const isHero = variant === "hero";
 
   useEffect(() => {
     const handleResize = () => {
@@ -112,6 +132,23 @@ export default function FeatureCarousel() {
   const currentIndex =
     ((step % FEATURES.length) + FEATURES.length) % FEATURES.length;
 
+  useEffect(() => {
+    if (!isHero) return;
+
+    const scroller = heroMenuScrollerRef.current;
+    const activeItem = heroMenuRefs.current[currentIndex];
+
+    if (!scroller || !activeItem) return;
+
+    const targetLeft =
+      activeItem.offsetLeft - scroller.clientWidth / 2 + activeItem.offsetWidth / 2;
+
+    scroller.scrollTo({
+      left: Math.max(0, targetLeft),
+      behavior: "smooth",
+    });
+  }, [currentIndex, isHero]);
+
   const nextStep = useCallback(() => {
     setStep((prev) => prev + 1);
   }, []);
@@ -121,8 +158,12 @@ export default function FeatureCarousel() {
   }, []);
 
   const handleChipClick = (index: number) => {
-    const diff = (index - currentIndex + FEATURES.length) % FEATURES.length;
-    if (diff > 0) setStep((s) => s + diff);
+    const forwardDiff = (index - currentIndex + FEATURES.length) % FEATURES.length;
+    const backwardDiff = forwardDiff - FEATURES.length;
+    const diff =
+      Math.abs(backwardDiff) < forwardDiff ? backwardDiff : forwardDiff;
+
+    if (diff !== 0) setStep((s) => s + diff);
   };
 
   useEffect(() => {
@@ -146,13 +187,38 @@ export default function FeatureCarousel() {
   };
 
   return (
-    <div className="w-full max-w-7xl mx-auto md:p-8">
-      <div className="relative overflow-hidden rounded-[2.5rem] lg:rounded-[4rem] flex flex-col lg:flex-row min-h-[600px] lg:aspect-video border border-[#2a2a3a]">
-        <div className="w-full lg:w-[40%] min-h-[450px] md:min-h-[450px] lg:h-full relative z-30 flex flex-col items-start justify-center overflow-hidden px-8 md:px-16 lg:pl-16 bg-[#0a0a0f] ">
+    <div
+      className={cn(
+        "w-full mx-auto",
+        isHero ? "max-w-full md:p-0" : "max-w-7xl md:p-8",
+        className
+      )}
+    >
+      <div
+        className={cn(
+          "relative overflow-hidden flex flex-col lg:flex-row border border-[#2a2a3a]",
+          isHero
+            ? "min-h-[540px] rounded-[1.75rem] shadow-[0_0_34px_rgba(0,255,136,0.08)]"
+            : "min-h-[600px] rounded-[2.5rem] lg:aspect-video lg:rounded-[4rem]"
+        )}
+      >
+        <div
+          className={cn(
+            "w-full relative z-30 flex flex-col items-start justify-center overflow-hidden bg-[#0a0a0f]",
+            isHero
+              ? "hidden"
+              : "min-h-[450px] px-8 md:min-h-[450px] md:px-16 lg:h-full lg:w-[40%] lg:pl-16"
+          )}
+        >
           <div className="absolute inset-x-0 top-0 h-12 md:h-20 lg:h-16 bg-gradient-to-b from-[#0a0a0f] via-[#0a0a0f]/80 to-transparent z-40" />
           <div className="absolute inset-x-0 bottom-0 h-12 md:h-20 lg:h-16 bg-gradient-to-t from-[#0a0a0f] via-[#0a0a0f]/80 to-transparent z-40" />
 
-          <div className="absolute top-10 right-10 flex flex-col gap-2 z-50">
+          <div
+            className={cn(
+              "absolute flex flex-col gap-2 z-50",
+              isHero ? "right-5 top-5" : "right-10 top-10"
+            )}
+          >
             <button
               onClick={prevStep}
               className="p-2 rounded-full border border-white/10 bg-white/5 hover:bg-[#00ff88]/20 hover:border-[#00ff88]/50 text-white/50 hover:text-[#00ff88] transition-all"
@@ -201,7 +267,10 @@ export default function FeatureCarousel() {
                     onMouseEnter={() => setIsPaused(true)}
                     onMouseLeave={() => setIsPaused(false)}
                     className={cn(
-                      "relative flex items-center gap-3 md:gap-4 px-4 md:px-10 lg:px-8 py-2 md:py-5 lg:py-4 rounded-full transition-all duration-700 text-left group border",
+                      "relative flex items-center rounded-full transition-all duration-700 text-left group border",
+                      isHero
+                        ? "gap-2 px-3 py-2 md:px-5 md:py-3 lg:px-3"
+                        : "gap-3 px-4 py-2 md:gap-4 md:px-10 md:py-5 lg:px-8 lg:py-4",
                       isActive
                         ? "bg-[#1c1c2e] text-[#00ff88] border-[#00ff88] z-10 shadow-[0_0_15px_#00ff8840]"
                         : "bg-transparent text-white/60 border-white/10 hover:border-[#00ff88]/50 hover:text-white"
@@ -220,7 +289,13 @@ export default function FeatureCarousel() {
                       />
                     </div>
  
-                    <span className="font-bold text-[10px] md:text-[15px] tracking-widest whitespace-nowrap uppercase" style={{ fontFamily: "var(--font-sharetech), monospace" }}>
+                    <span
+                      className={cn(
+                        "font-bold tracking-widest whitespace-nowrap uppercase",
+                        isHero ? "text-[9px] md:text-xs" : "text-[10px] md:text-[15px]"
+                      )}
+                      style={{ fontFamily: "var(--font-sharetech), monospace" }}
+                    >
                       {feature.label}
                     </span>
                   </button>
@@ -230,8 +305,90 @@ export default function FeatureCarousel() {
           </div>
         </div>
 
-        <div className="flex-1 min-h-[500px] md:min-h-[600px] lg:h-full relative bg-[#12121a] flex items-center justify-center py-16 md:py-24 lg:py-16 px-6 md:px-12 lg:px-10 overflow-hidden border-t lg:border-t-0 lg:border-l border-[#2a2a3a]">
-          <div className="relative w-full max-w-[500px] aspect-[4/5] flex items-center justify-center">
+        <div
+          className={cn(
+            "flex-1 relative bg-[#12121a] flex items-center justify-center overflow-hidden border-[#2a2a3a]",
+            isHero
+              ? "min-h-[600px] border-0 px-5 pb-8 pt-24 md:min-h-[640px] md:px-8 md:pt-24 lg:h-full lg:px-8"
+              : "min-h-[500px] border-t px-6 py-16 md:min-h-[600px] md:px-12 md:py-24 lg:h-full lg:border-l lg:border-t-0 lg:px-10 lg:py-16"
+          )}
+        >
+          {isHero && (
+            <div className="absolute inset-x-4 top-4 z-50 overflow-hidden rounded-2xl border border-white/10 bg-[#07070b]/86 p-2 shadow-[0_12px_35px_rgba(0,0,0,0.35)] backdrop-blur-xl">
+              <div
+                ref={heroMenuScrollerRef}
+                className="flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              >
+                {FEATURES.map((feature, index) => {
+                  const isActive = index === currentIndex;
+
+                  return (
+                    <button
+                      key={feature.id}
+                      ref={(node) => {
+                        heroMenuRefs.current[index] = node;
+                      }}
+                      type="button"
+                      onClick={() => handleChipClick(index)}
+                      onMouseEnter={() => setIsPaused(true)}
+                      onMouseLeave={() => setIsPaused(false)}
+                      className={cn(
+                        "group/menu flex shrink-0 items-center gap-2 rounded-full border px-3 py-2 text-left text-[9px] font-bold uppercase tracking-[0.18em] transition-all duration-300 md:px-4 md:text-[10px]",
+                        isActive
+                          ? "border-[#00ff88] bg-[#00ff88]/14 text-[#00ff88] shadow-[0_0_18px_rgba(0,255,136,0.18)]"
+                          : "border-white/10 bg-white/[0.03] text-white/48 hover:border-[#00ff88]/40 hover:text-white"
+                      )}
+                      style={{ fontFamily: "var(--font-sharetech), monospace" }}
+                      aria-label={`Show ${feature.label}`}
+                    >
+                      <HugeiconsIcon
+                        icon={feature.icon}
+                        size={14}
+                        strokeWidth={2}
+                        className={cn(
+                          "transition-colors",
+                          isActive ? "text-[#00ff88]" : "text-white/35 group-hover/menu:text-[#00ff88]"
+                        )}
+                      />
+                      <span>{feature.label}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {isHero && (
+            <>
+              <button
+                type="button"
+                onClick={prevStep}
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
+                className="absolute left-3 top-1/2 z-50 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-black/55 text-white/70 shadow-[0_12px_30px_rgba(0,0,0,0.35)] backdrop-blur-md transition-all hover:border-[#00ff88]/55 hover:bg-[#00ff88]/14 hover:text-[#00ff88] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00ff88] md:left-5 md:h-14 md:w-14"
+                aria-label="Previous service"
+              >
+                <ChevronLeft size={26} strokeWidth={2.4} aria-hidden="true" />
+              </button>
+              <button
+                type="button"
+                onClick={nextStep}
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
+                className="absolute right-3 top-1/2 z-50 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-black/55 text-white/70 shadow-[0_12px_30px_rgba(0,0,0,0.35)] backdrop-blur-md transition-all hover:border-[#00ff88]/55 hover:bg-[#00ff88]/14 hover:text-[#00ff88] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00ff88] md:right-5 md:h-14 md:w-14"
+                aria-label="Next service"
+              >
+                <ChevronRight size={26} strokeWidth={2.4} aria-hidden="true" />
+              </button>
+            </>
+          )}
+
+          <div
+            className={cn(
+              "relative w-full aspect-[4/5] flex items-center justify-center",
+              isHero ? "max-w-[430px] md:max-w-[490px]" : "max-w-[500px]"
+            )}
+          >
             {FEATURES.map((feature, index) => {
               const status = getCardStatus(index);
               const isActive = status === "active";
@@ -282,14 +439,23 @@ export default function FeatureCarousel() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
-                        className="absolute inset-x-0 bottom-0 p-10 pt-32 bg-gradient-to-t from-black/90 via-black/60 to-transparent flex flex-col justify-end pointer-events-none"
+                        className={cn(
+                          "absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent flex flex-col justify-end pointer-events-none",
+                          isHero ? "p-6 pt-24" : "p-10 pt-32"
+                        )}
                       >
                         <div className="bg-[#1c1c2e] text-[#00ff88] border border-[#00ff88]/30 px-4 py-1.5 rounded-sm text-[11px] font-bold uppercase tracking-[0.2em] w-fit shadow-[0_0_10px_#00ff8820] mb-4 flex items-center gap-2" style={{ fontFamily: "var(--font-sharetech), monospace" }}>
                           0{index + 1}
                           <span className="w-3 h-px bg-[#00ff88]"></span>
                           {feature.label}
                         </div>
-                        <p className="text-[#e0e0e0] font-medium text-lg md:text-xl leading-relaxed tracking-wide" style={{ fontFamily: "var(--font-sans), sans-serif" }}>
+                        <p
+                          className={cn(
+                            "text-[#e0e0e0] font-medium leading-relaxed tracking-wide",
+                            isHero ? "text-sm md:text-base" : "text-lg md:text-xl"
+                          )}
+                          style={{ fontFamily: "var(--font-sans), sans-serif" }}
+                        >
                           {feature.description}
                         </p>
                         <Link
@@ -307,7 +473,7 @@ export default function FeatureCarousel() {
                   <div
                     className={cn(
                       "absolute top-8 left-8 flex items-center gap-3 transition-opacity duration-300 bg-black/60 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-md",
-                      isActive ? "opacity-100" : "opacity-0"
+                      isHero ? "hidden" : isActive ? "opacity-100" : "opacity-0"
                     )}
                   >
                     <div className="w-2 h-2 rounded-full bg-[#00ff88] shadow-[0_0_10px_#00ff88]" />
@@ -320,7 +486,11 @@ export default function FeatureCarousel() {
                   <div
                     className={cn(
                       "absolute top-8 right-8 w-10 h-10 flex items-center justify-center transition-all duration-300 bg-black/60 rounded-full border border-white/10 backdrop-blur-md text-[#00ff88]",
-                      isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[-10px]"
+                      isHero
+                        ? "hidden"
+                        : isActive
+                          ? "opacity-100 translate-y-0"
+                          : "opacity-0 translate-y-[-10px]"
                     )}
                   >
                     <svg

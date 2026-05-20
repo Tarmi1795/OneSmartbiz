@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
+import FeatureCarousel from "@/components/ui/feature-carousel";
 
 const Antigravity = dynamic(() => import("@/components/Antigravity"), { ssr: false });
 
@@ -28,12 +29,14 @@ export default function Hero() {
 
   return (
     <section
-      className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-16"
+      id="home"
+      className="relative flex min-h-screen flex-col justify-center overflow-hidden pt-16"
       style={{
-        background: "radial-gradient(ellipse 80% 50% at 60% 50%, rgba(0,255,136,0.04) 0%, transparent 70%), radial-gradient(ellipse 50% 60% at 90% 20%, rgba(0,212,255,0.03) 0%, transparent 60%), #0a0a0f",
+        background:
+          "radial-gradient(ellipse 80% 50% at 60% 50%, rgba(0,255,136,0.04) 0%, transparent 70%), radial-gradient(ellipse 50% 60% at 90% 20%, rgba(0,212,255,0.03) 0%, transparent 60%), #0a0a0f",
       }}
     >
-      <div className="absolute inset-0 z-0" style={{ width: '100%', height: '100%' }}>
+      <div className="absolute inset-0 z-0" style={{ width: "100%", height: "100%" }}>
         <Antigravity
           count={300}
           magnetRadius={6}
@@ -54,27 +57,26 @@ export default function Hero() {
       </div>
       <div className="cyber-grid-bg absolute inset-0 z-1 pointer-events-none opacity-40" />
 
-      <div className="absolute top-20 right-0 w-px h-64 bg-gradient-to-b from-transparent via-[#00ff8830] to-transparent hidden lg:block" />
-      <div className="absolute top-32 left-0 w-px h-48 bg-gradient-to-b from-transparent via-[#00d4ff20] to-transparent hidden lg:block" />
+      <div className="absolute right-0 top-20 hidden h-64 w-px bg-gradient-to-b from-transparent via-[#00ff8830] to-transparent lg:block" />
+      <div className="absolute left-0 top-32 hidden h-48 w-px bg-gradient-to-b from-transparent via-[#00d4ff20] to-transparent lg:block" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full py-20 lg:py-0">
-        <div className="grid lg:grid-cols-5 gap-12 lg:gap-8 items-center">
-
-          <div className="lg:col-span-3 space-y-8">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-20 lg:px-8 lg:py-10">
+        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(430px,0.78fr)] lg:gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(500px,0.85fr)]">
+          <div className="space-y-8">
             <div className="space-y-2">
               <div
                 className="flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-[#6b7280]"
                 style={{ fontFamily: "var(--font-sharetech), monospace" }}
               >
-                <span className="w-8 h-px bg-[#00ff88] shadow-[0_0_4px_#00ff88]" />
+                <span className="h-px w-8 bg-[#00ff88] shadow-[0_0_4px_#00ff88]" />
                 <span className="text-[#00ff88]">Doha, Qatar</span>
-                <span className="w-2 h-2 rounded-full bg-[#00ff88] shadow-[0_0_6px_#00ff88] animate-pulse" />
+                <span className="h-2 w-2 animate-pulse rounded-full bg-[#00ff88] shadow-[0_0_6px_#00ff88]" />
                 <span>Available Now</span>
               </div>
 
               <div className="relative">
                 <h1
-                  className="text-5xl md:text-7xl lg:text-8xl font-black uppercase leading-none tracking-tight cyber-glitch"
+                  className="cyber-glitch text-5xl font-black uppercase leading-none tracking-tight md:text-7xl lg:text-8xl"
                   data-text="PREMIUM"
                   style={{ fontFamily: "var(--font-orbitron), monospace" }}
                 >
@@ -86,25 +88,32 @@ export default function Hero() {
             </div>
 
             <div
-              className="relative border-l-2 border-[#00ff88] pl-6 max-w-xl"
+              className="relative max-w-xl border-l-2 border-[#00ff88] pl-6"
               style={{ boxShadow: "-3px 0 8px #00ff8830" }}
             >
               <p
-                className="text-sm md:text-base text-[#6b7280] leading-relaxed tracking-wide"
+                className="text-sm leading-relaxed tracking-wide text-[#6b7280] md:text-base"
                 style={{ fontFamily: "var(--font-sans), sans-serif" }}
               >
                 <span className="text-[#00ff88]">{`>`} </span>
-                Leading Strategic Digital Agency in Doha, Qatar. We empower modern enterprises through high-performance web engineering, award-winning multimedia production, and data-driven brand transformation. Our objective is your business growth across the GCC market.
-                <span ref={cursorRef} className="inline-block w-2 h-4 bg-[#00ff88] ml-1 align-middle" />
+                Leading Strategic Digital Agency in Doha, Qatar. We empower
+                modern enterprises through high-performance web engineering,
+                award-winning multimedia production, social media growth, AI
+                automation, and data-driven brand transformation.
+                <span
+                  ref={cursorRef}
+                  className="ml-1 inline-block h-4 w-2 align-middle bg-[#00ff88]"
+                />
               </p>
             </div>
 
             <div className="flex flex-wrap gap-4">
               <a
                 href="#services"
-                className="group relative text-sm uppercase tracking-[0.2em] font-bold px-8 py-4 text-[#0a0a0f] bg-[#00ff88] transition-all duration-150 hover:brightness-110"
+                className="group relative px-8 py-4 text-sm font-bold uppercase tracking-[0.2em] text-[#0a0a0f] bg-[#00ff88] transition-all duration-150 hover:brightness-110"
                 style={{
-                  clipPath: "polygon(0 8px,8px 0,calc(100% - 8px) 0,100% 8px,100% calc(100% - 8px),calc(100% - 8px) 100%,8px 100%,0 calc(100% - 8px))",
+                  clipPath:
+                    "polygon(0 8px,8px 0,calc(100% - 8px) 0,100% 8px,100% calc(100% - 8px),calc(100% - 8px) 100%,8px 100%,0 calc(100% - 8px))",
                   boxShadow: "0 0 10px #00ff88, 0 0 25px #00ff8840",
                   fontFamily: "var(--font-sharetech), monospace",
                 }}
@@ -113,9 +122,10 @@ export default function Hero() {
               </a>
               <a
                 href="#portfolio"
-                className="group text-sm uppercase tracking-[0.2em] font-bold px-8 py-4 text-[#00ff88] border-2 border-[#00ff88] transition-all duration-150 hover:bg-[#00ff88] hover:text-[#0a0a0f]"
+                className="group border-2 border-[#00ff88] px-8 py-4 text-sm font-bold uppercase tracking-[0.2em] text-[#00ff88] transition-all duration-150 hover:bg-[#00ff88] hover:text-[#0a0a0f]"
                 style={{
-                  clipPath: "polygon(0 8px,8px 0,calc(100% - 8px) 0,100% 8px,100% calc(100% - 8px),calc(100% - 8px) 100%,8px 100%,0 calc(100% - 8px))",
+                  clipPath:
+                    "polygon(0 8px,8px 0,calc(100% - 8px) 0,100% 8px,100% calc(100% - 8px),calc(100% - 8px) 100%,8px 100%,0 calc(100% - 8px))",
                   fontFamily: "var(--font-sharetech), monospace",
                 }}
               >
@@ -123,13 +133,14 @@ export default function Hero() {
               </a>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-px border border-[#2a2a3a] overflow-hidden"
+            <div
+              className="grid grid-cols-2 gap-px overflow-hidden border border-[#2a2a3a] sm:grid-cols-4"
               style={{ background: "#2a2a3a" }}
             >
-              {stats.map((s, i) => (
+              {stats.map((s) => (
                 <div
-                  key={i}
-                  className="flex flex-col items-center justify-center py-5 px-3 gap-1"
+                  key={s.label}
+                  className="flex flex-col items-center justify-center gap-1 px-3 py-5"
                   style={{ background: "#0a0a0f" }}
                 >
                   <span
@@ -142,7 +153,7 @@ export default function Hero() {
                     {s.value}
                   </span>
                   <span
-                    className="text-[10px] uppercase tracking-[0.2em] text-[#6b7280] text-center"
+                    className="text-center text-[10px] uppercase tracking-[0.2em] text-[#6b7280]"
                     style={{ fontFamily: "var(--font-sharetech), monospace" }}
                   >
                     {s.label}
@@ -151,19 +162,19 @@ export default function Hero() {
               ))}
             </div>
 
-            {/* Pricing CTA Banner */}
             <a
               href="/calculator"
-              className="relative group block overflow-hidden p-[1px]"
+              className="group relative block overflow-hidden p-[1px]"
               style={{
-                clipPath: "polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 0 100%)",
+                clipPath:
+                  "polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 0 100%)",
               }}
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-[#00ff88]/50 via-[#00d4ff]/50 to-[#ff00ff]/50 opacity-20 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
-              <div className="relative bg-[#0a0a0f] p-6 lg:p-8 flex flex-col md:flex-row items-center gap-6 justify-between border border-white/5 group-hover:border-[#00ff88]/30 transition-all duration-500">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#00ff88]/50 via-[#00d4ff]/50 to-[#ff00ff]/50 opacity-20 blur-sm transition-opacity duration-500 group-hover:opacity-100" />
+              <div className="relative flex flex-col items-center justify-between gap-6 border border-white/5 bg-[#0a0a0f] p-6 transition-all duration-500 group-hover:border-[#00ff88]/30 md:flex-row lg:p-8">
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#00ff88] animate-pulse shadow-[0_0_8px_#00ff88]" />
+                    <span className="h-2 w-2 animate-pulse rounded-full bg-[#00ff88] shadow-[0_0_8px_#00ff88]" />
                     <span
                       className="text-[10px] uppercase tracking-[0.3em] text-[#00ff88]"
                       style={{ fontFamily: "var(--font-sharetech), monospace" }}
@@ -172,104 +183,49 @@ export default function Hero() {
                     </span>
                   </div>
                   <h3
-                    className="text-xl md:text-2xl font-bold text-white uppercase tracking-wider"
+                    className="text-xl font-bold uppercase tracking-wider text-white md:text-2xl"
                     style={{ fontFamily: "var(--font-orbitron), monospace" }}
                   >
                     Estimate your project <span className="text-[#00ff88]">investment</span>
                   </h3>
                   <p
-                    className="text-sm text-[#6b7280] max-w-md leading-relaxed"
+                    className="max-w-md text-sm leading-relaxed text-[#6b7280]"
                     style={{ fontFamily: "var(--font-sans), sans-serif" }}
                   >
-                    Optimize your digital investment with our accurate project configurator. Get a personalized estimate in QAR for bespoke web apps, specialized multimedia campaigns, or expert financial services tailored to Qatar’s regulatory landscape.
+                    Get a personalized estimate in QAR for web apps, multimedia
+                    campaigns, social growth, automation, or business support
+                    tailored to Qatar market realities.
                   </p>
                 </div>
                 <div
-                  className="flex items-center gap-3 px-6 py-3 bg-[#00ff88]/10 border border-[#00ff88]/30 text-[#00ff88] text-xs font-bold uppercase tracking-[0.2em] group-hover:bg-[#00ff88] group-hover:text-[#0a0a0f] transition-all duration-300"
+                  className="flex items-center gap-3 border border-[#00ff88]/30 bg-[#00ff88]/10 px-6 py-3 text-xs font-bold uppercase tracking-[0.2em] text-[#00ff88] transition-all duration-300 group-hover:bg-[#00ff88] group-hover:text-[#0a0a0f]"
                   style={{
                     fontFamily: "var(--font-sharetech), monospace",
-                    clipPath: "polygon(0 4px, 4px 0, calc(100% - 4px) 0, 100% 4px, 100% calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 0 calc(100% - 4px))",
+                    clipPath:
+                      "polygon(0 4px, 4px 0, calc(100% - 4px) 0, 100% 4px, 100% calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 0 calc(100% - 4px))",
                   }}
                 >
                   Estimate your Project
-                  <span className="group-hover:translate-x-1 transition-transform">{'>'}</span>
+                  <span className="transition-transform group-hover:translate-x-1">{">"}</span>
                 </div>
               </div>
             </a>
           </div>
 
-          <div className="lg:col-span-2 hidden lg:flex items-center justify-center">
-            <div
-              className="relative w-full max-w-sm corner-accent"
-              style={{
-                background: "rgba(18,18,26,0.9)",
-                border: "1px solid #2a2a3a",
-                clipPath: "polygon(0 20px,20px 0,100% 0,100% calc(100% - 20px),calc(100% - 20px) 100%,0 100%)",
-                boxShadow: "0 0 30px rgba(0,255,136,0.08), inset 0 0 30px rgba(0,0,0,0.5)",
-              }}
-            >
-              <div
-                className="absolute top-0 left-0 right-0 h-8 flex items-center px-4 gap-2 border-b border-[#2a2a3a]"
-                style={{ background: "#1c1c2e" }}
-              >
-                <span className="w-2.5 h-2.5 rounded-full bg-[#ff3366]" />
-                <span className="w-2.5 h-2.5 rounded-full bg-[#ffaa00]" />
-                <span className="w-2.5 h-2.5 rounded-full bg-[#00ff88] shadow-[0_0_4px_#00ff88]" />
-                <span
-                  className="ml-3 text-[10px] uppercase tracking-[0.2em] text-[#6b7280]"
-                  style={{ fontFamily: "var(--font-sharetech), monospace" }}
-                >
-                  osb_terminal_v2.6
-                </span>
-              </div>
-
-              <div className="pt-10 p-6 space-y-3">
-                {[
-                  { prefix: "$", text: "connecting to Doha digital hub...", color: "#00ff88" },
-                  { prefix: ">", text: "Establishing secure connection...", color: "#6b7280" },
-                  { prefix: ">", text: "VERIFIED: Premium Provider ✓", color: "#00d4ff" },
-                  { prefix: ">", text: "Loading service options...", color: "#6b7280" },
-                  { prefix: ">", text: "WEB DEVELOPMENT....... [OK]", color: "#00ff88" },
-                  { prefix: ">", text: "MEDIA PRODUCTION...... [OK]", color: "#00ff88" },
-                  { prefix: ">", text: "BUSINESS GROWTH....... [OK]", color: "#00ff88" },
-                  { prefix: ">", text: "SMART ADVISOR......... [OK]", color: "#ff00ff" },
-                  { prefix: "$", text: "status: READY TO START", color: "#00d4ff" },
-                ].map((line, i) => (
-                  <div key={i} className="flex gap-2 text-xs" style={{ fontFamily: "var(--font-jetbrains), monospace" }}>
-                    <span style={{ color: "#00ff88", opacity: 0.6 }}>{line.prefix}</span>
-                    <span style={{ color: line.color }}>{line.text}</span>
-                  </div>
-                ))}
-                <div className="flex gap-2 text-xs" style={{ fontFamily: "var(--font-jetbrains), monospace" }}>
-                  <span style={{ color: "#00ff88", opacity: 0.6 }}>$</span>
-                  <span style={{ color: "#e0e0e0" }}>_</span>
-                  <span
-                    className="w-1.5 h-4 bg-[#00ff88] inline-block"
-                    style={{ animation: "blink 1s step-end infinite" }}
-                  />
-                </div>
-              </div>
-
-              <div
-                className="absolute bottom-3 right-4 text-[9px] uppercase tracking-[0.15em] text-[#2a2a3a]"
-                style={{ fontFamily: "var(--font-sharetech), monospace" }}
-              >
-                uptime: 99.98%
-              </div>
-            </div>
+          <div id="services">
+            <FeatureCarousel variant="hero" />
           </div>
-
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+      <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2">
         <span
           className="text-[10px] uppercase tracking-[0.3em] text-[#6b7280]"
           style={{ fontFamily: "var(--font-sharetech), monospace" }}
         >
           scroll
         </span>
-        <div className="w-px h-12 bg-gradient-to-b from-[#00ff88] to-transparent shadow-[0_0_4px_#00ff88]" />
+        <div className="h-12 w-px bg-gradient-to-b from-[#00ff88] to-transparent shadow-[0_0_4px_#00ff88]" />
       </div>
     </section>
   );

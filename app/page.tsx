@@ -1,7 +1,6 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import ImmersiveScroll from "@/components/ImmersiveScroll";
-import Services from "@/components/Services";
 import NeuralEngine from "@/components/NeuralEngine";
 import Portfolio from "@/components/Portfolio";
 import Testimonials from "@/components/Testimonials";
@@ -16,7 +15,6 @@ export default function Home() {
       <main>
         <Hero />
         <ImmersiveScroll />
-        <Services />
         <NeuralEngine />
         <Portfolio />
         <Testimonials />

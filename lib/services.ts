@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 export type ServiceSlug =
   | "web-development"
   | "multimedia-vfx"
+  | "social-media-management"
+  | "ai-automation"
   | "financial-services"
   | "visa-assistance"
   | "business-formation";
@@ -306,8 +308,244 @@ export const serviceCatalog: ServiceData[] = [
     primaryCta: "Plan Video Campaign",
   },
   {
-    slug: "financial-services",
+    slug: "social-media-management",
     number: "03",
+    title: "Social Media Management",
+    eyebrow: "Content, community, and growth",
+    href: "/services/social-media-management",
+    navDescription: "Content calendars, posts, reels, and ads",
+    shortDescription:
+      "Social media strategy, content planning, reels, paid campaign support, and monthly reporting for Qatar brands.",
+    description:
+      "We manage social presence with a business-first content system: platform strategy, content calendars, branded posts, reels, community touchpoints, paid campaign coordination, and performance reporting.",
+    outcome:
+      "Build a consistent social presence that looks premium, speaks clearly, and turns attention into real inquiries.",
+    image: "/projects/nomadeats.png",
+    accent: "#ff00ff",
+    secondaryAccent: "#00ff88",
+    metadata: {
+      title:
+        "Social Media Management in Qatar | Content, Reels & Growth | One Smart Biz",
+      description:
+        "Social media management in Doha and Qatar. Content calendars, branded posts, reels, paid campaign support, community management, and monthly reporting.",
+      keywords:
+        "social media management qatar, social media agency doha, content calendar qatar, reels production doha, paid ads qatar",
+    },
+    stats: [
+      { value: "30d", label: "Content calendar" },
+      { value: "12-20", label: "Posts per month" },
+      { value: "4+", label: "Platform coverage" },
+      { value: "Monthly", label: "Performance report" },
+    ],
+    valueProps: [
+      {
+        title: "Strategy before posting",
+        description:
+          "Audience, positioning, offer clarity, and platform priorities are defined before the calendar is built.",
+      },
+      {
+        title: "Premium content system",
+        description:
+          "Branded posts, reels, captions, hooks, and creative direction stay consistent across channels.",
+      },
+      {
+        title: "Conversion-focused campaigns",
+        description:
+          "Content is tied to lead capture, WhatsApp inquiries, landing pages, promotions, or launch goals.",
+      },
+      {
+        title: "Readable reporting",
+        description:
+          "Monthly performance notes explain what worked, what changed, and what should happen next.",
+      },
+    ],
+    process: [
+      {
+        title: "Brand and audience review",
+        description:
+          "We review your offer, target customers, competitors, channels, and current content gaps.",
+      },
+      {
+        title: "Calendar planning",
+        description:
+          "You receive a structured monthly content plan with themes, captions, visuals, and campaign moments.",
+      },
+      {
+        title: "Production and publishing",
+        description:
+          "Posts, reels, stories, and campaign assets are prepared, scheduled, and coordinated with approvals.",
+      },
+      {
+        title: "Optimize and report",
+        description:
+          "We track engagement, reach, inquiries, and content learnings to improve the next cycle.",
+      },
+    ],
+    packages: [
+      {
+        name: "Starter Presence",
+        price: "QAR 1,500 - 2,500",
+        detail: "Content calendar, branded posts, captions, and monthly reporting.",
+      },
+      {
+        name: "Growth Management",
+        price: "QAR 3,000 - 5,000",
+        detail: "More frequent content, reels support, community touchpoints, and campaign planning.",
+      },
+      {
+        name: "Campaign and Ads",
+        price: "QAR 5,000+",
+        detail: "Launch campaigns, paid media coordination, landing page alignment, and performance review.",
+      },
+    ],
+    proofPoints: [
+      "Monthly content calendar",
+      "Branded post and reel workflows",
+      "Lead-focused campaign planning",
+      "Performance reporting with clear next steps",
+    ],
+    tools: ["Instagram", "LinkedIn", "TikTok", "Meta Ads", "Content Calendar", "Analytics"],
+    faq: [
+      {
+        title: "Do you create the content or only schedule it?",
+        description:
+          "We can handle planning, copy, design direction, reels coordination, publishing support, and reporting depending on the package.",
+      },
+      {
+        title: "Can social media connect with website leads?",
+        description:
+          "Yes. We can align content with landing pages, WhatsApp CTAs, CRM capture, paid ads, and offer campaigns.",
+      },
+    ],
+    testimonial: {
+      quote:
+        "Their calendar gave our brand a proper rhythm. The posts felt consistent, and the inquiries became easier to track.",
+      author: "Brand Manager",
+      role: "Doha hospitality group",
+    },
+    primaryCta: "Plan Social Growth",
+  },
+  {
+    slug: "ai-automation",
+    number: "04",
+    title: "AI & Automation Services",
+    eyebrow: "Smarter workflows",
+    href: "/services/ai-automation",
+    navDescription: "AI workflows, chatbots, and process automation",
+    shortDescription:
+      "AI assistants, workflow automation, dashboards, and integrations that reduce repetitive manual work.",
+    description:
+      "We design practical AI and automation systems for growing teams: lead intake, reporting workflows, internal assistants, CRM handoffs, document processes, dashboards, and API integrations.",
+    outcome:
+      "Reduce admin load, speed up response times, and give your team smarter systems without adding unnecessary complexity.",
+    image: "/projects/falcon.png",
+    accent: "#00d4ff",
+    secondaryAccent: "#ff00ff",
+    metadata: {
+      title:
+        "AI & Automation Services in Qatar | Workflow Automation | One Smart Biz",
+      description:
+        "AI and automation services in Qatar. Custom AI assistants, workflow automation, dashboards, integrations, chatbots, and operational process improvement.",
+      keywords:
+        "AI automation qatar, workflow automation doha, AI chatbot qatar, business automation qatar, AI services doha",
+    },
+    stats: [
+      { value: "-60%", label: "Manual admin target" },
+      { value: "24/7", label: "AI assistance" },
+      { value: "API", label: "Integration-ready" },
+      { value: "2-6w", label: "Pilot delivery" },
+    ],
+    valueProps: [
+      {
+        title: "Workflow-first discovery",
+        description:
+          "We map the real process before choosing tools so automation solves the right problem.",
+      },
+      {
+        title: "AI assistants with guardrails",
+        description:
+          "Internal or customer-facing AI helpers are designed with clear scope, escalation paths, and useful prompts.",
+      },
+      {
+        title: "System integrations",
+        description:
+          "Forms, CRMs, spreadsheets, dashboards, email, WhatsApp flows, and APIs can be connected into one workflow.",
+      },
+      {
+        title: "Measurable efficiency",
+        description:
+          "Each automation is tied to response time, handoff quality, reporting speed, or manual-work reduction.",
+      },
+    ],
+    process: [
+      {
+        title: "Automation audit",
+        description:
+          "We identify repetitive tasks, data handoffs, bottlenecks, and risk points in the current workflow.",
+      },
+      {
+        title: "Solution design",
+        description:
+          "You receive a practical build plan covering data, tools, prompts, integrations, and approvals.",
+      },
+      {
+        title: "Pilot build",
+        description:
+          "We build a focused automation or AI assistant and test it with real business scenarios.",
+      },
+      {
+        title: "Launch and improve",
+        description:
+          "The workflow is documented, handed over, monitored, and improved after team feedback.",
+      },
+    ],
+    packages: [
+      {
+        name: "AI Readiness Audit",
+        price: "QAR 1,000 - 2,500",
+        detail: "Workflow review, automation opportunities, tool recommendations, and rollout plan.",
+      },
+      {
+        name: "Workflow Automation",
+        price: "QAR 3,500 - 8,500",
+        detail: "Automated handoffs, dashboards, notifications, forms, and business process flows.",
+      },
+      {
+        name: "Custom AI Assistant",
+        price: "QAR 6,500+",
+        detail: "AI chatbot or internal assistant with prompts, knowledge base, and escalation logic.",
+      },
+    ],
+    proofPoints: [
+      "Workflow map before build",
+      "Secure data and access planning",
+      "Pilot-first delivery",
+      "Team handover and documentation",
+    ],
+    tools: ["AI Assistants", "APIs", "Dashboards", "CRM", "Automation", "Reporting"],
+    faq: [
+      {
+        title: "Can you automate our current tools?",
+        description:
+          "Usually, yes. We first check the tools, access, data quality, and API options before confirming the best route.",
+      },
+      {
+        title: "Do we need a full custom app?",
+        description:
+          "Not always. Many teams can start with focused automations, dashboards, and AI assistants before investing in a larger platform.",
+      },
+    ],
+    testimonial: {
+      quote:
+        "The automation pilot removed the repetitive follow-ups from our team and made our reporting much faster.",
+      author: "General Manager",
+      role: "Professional services firm",
+    },
+    primaryCta: "Audit My Workflow",
+  },
+  {
+    slug: "financial-services",
+    number: "05",
     title: "Financial Services",
     eyebrow: "Precision and compliance",
     href: "/services/financial-services",
@@ -425,7 +663,7 @@ export const serviceCatalog: ServiceData[] = [
   },
   {
     slug: "visa-assistance",
-    number: "04",
+    number: "06",
     title: "VISA Assistance",
     eyebrow: "Documentation and mobility support",
     href: "/services/visa-assistance",
@@ -542,7 +780,7 @@ export const serviceCatalog: ServiceData[] = [
   },
   {
     slug: "business-formation",
-    number: "05",
+    number: "07",
     title: "Business Formation",
     eyebrow: "Company setup and launch guidance",
     href: "/services/business-formation",
@@ -669,7 +907,6 @@ export const serviceNavItems = serviceCatalog.map(
 
 export const contactServiceOptions = [
   ...serviceCatalog.map((service) => service.title),
-  "AI Business Integrations",
   "Brand Identity",
   "Mobile Native Apps",
   "Full-Stack Solutions",

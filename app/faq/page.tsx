@@ -9,6 +9,8 @@ import { motion, AnimatePresence } from "framer-motion";
 const faqCategories = [
   { id: "all", label: "All" },
   { id: "web", label: "Web & App" },
+  { id: "social", label: "Social" },
+  { id: "automation", label: "AI & Automation" },
   { id: "media", label: "Multimedia" },
   { id: "finance", label: "Finance" },
   { id: "setup", label: "Visa & Setup" },
@@ -20,13 +22,13 @@ const faqs = [
     category: "general",
     question: "What digital services does One Smart Biz offer in Qatar?",
     answer:
-      "We provide five core service areas: Web & App Development, Multimedia & VFX Production, Financial Services, VISA Assistance, and Business Formation. All services are tailored specifically for Qatar's business and regulatory landscape.",
+      "We provide seven core service areas: Web & App Development, Multimedia & VFX Production, Social Media Management, AI & Automation Services, Financial Services, VISA Assistance, and Business Formation. All services are tailored specifically for Qatar's business and regulatory landscape.",
   },
   {
     category: "general",
     question: "What makes One Smart Biz different from other digital agencies in Qatar?",
     answer:
-      "We combine engineering, creative, financial, visa, and company setup services under one roof - eliminating the need for multiple vendors. Our projects deliver sub-1.2s load times, 98/100 SEO scores, and we've completed 150+ projects with a 98% client satisfaction rate. We also offer proprietary AI-powered business analysis tools that no other agency in the GCC provides.",
+      "We combine engineering, creative, social media, AI automation, financial, visa, and company setup services under one roof - eliminating the need for multiple vendors. Our projects deliver sub-1.2s load times, 98/100 SEO scores, and we've completed 150+ projects with a 98% client satisfaction rate.",
   },
   {
     category: "general",
@@ -81,6 +83,18 @@ const faqs = [
     question: "Can you create content for social media marketing?",
     answer:
       "Yes. We produce scroll-stopping content optimized for every major platform - Instagram Reels, TikTok, YouTube Shorts, and LinkedIn Video. We handle scripting, filming, editing, motion graphics, and can work with your marketing team on content calendars.",
+  },
+  {
+    category: "social",
+    question: "Do you manage social media accounts for Qatar businesses?",
+    answer:
+      "Yes. We provide social media strategy, monthly content calendars, branded posts, reels coordination, publishing support, community touchpoints, paid campaign coordination, and performance reporting.",
+  },
+  {
+    category: "automation",
+    question: "What AI and automation services do you build?",
+    answer:
+      "We build practical AI assistants, workflow automations, dashboards, CRM handoffs, lead intake systems, document workflows, reporting automations, and integrations that reduce repetitive manual work.",
   },
   {
     category: "finance",

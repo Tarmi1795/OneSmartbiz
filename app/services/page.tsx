@@ -1,24 +1,24 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { serviceCatalog } from "@/lib/services";
 
 export const metadata: Metadata = {
-  title: "Services in Qatar | Digital, Finance, Visa & Business Setup | One Smart Biz",
+  title: "Services in Qatar | Digital, Social, AI, Finance & Setup | One Smart Biz",
   description:
-    "Explore One Smart Biz services in Qatar: web development, multimedia and VFX, financial services, visa assistance, and business formation support.",
+    "Explore One Smart Biz services in Qatar: web development, multimedia and VFX, social media management, AI automation, financial services, visa assistance, and business formation support.",
   keywords:
-    "business services qatar, digital agency doha, visa assistance qatar, business formation qatar, financial services qatar, web development doha",
+    "business services qatar, digital agency doha, social media management qatar, AI automation qatar, visa assistance qatar, business formation qatar, financial services qatar, web development doha",
   alternates: {
     canonical: "https://www.onesmartbiz.pro/services",
   },
   openGraph: {
     title: "One Smart Biz Services | Qatar Business and Digital Solutions",
     description:
-      "Digital, financial, immigration, and company setup services for Qatar and GCC businesses.",
+      "Digital, social, AI, financial, immigration, and company setup services for Qatar and GCC businesses.",
     url: "https://www.onesmartbiz.pro/services",
     type: "website",
     images: [
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 };
 
 const portfolioStats = [
-  { value: "5", label: "Core service tracks" },
+  { value: "7", label: "Core service tracks" },
   { value: "150+", label: "Projects and engagements" },
   { value: "<24h", label: "Typical response" },
   { value: "GCC", label: "Regional delivery context" },
@@ -65,8 +65,7 @@ export default function ServicesPage() {
 
           <div className="relative z-10 mx-auto flex min-h-[calc(72vh-7rem)] max-w-7xl flex-col justify-end px-6 pb-14 lg:px-8">
             <div className="max-w-5xl">
-              <div className="mb-5 inline-flex items-center gap-3 border border-[#00ff88]/35 bg-[#00ff88]/10 px-4 py-2 text-[11px] uppercase tracking-[0.28em] text-[#00ff88] backdrop-blur-md">
-                <Sparkles size={14} aria-hidden="true" />
+              <div className="mb-5 inline-flex items-center border border-[#00ff88]/35 bg-[#00ff88]/10 px-4 py-2 text-[11px] uppercase tracking-[0.28em] text-[#00ff88] backdrop-blur-md">
                 One Smart Biz portfolio
               </div>
               <h1
@@ -76,8 +75,8 @@ export default function ServicesPage() {
                 Business services built for serious growth.
               </h1>
               <p className="mt-7 max-w-3xl text-base leading-8 text-white/72 md:text-xl">
-                Digital, financial, immigration, and company setup support under
-                one coordinated partner. Choose a focused service or combine
+                Digital, social, AI, financial, immigration, and company setup
+                support under one coordinated partner. Choose a focused service or combine
                 tracks into a launch-ready growth system.
               </p>
               <div className="mt-9 flex flex-col gap-4 sm:flex-row">

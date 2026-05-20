@@ -38,9 +38,9 @@ export default function Services() {
               className="max-w-2xl text-sm leading-7 text-[#8d94a3] md:text-base"
               style={{ fontFamily: "var(--font-sans), sans-serif" }}
             >
-              Digital, financial, immigration, and company setup services for
-              Qatar businesses that need a polished first impression and a
-              practical delivery partner.
+              Digital, social, AI, financial, immigration, and company setup
+              services for Qatar businesses that need a polished first
+              impression and a practical delivery partner.
             </p>
           </div>
 

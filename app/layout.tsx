@@ -75,6 +75,7 @@ export const metadata: Metadata = {
 
 import WhatsAppChat from "@/components/WhatsAppChat";
 import SmoothScroll from "@/components/SmoothScroll";
+import BackToHeroButton from "@/components/BackToHeroButton";
 
 export default function RootLayout({
   children,
@@ -87,6 +88,7 @@ export default function RootLayout({
       >
         <SmoothScroll>
           {children}
+          <BackToHeroButton />
           <WhatsAppChat />
         </SmoothScroll>
         {/* Schema.org: LocalBusiness */}
@@ -150,6 +152,22 @@ export default function RootLayout({
                     "@type": "Offer",
                     "itemOffered": {
                       "@type": "Service",
+                      "name": "Social Media Management",
+                      "description": "Content calendars, branded posts, reels, paid campaign support, community touchpoints, and reporting."
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "AI & Automation Services",
+                      "description": "AI assistants, workflow automation, dashboards, integrations, and operational process improvement."
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
                       "name": "Financial Services",
                       "description": "Audit, Automation, Financial Statements, Bookkeeping, and Tax Filing for Qatar businesses."
                     }
@@ -193,7 +211,7 @@ export default function RootLayout({
                   "name": "What digital services does One Smart Biz offer in Qatar?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "We provide five core service areas: Web & App Development (React, Next.js, React Native), Multimedia & VFX Production (video, motion graphics, 3D animation), Financial Services (audit, bookkeeping, tax filing, automation), VISA Assistance, and Business Formation and Setup. All services are tailored specifically for Qatar's business and regulatory landscape."
+                    "text": "We provide seven core service areas: Web & App Development, Multimedia & VFX Production, Social Media Management, AI & Automation Services, Financial Services, VISA Assistance, and Business Formation and Setup. All services are tailored specifically for Qatar's business and regulatory landscape."
                   }
                 },
                 {
@@ -273,7 +291,15 @@ export default function RootLayout({
                   "name": "Can you create content for social media marketing?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes. We produce scroll-stopping content optimized for Instagram Reels, TikTok, YouTube Shorts, and LinkedIn Video. We handle scripting, filming, editing, and motion graphics."
+                    "text": "Yes. We provide social media strategy, monthly content calendars, branded posts, reels coordination, publishing support, community touchpoints, paid campaign coordination, and performance reporting."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What AI and automation services do you build?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We build practical AI assistants, workflow automations, dashboards, CRM handoffs, lead intake systems, document workflows, reporting automations, and integrations that reduce repetitive manual work."
                   }
                 },
                 {

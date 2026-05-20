@@ -7,7 +7,6 @@ import {
   Clock3,
   MessageCircle,
   ShieldCheck,
-  Sparkles,
 } from "lucide-react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -67,14 +66,13 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
 
             <div className="max-w-4xl">
               <div
-                className="mb-5 inline-flex items-center gap-3 border px-4 py-2 text-[11px] uppercase tracking-[0.28em] backdrop-blur-md"
+                className="mb-5 inline-flex items-center border px-4 py-2 text-[11px] uppercase tracking-[0.28em] backdrop-blur-md"
                 style={{
                   borderColor: `${service.accent}55`,
                   color: service.accent,
                   backgroundColor: `${service.accent}10`,
                 }}
               >
-                <Sparkles size={14} aria-hidden="true" />
                 {service.eyebrow}
               </div>
               <h1

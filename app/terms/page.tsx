@@ -39,6 +39,8 @@ export default function TermsPage() {
               <ul className="list-disc list-inside text-[#a0a0a0] leading-relaxed space-y-2 ml-2">
                 <li><strong className="text-white">Web & App Development:</strong> Custom websites, web applications, and mobile app development</li>
                 <li><strong className="text-white">Multimedia & VFX:</strong> Video production, motion graphics, and visual effects</li>
+                <li><strong className="text-white">Social Media Management:</strong> Content calendars, branded posts, reels, campaign support, and reporting</li>
+                <li><strong className="text-white">AI & Automation Services:</strong> Workflow automation, AI assistants, dashboards, integrations, and process improvement</li>
                 <li><strong className="text-white">Financial Services:</strong> Audit, bookkeeping, tax filing, and financial consulting</li>
                 <li><strong className="text-white">VISA Assistance:</strong> Visa readiness, document review, coordination, and renewal support</li>
                 <li><strong className="text-white">Business Formation:</strong> Company setup guidance, licensing support, and launch planning</li>

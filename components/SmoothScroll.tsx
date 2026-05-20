@@ -28,7 +28,12 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       }
     };
 
+    const handleScrollToHome = () => {
+      lenis.scrollTo("#home", { offset: 0 });
+    };
+
     window.addEventListener("click", handleAnchorClick);
+    window.addEventListener("onesmartbiz:scroll-to-home", handleScrollToHome);
 
     function raf(time: number) {
       lenis.raf(time);
@@ -39,6 +44,7 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
 
     return () => {
       window.removeEventListener("click", handleAnchorClick);
+      window.removeEventListener("onesmartbiz:scroll-to-home", handleScrollToHome);
       lenis.destroy();
     };
   }, []);
