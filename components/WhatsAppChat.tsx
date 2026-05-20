@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import type { FormEvent } from "react";
-import { CheckCheck, MessageCircle, SendHorizontal, X } from "lucide-react";
+import { MessageCircle, SendHorizontal, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const whatsappNumber = "97431308665";
@@ -78,12 +78,6 @@ export default function WhatsAppChat() {
                   <div className="max-w-[84%] rounded-lg rounded-tl-none bg-[#202c33] px-3 py-2 text-sm leading-relaxed text-white shadow-lg">
                     Hi, welcome to One Smart Biz. How can we help your business today?
                     <div className="mt-1 text-right text-[10px] text-white/40">09:24</div>
-                  </div>
-                  <div className="ml-auto max-w-[86%] rounded-lg rounded-tr-none bg-[#005c4b] px-3 py-2 text-sm leading-relaxed text-white shadow-lg">
-                    I need help with a project inquiry.
-                    <div className="mt-1 flex items-center justify-end gap-1 text-[10px] text-[#9ad8c8]">
-                      09:25 <CheckCheck size={13} />
-                    </div>
                   </div>
                   <div className="max-w-[88%] rounded-lg rounded-tl-none bg-[#202c33] px-3 py-2 text-sm leading-relaxed text-white shadow-lg">
                     Send us your details and we&apos;ll continue the conversation in WhatsApp.
