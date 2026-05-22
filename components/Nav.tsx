@@ -22,6 +22,7 @@ const navLinks = [
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(true);
   const pathname = usePathname();
   const router = useRouter();
 
@@ -245,10 +246,10 @@ export default function Nav() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.4, ease: "circOut" }}
-            className="lg:hidden border-t border-[#00ff88]/20 overflow-hidden"
+            className="max-h-[calc(100dvh-5rem)] overflow-x-hidden overflow-y-auto overscroll-contain border-t border-[#00ff88]/20 lg:hidden"
             style={{ background: "rgba(10,10,15,0.98)" }}
           >
-            <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col gap-4">
+            <div className="mx-auto flex max-w-7xl flex-col gap-2 px-6 pb-4 pt-5">
               {navLinks.map((link, i) => {
                 const isHash = link.href.startsWith("#");
                 const isHome = link.href === "/";
@@ -263,10 +264,11 @@ export default function Nav() {
                       transition={{ delay: i * 0.05 }}
                       className="border-b border-white/5 pb-3"
                     >
-                      <a
-                        href={link.href}
-                        onClick={(e) => handleNavClick(e, link.href)}
-                        className="text-xs uppercase tracking-[0.25em] text-gray-400 hover:text-[#00ff88] transition-colors duration-200 py-3 flex items-center justify-between group"
+                      <button
+                        type="button"
+                        onClick={() => setMobileServicesOpen((open) => !open)}
+                        aria-expanded={mobileServicesOpen}
+                        className="group flex w-full items-center justify-between py-2.5 text-left text-xs uppercase tracking-[0.25em] text-gray-400 transition-colors duration-200 hover:text-[#00ff88]"
                         style={{ fontFamily: "var(--font-mono), monospace" }}
                       >
                         <span className="flex items-center">
@@ -275,22 +277,48 @@ export default function Nav() {
                           />
                           {link.label}
                         </span>
-                        <ChevronDown size={14} className="text-[#00ff88]" aria-hidden="true" />
-                      </a>
+                        <ChevronDown
+                          size={14}
+                          className={`text-[#00ff88] transition-transform duration-300 ${
+                            mobileServicesOpen ? "rotate-180" : ""
+                          }`}
+                          aria-hidden="true"
+                        />
+                      </button>
 
-                      <div className="ml-4 mt-1 flex flex-col border-l border-[#00ff88]/20 pl-4">
-                        {serviceNavItems.map((service) => (
-                          <Link
-                            key={service.label}
-                            href={service.href}
-                            onClick={() => setMobileOpen(false)}
-                            className="py-2.5 text-[11px] uppercase tracking-[0.2em] text-gray-500 transition-colors hover:text-[#00ff88]"
-                            style={{ fontFamily: "var(--font-mono), monospace" }}
+                      <AnimatePresence initial={false}>
+                        {mobileServicesOpen && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.25, ease: "easeOut" }}
+                            className="overflow-hidden"
                           >
-                            {service.label}
-                          </Link>
-                        ))}
-                      </div>
+                            <div className="ml-4 mt-1 grid gap-1.5 border-l border-[#00ff88]/20 pl-4">
+                              <Link
+                                href="/services"
+                                onClick={() => setMobileOpen(false)}
+                                className="py-2 text-[11px] uppercase tracking-[0.2em] text-[#00ff88] transition-colors hover:text-white"
+                                style={{ fontFamily: "var(--font-mono), monospace" }}
+                              >
+                                All Services
+                              </Link>
+                              {serviceNavItems.map((service) => (
+                                <Link
+                                  key={service.label}
+                                  href={service.href}
+                                  onClick={() => setMobileOpen(false)}
+                                  className="py-2 text-[11px] uppercase tracking-[0.18em] text-gray-500 transition-colors hover:text-[#00ff88]"
+                                  style={{ fontFamily: "var(--font-mono), monospace" }}
+                                >
+                                  {service.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </motion.div>
                   );
                 }
@@ -304,7 +332,7 @@ export default function Nav() {
                       initial={{ x: -20, opacity: 0 }}
                       animate={{ x: 0, opacity: 1 }}
                       transition={{ delay: i * 0.05 }}
-                      className="text-xs uppercase tracking-[0.25em] text-gray-400 hover:text-[#00ff88] transition-colors duration-200 py-3 border-b border-white/5 flex items-center group"
+                      className="group flex items-center border-b border-white/5 py-2.5 text-xs uppercase tracking-[0.25em] text-gray-400 transition-colors duration-200 hover:text-[#00ff88]"
                       style={{ fontFamily: "var(--font-mono), monospace" }}
                     >
                       <motion.span 
@@ -320,7 +348,7 @@ export default function Nav() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className="text-xs uppercase tracking-[0.25em] text-gray-400 hover:text-[#00ff88] transition-colors duration-200 py-3 border-b border-white/5 flex items-center group"
+                    className="group flex items-center border-b border-white/5 py-2.5 text-xs uppercase tracking-[0.25em] text-gray-400 transition-colors duration-200 hover:text-[#00ff88]"
                     style={{ fontFamily: "var(--font-mono), monospace" }}
                   >
                     <motion.span 
@@ -330,20 +358,25 @@ export default function Nav() {
                   </Link>
                 );
               })}
-              <motion.a
-                href="#contact"
-                onClick={(e) => handleNavClick(e, "#contact")}
+
+              <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.4 }}
-                className="text-xs uppercase tracking-[0.3em] font-black px-5 py-4 text-center text-[#0a0a0f] bg-[#00ff88] mt-4"
-                style={{
-                  clipPath: "polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px)",
-                  fontFamily: "var(--font-heading), sans-serif",
-                }}
+                transition={{ delay: 0.35 }}
+                className="sticky bottom-0 -mx-6 mt-2 border-t border-[#00ff88]/20 bg-[#0a0a0f]/95 px-6 py-4 backdrop-blur-xl"
               >
-                Contact Us
-              </motion.a>
+                <a
+                  href="#contact"
+                  onClick={(e) => handleNavClick(e, "#contact")}
+                  className="block px-5 py-4 text-center text-xs font-black uppercase tracking-[0.3em] text-[#0a0a0f] bg-[#00ff88]"
+                  style={{
+                    clipPath: "polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px)",
+                    fontFamily: "var(--font-heading), sans-serif",
+                  }}
+                >
+                  Contact Us
+                </a>
+              </motion.div>
             </div>
           </motion.div>
         )}
