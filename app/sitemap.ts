@@ -18,7 +18,8 @@ const blogRoutes = [
   "professional-website-designers-doha-near-me",
   "how-to-design-website-yourself-2026-guide",
   "cost-20-page-website-qatar-breakdown",
-  "build-vs-buy-website-cost-analysis-qatar"
+  "build-vs-buy-website-cost-analysis-qatar",
+  "middle-east-website-design-trends-2026"
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

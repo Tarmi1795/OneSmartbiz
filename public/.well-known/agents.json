@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "name": "One Smart Biz",
+  "description": "One Smart Biz is a Doha, Qatar digital consultancy providing web and app development, multimedia and VFX production, social media management, AI automation, financial services, visa assistance, and business formation support for Qatar and GCC businesses.",
+  "url": "https://www.onesmartbiz.pro",
+  "logo": "https://www.onesmartbiz.pro/logo.png",
+  "contact": {
+    "email": "admin@onesmartbiz.pro",
+    "url": "https://www.onesmartbiz.pro/#contact"
+  },
+  "capabilities": [
+    "browse_services",
+    "request_contact",
+    "estimate_project_pricing",
+    "review_faq",
+    "read_business_articles",
+    "use_ai_business_advisor"
+  ],
+  "actions": [
+    {
+      "name": "browse_services",
+      "description": "Review One Smart Biz service areas and detailed service pages.",
+      "url": "https://www.onesmartbiz.pro/services",
+      "method": "GET"
+    },
+    {
+      "name": "request_contact",
+      "description": "Contact One Smart Biz through the public contact section.",
+      "url": "https://www.onesmartbiz.pro/#contact",
+      "method": "GET"
+    },
+    {
+      "name": "estimate_project_pricing",
+      "description": "Use the public pricing calculator to estimate project scope and budget.",
+      "url": "https://www.onesmartbiz.pro/calculator",
+      "method": "GET"
+    },
+    {
+      "name": "review_faq",
+      "description": "Read frequently asked questions about services, pricing, timelines, and Qatar business support.",
+      "url": "https://www.onesmartbiz.pro/faq",
+      "method": "GET"
+    },
+    {
+      "name": "read_business_articles",
+      "description": "Browse articles about web development, SEO, video production, automation, and business setup.",
+      "url": "https://www.onesmartbiz.pro/blog",
+      "method": "GET"
+    },
+    {
+      "name": "use_ai_business_advisor",
+      "description": "Use the public AI Business Advisor feature available on the website.",
+      "url": "https://www.onesmartbiz.pro/#contact",
+      "method": "GET"
+    }
+  ],
+  "ai_discovery": {
+    "llms_txt": "https://www.onesmartbiz.pro/llms.txt",
+    "sitemap": "https://www.onesmartbiz.pro/sitemap.xml",
+    "robots": "https://www.onesmartbiz.pro/robots.txt"
+  }
+}

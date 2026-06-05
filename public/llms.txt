@@ -1,0 +1,38 @@
+# One Smart Biz
+
+> One Smart Biz is a Doha, Qatar digital consultancy providing web and app development, multimedia and VFX production, social media management, AI automation, financial services, visa assistance, and business formation support for Qatar and GCC businesses.
+
+One Smart Biz helps companies launch, improve, and automate business operations with a practical mix of digital engineering, creative production, finance support, and Qatar-focused setup guidance.
+
+Key facts:
+- Canonical site: https://www.onesmartbiz.pro
+- Location: Doha, Qatar
+- Contact email: admin@onesmartbiz.pro
+- WhatsApp: +974 5585 5221
+- Main service areas: Web and App Development, Multimedia and VFX, Social Media Management, AI and Automation Services, Financial Services, VISA Assistance, Business Formation
+- Public AI tool: AI Business Advisor for business analysis and strategic recommendations
+
+## Core Pages
+
+- [Home](https://www.onesmartbiz.pro): Main overview of One Smart Biz, services, portfolio, testimonials, and contact options.
+- [Services](https://www.onesmartbiz.pro/services): Full list of business, digital, finance, visa, and company setup services.
+- [Pricing Calculator](https://www.onesmartbiz.pro/calculator): Public project pricing tool for estimating digital project scope.
+- [FAQ](https://www.onesmartbiz.pro/faq): Common questions about services, pricing, timelines, and Qatar business support.
+- [Blog](https://www.onesmartbiz.pro/blog): Articles about web development, SEO, video production, automation, and Qatar business setup.
+- [Privacy Policy](https://www.onesmartbiz.pro/privacy-policy): How One Smart Biz collects, uses, and protects personal information.
+- [Terms](https://www.onesmartbiz.pro/terms): Terms and conditions for website and client service engagement.
+
+## Services
+
+- [Web and App Development](https://www.onesmartbiz.pro/services/web-development): Next.js, React, TypeScript, mobile apps, business websites, portals, e-commerce, and custom web applications.
+- [Multimedia and VFX](https://www.onesmartbiz.pro/services/multimedia-vfx): Video production, motion graphics, brand films, reels, and visual effects.
+- [Social Media Management](https://www.onesmartbiz.pro/services/social-media-management): Content calendars, branded posts, reels, paid campaign support, and reporting.
+- [AI and Automation Services](https://www.onesmartbiz.pro/services/ai-automation): AI assistants, workflow automation, dashboards, integrations, and process improvement.
+- [Financial Services](https://www.onesmartbiz.pro/services/financial-services): Audit preparation, financial statements, bookkeeping, tax filing support, and finance automation.
+- [VISA Assistance](https://www.onesmartbiz.pro/services/visa-assistance): Visa readiness, document review, application coordination, renewals, and business mobility support.
+- [Business Formation](https://www.onesmartbiz.pro/services/business-formation): Company setup, licensing guidance, documentation, entity planning, and launch support in Qatar.
+
+## Optional
+
+- [Sitemap](https://www.onesmartbiz.pro/sitemap.xml): Machine-readable list of public indexable URLs.
+- [Robots](https://www.onesmartbiz.pro/robots.txt): Crawler access rules for public and private paths.

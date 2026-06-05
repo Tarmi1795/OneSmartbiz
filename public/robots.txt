@@ -10,8 +10,10 @@ Sitemap: https://www.onesmartbiz.pro/sitemap.xml
 # Block internal/private paths
 Disallow: /api/
 Disallow: /_next/
-Disallow: /.well-known/
 Disallow: /admin
+
+# AI discovery files
+Allow: /.well-known/agents.json
 
 # Allow all crawlers
 User-agent: Googlebot

@@ -89,7 +89,7 @@ export default function AdminPage() {
 
   if (!isAuth) {
     return (
-      <div className="min-h-screen bg-[#0a0a0f] flex items-center justify-center p-6">
+      <main className="min-h-screen bg-[#0a0a0f] flex items-center justify-center p-6">
         <div className="max-w-md w-full bg-[#111] border border-[#333] p-8"
           style={{ clipPath: "polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 0 100%)" }}>
           <div className="flex justify-center mb-6">
@@ -121,12 +121,12 @@ export default function AdminPage() {
             </Link>
           </div>
         </div>
-      </div>
+      </main>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0a0f] p-8 lg:p-12">
+    <main className="min-h-screen bg-[#0a0a0f] p-8 lg:p-12">
       <div className="max-w-5xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
           <div>
@@ -384,6 +384,6 @@ export default function AdminPage() {
           </div>
         </div>
       )}
-    </div>
+    </main>
   );
 }
