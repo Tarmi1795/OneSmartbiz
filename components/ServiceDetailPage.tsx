@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import type { ServiceData } from "@/lib/services";
+import { type ServiceData, serviceCatalog } from "@/lib/services";
 
 type ServiceDetailPageProps = {
   service: ServiceData;
@@ -29,14 +29,48 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
     `Hello One Smart Biz, I am interested in ${service.title}.`
   )}`;
 
+  const relatedServices = serviceCatalog
+    .filter((s) => s.slug !== service.slug)
+    .slice(0, 3);
+
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": service.title,
+    "description": service.description,
+    "provider": {
+      "@type": "ProfessionalService",
+      "name": "One Smart Biz",
+      "url": "https://www.onesmartbiz.pro",
+      "@id": "https://www.onesmartbiz.pro/#organization",
+    },
+    "areaServed": [
+      { "@type": "Country", "name": "Qatar" },
+      { "@type": "Country", "name": "Saudi Arabia" },
+      { "@type": "Country", "name": "UAE" }
+    ],
+    "serviceType": service.eyebrow,
+    "offers": service.packages.map((pkg) => ({
+      "@type": "Offer",
+      "name": pkg.name,
+      "description": pkg.detail,
+      "price": pkg.price,
+      "priceCurrency": "QAR",
+    })),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <Nav />
       <main className="min-h-screen bg-[#07070b] text-white">
         <section className="relative min-h-[76vh] overflow-hidden pt-28">
           <Image
             src={service.image}
-            alt={`${service.title} service visual`}
+            alt={`${service.title} - Strategic Digital Solutions in Qatar | One Smart Biz`}
             fill
             priority
             sizes="100vw"
@@ -387,6 +421,50 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Internal Cross-Linking: Related Services */}
+        <section className="border-t border-white/10 bg-[#0c0c14] py-16">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+              <div>
+                <span className="font-mono text-xs uppercase tracking-widest text-[#00ff88]">
+                  Integrated Capabilities
+                </span>
+                <h2 className="text-2xl font-bold uppercase tracking-wider text-white mt-1" style={{ fontFamily: "var(--font-orbitron), monospace" }}>
+                  Related Services in Qatar
+                </h2>
+              </div>
+              <Link
+                href="/calculator"
+                className="text-xs font-mono uppercase tracking-widest text-[#00ff88] hover:underline flex items-center gap-1"
+              >
+                Estimate Project Pricing →
+              </Link>
+            </div>
+            <div className="grid gap-6 md:grid-cols-3">
+              {relatedServices.map((rel) => (
+                <Link
+                  key={rel.slug}
+                  href={rel.href}
+                  className="group border border-white/10 bg-[#12121c] p-6 transition-all hover:border-[#00ff88]/50 hover:bg-[#161622]"
+                >
+                  <div className="text-[11px] font-mono uppercase tracking-widest text-white/40 mb-2">
+                    {rel.number} :: {rel.eyebrow}
+                  </div>
+                  <h3 className="text-lg font-bold text-white group-hover:text-[#00ff88] transition-colors mb-2">
+                    {rel.title}
+                  </h3>
+                  <p className="text-xs text-white/60 line-clamp-2 leading-relaxed mb-4">
+                    {rel.shortDescription}
+                  </p>
+                  <span className="text-[11px] font-mono text-[#00ff88] uppercase tracking-wider flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                    Explore Capability →
+                  </span>
+                </Link>
+              ))}
             </div>
           </div>
         </section>

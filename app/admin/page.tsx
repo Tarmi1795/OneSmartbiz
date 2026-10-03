@@ -97,7 +97,7 @@ export default function AdminPage() {
               <KeyRound className="w-8 h-8 text-[#ff0088]" />
             </div>
           </div>
-          <h1 className="text-xl font-display font-bold text-white text-center mb-2 uppercase tracking-widest">Access Restricted</h1>
+          <h2 className="text-xl font-display font-bold text-white text-center mb-2 uppercase tracking-widest">Access Restricted</h2>
           <p className="text-[#666] text-xs font-mono text-center mb-8">Enter administrative credentials to proceed.</p>
           
           <form onSubmit={handleLogin} className="space-y-6">

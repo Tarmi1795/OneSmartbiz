@@ -32,6 +32,26 @@ Key facts:
 - [VISA Assistance](https://www.onesmartbiz.pro/services/visa-assistance): Visa readiness, document review, application coordination, renewals, and business mobility support.
 - [Business Formation](https://www.onesmartbiz.pro/services/business-formation): Company setup, licensing guidance, documentation, entity planning, and launch support in Qatar.
 
+## Blog Guides
+
+In-depth guides published on the One Smart Biz blog. All articles are written for businesses in Qatar and the GCC.
+
+- [Web Development in Doha: The Complete 2026 Guide for Qatar Businesses](https://www.onesmartbiz.pro/blog/web-development-doha-guide-2026): Costs, technologies, timelines, and how to choose the right web development partner in Doha, Qatar.
+- [Video Production in Qatar: How to Create Content That Goes Viral on Social Media](https://www.onesmartbiz.pro/blog/video-production-qatar-social-media): How Qatar businesses use professional video production and VFX to dominate social media, with costs, formats, and proven strategies.
+- [Financial Automation for Qatar Businesses: Save 20+ Hours Per Month](https://www.onesmartbiz.pro/blog/financial-automation-qatar-business): How Qatar companies automate invoice processing, bookkeeping, and VAT compliance to cut costs by 80%.
+- [How to Start a Business in Qatar: Step-by-Step Guide (2026)](https://www.onesmartbiz.pro/blog/start-business-qatar-step-by-step): Complete guide to starting a business in Qatar — company registration, licensing, office setup, and launch requirements.
+- [How to Choose an SEO Company in Qatar: 7 Questions to Ask Before Hiring](https://www.onesmartbiz.pro/blog/seo-company-qatar-what-to-look-for): Seven critical questions to ask before hiring an SEO company in Doha, and how to spot agencies that deliver real results.
+- [Best Website Design Companies in Qatar: Top 5 Agencies for 2026](https://www.onesmartbiz.pro/blog/best-website-design-companies-qatar-2026): A curated list of the top website design agencies in Doha, Qatar, ranked on performance and high-end aesthetics.
+- [Choosing a Platform for Small Business Websites: 2026 Comparison Guide](https://www.onesmartbiz.pro/blog/choosing-platform-small-business-websites-guide): WordPress vs Shopify vs custom Next.js build — which platform fits small businesses in Qatar.
+- [Top Website Design Software with Drag-and-Drop Features for 2026](https://www.onesmartbiz.pro/blog/top-website-design-software-drag-drop-2026): The best no-code website builders of 2026, and when it is time to upgrade to a professional custom solution.
+- [Mobile-First Web Layouts: Best Practices for 2026 UX](https://www.onesmartbiz.pro/blog/mobile-first-web-layout-best-practices): Why mobile-first design is non-negotiable in Qatar and the essential best practices for high-converting responsive layouts.
+- [Average Cost to Build a Custom Website in Qatar: 2026 Pricing Report](https://www.onesmartbiz.pro/blog/cost-build-custom-website-qatar): Investment breakdown for custom web development in Doha, from landing pages to enterprise-level platforms.
+- [Website Designer Near Me: Where to Find Professionals in Doha](https://www.onesmartbiz.pro/blog/professional-website-designers-doha-near-me): How to find and vet the best local website designers in Qatar for your next project.
+- [How to Design a Website by Yourself: The 2026 DIY Guide](https://www.onesmartbiz.pro/blog/how-to-design-website-yourself-2026-guide): Step-by-step instructions for entrepreneurs in Qatar building their first digital presence without an agency.
+- [How Much is a 20-Page Website in Qatar? Detailed Pricing Breakdown](https://www.onesmartbiz.pro/blog/cost-20-page-website-qatar-breakdown): Investment analysis for mid-sized corporate websites in Doha, from content creation to advanced SEO.
+- [Is it Cheaper to Build Your Own Website? Build vs. Buy Analysis](https://www.onesmartbiz.pro/blog/build-vs-buy-website-cost-analysis-qatar): The true cost of DIY vs hiring a professional agency in Qatar — hidden expenses, time investment, and ROI compared.
+- [Top Trends in Middle East Website Design for 2026: Why You Need a Local Expert](https://www.onesmartbiz.pro/blog/middle-east-website-design-trends-2026): Top Middle East website design trends for 2026 and how to choose the best designer for your business.
+
 ## Optional
 
 - [Sitemap](https://www.onesmartbiz.pro/sitemap.xml): Machine-readable list of public indexable URLs.

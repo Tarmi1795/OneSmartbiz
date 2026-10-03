@@ -2,9 +2,39 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 
-export const metadata = {
-  title: "Privacy Policy | One SmartBiz Qatar",
-  description: "Privacy Policy for One SmartBiz — how we collect, use, and protect your personal information.",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy | One Smart Biz Qatar",
+  description:
+    "Privacy Policy for One Smart Biz — learn how we collect, use, and safeguard personal and enterprise client data in Doha, Qatar.",
+  alternates: {
+    canonical: "https://www.onesmartbiz.pro/privacy-policy",
+  },
+  openGraph: {
+    title: "Privacy Policy | One Smart Biz Qatar",
+    description:
+      "How One Smart Biz collects, uses, and safeguards client information.",
+    url: "https://www.onesmartbiz.pro/privacy-policy",
+    siteName: "One Smart Biz",
+    locale: "en_QA",
+    type: "website",
+    images: [
+      {
+        url: "https://iili.io/qN7uhLF.png",
+        width: 1200,
+        height: 630,
+        alt: "One Smart Biz Privacy Policy",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy | One Smart Biz Qatar",
+    description:
+      "How One Smart Biz collects, uses, and safeguards client information.",
+    images: ["https://iili.io/qN7uhLF.png"],
+  },
 };
 
 export default function PrivacyPolicyPage() {
@@ -129,7 +159,7 @@ export default function PrivacyPolicyPage() {
                 <p className="text-[#a0a0a0] text-sm mt-1">Doha, Qatar</p>
                 <p className="text-[#a0a0a0] text-sm">Email: <a href="mailto:admin@onesmartbiz.pro" className="text-[#00ff88] hover:underline">admin@onesmartbiz.pro</a></p>
                 <p className="text-[#a0a0a0] text-sm">WhatsApp: <a href="https://wa.me/97431308665" className="text-[#00ff88] hover:underline">+974 5585 5221</a></p>
-                <p className="text-[#a0a0a0] text-sm">Website: <a href="https://onesmartbiz.pro" className="text-[#00ff88] hover:underline">onesmartbiz.pro</a></p>
+                <p className="text-[#a0a0a0] text-sm">Website: <a href="https://www.onesmartbiz.pro" className="text-[#00ff88] hover:underline">onesmartbiz.pro</a></p>
               </div>
             </section>
           </div>

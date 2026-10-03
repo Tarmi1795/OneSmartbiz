@@ -1,13 +1,8 @@
 # robots.txt for onesmartbiz.pro
-# Generated: 2026-04-01
+# Updated: 2026-10-03
 
 User-agent: *
 Allow: /
-
-# Sitemap
-Sitemap: https://www.onesmartbiz.pro/sitemap.xml
-
-# Block internal/private paths
 Disallow: /api/
 Disallow: /_next/
 Disallow: /admin
@@ -15,12 +10,87 @@ Disallow: /admin
 # AI discovery files
 Allow: /.well-known/agents.json
 
-# Allow all crawlers
+# --- Search engine crawlers ---
 User-agent: Googlebot
 Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin
 
 User-agent: Bingbot
 Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin
 
 User-agent: Slurp
 Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin
+
+# --- AI engine crawlers (LLM discovery & answer engines) ---
+# OpenAI
+User-agent: GPTBot
+Allow: /
+Allow: /llms.txt
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin
+
+User-agent: OAI-SearchBot
+Allow: /
+Allow: /llms.txt
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin
+
+User-agent: ChatGPT-User
+Allow: /
+Allow: /llms.txt
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin
+
+# Anthropic
+User-agent: ClaudeBot
+Allow: /
+Allow: /llms.txt
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+Allow: /llms.txt
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin
+
+# Google Gemini grounding
+User-agent: Google-Extended
+Allow: /
+Allow: /llms.txt
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin
+
+# Apple
+User-agent: Applebot-Extended
+Allow: /
+Allow: /llms.txt
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin
+
+# Common Crawl (feeds many AI training sets)
+User-agent: CCBot
+Allow: /
+Allow: /llms.txt
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin
+
+# Sitemap
+Sitemap: https://www.onesmartbiz.pro/sitemap.xml

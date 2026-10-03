@@ -378,22 +378,37 @@ export async function generateMetadata({ params }: Props) {
   const post = posts[slug];
   if (!post) return {};
 
+  const canonicalUrl = `https://www.onesmartbiz.pro/blog/${slug}`;
+  const ogImageUrl = "https://iili.io/qN7uhLF.png";
+
   return {
     title: `${post.title} | One Smart Biz`,
     description: post.description,
     keywords: post.keywords,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title: post.title,
       description: post.description,
-      url: `https://www.onesmartbiz.pro/blog/${slug}`,
+      url: canonicalUrl,
       type: "article",
       publishedTime: post.date,
       authors: ["One Smart Biz"],
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.description,
+      images: [ogImageUrl],
     },
   };
 }
@@ -411,8 +426,40 @@ export default async function BlogPost({ params }: Props) {
   const post = posts[slug];
   if (!post) notFound();
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.description,
+    "datePublished": post.date,
+    "dateModified": post.date,
+    "inLanguage": "en",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://www.onesmartbiz.pro/blog/${slug}`,
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "One Smart Biz",
+      "url": "https://www.onesmartbiz.pro",
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "One Smart Biz",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.onesmartbiz.pro/logo.png",
+      },
+    },
+    "image": "https://iili.io/qN7uhLF.png",
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       <Nav />
       <main className="min-h-screen bg-[#0a0a0f] text-white pt-24 overflow-hidden">
         <BlogPostClient>
@@ -540,13 +587,40 @@ export default async function BlogPost({ params }: Props) {
         </div>
 
         <div className="mt-16 border-t border-gray-800 pt-8">
-          <p className="text-gray-400 mb-4">Ready to get started?</p>
-          <Link
-            href="/calculator"
-            className="inline-block bg-cyan-500 hover:bg-cyan-400 text-black font-semibold px-6 py-3 rounded-lg transition-colors"
-          >
-            Get a Free Quote →
-          </Link>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <p className="text-gray-400 mb-2 font-mono text-xs uppercase tracking-wider text-[#00ff88]">Next Step</p>
+              <h3 className="text-xl font-bold text-white mb-2">Estimate Your Project Investment</h3>
+              <p className="text-sm text-gray-400 max-w-md">Use our interactive Qatar pricing tool to get instant estimates for web, mobile apps, video, or automation.</p>
+            </div>
+            <Link
+              href="/calculator"
+              className="inline-block bg-[#00ff88] hover:bg-[#00ff88]/90 text-black font-semibold px-6 py-3 rounded-lg transition-colors whitespace-nowrap self-start sm:self-auto"
+            >
+              Pricing Calculator →
+            </Link>
+          </div>
+
+          <div className="mt-8 pt-8 border-t border-gray-800/60">
+            <p className="text-xs uppercase font-mono tracking-widest text-gray-400 mb-4">Related Services in Qatar</p>
+            <div className="flex flex-wrap gap-2">
+              <Link href="/services/web-development" className="text-xs px-3 py-1.5 rounded-full border border-gray-800 hover:border-[#00ff88] text-gray-300 hover:text-white transition-colors">
+                Web & App Development
+              </Link>
+              <Link href="/services/ai-automation" className="text-xs px-3 py-1.5 rounded-full border border-gray-800 hover:border-[#00d4ff] text-gray-300 hover:text-white transition-colors">
+                AI & Automation
+              </Link>
+              <Link href="/services/multimedia-vfx" className="text-xs px-3 py-1.5 rounded-full border border-gray-800 hover:border-[#ff00ff] text-gray-300 hover:text-white transition-colors">
+                Multimedia & VFX
+              </Link>
+              <Link href="/services/financial-services" className="text-xs px-3 py-1.5 rounded-full border border-gray-800 hover:border-[#00d4ff] text-gray-300 hover:text-white transition-colors">
+                Financial Services
+              </Link>
+              <Link href="/services/business-formation" className="text-xs px-3 py-1.5 rounded-full border border-gray-800 hover:border-[#00ff88] text-gray-300 hover:text-white transition-colors">
+                Business Formation
+              </Link>
+            </div>
+          </div>
         </div>
         </BlogPostClient>
       </main>

@@ -2,14 +2,37 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Blog | Digital Insights for Qatar Businesses | One Smart Biz",
-  description: "Expert articles on web development, video production, SEO, and financial automation for businesses in Qatar and the GCC.",
-  keywords: "qatar business blog, digital marketing qatar, technology doha, web development tips",
+  title: "Blog & Insights | Tech & Business in Qatar | One Smart Biz",
+  description:
+    "Expert articles on web development, video production, SEO, and financial automation for modern businesses in Qatar and the GCC region.",
+  keywords:
+    "qatar business blog, digital marketing qatar, technology doha, web development tips, business setup qatar",
+  alternates: {
+    canonical: "https://www.onesmartbiz.pro/blog",
+  },
   openGraph: {
-    title: "Blog | One Smart Biz Qatar",
-    description: "Expert articles on web development, video production, SEO, and financial automation for Qatar businesses.",
+    title: "Blog & Insights | Tech & Business in Qatar | One Smart Biz",
+    description:
+      "Expert articles on web development, video production, SEO, and financial automation for modern businesses in Qatar and the GCC region.",
     url: "https://www.onesmartbiz.pro/blog",
+    siteName: "One Smart Biz",
+    locale: "en_QA",
     type: "website",
+    images: [
+      {
+        url: "https://iili.io/qN7uhLF.png",
+        width: 1200,
+        height: 630,
+        alt: "One Smart Biz Blog and Insights",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog & Insights | Tech & Business in Qatar | One Smart Biz",
+    description:
+      "Expert articles on web development, video production, SEO, and financial automation for modern businesses in Qatar.",
+    images: ["https://iili.io/qN7uhLF.png"],
   },
 };
 

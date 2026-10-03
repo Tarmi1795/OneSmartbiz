@@ -367,9 +367,9 @@ export default function PricingCalculator() {
                   CUSTOM PROJECT CONFIGURATOR
                 </span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-display font-black text-white uppercase tracking-wider">
+              <h1 className="text-4xl md:text-5xl font-display font-black text-white uppercase tracking-wider">
                 Website and <span className="text-[#00ff88]">Web App</span> Price Calculator
-              </h2>
+              </h1>
             </div>
             <div className="flex flex-wrap gap-4">
               <div className="flex items-center gap-1 bg-[#111] p-1 border border-[#333]">
@@ -385,6 +385,7 @@ export default function PricingCalculator() {
               </div>
               <Link
                 href="/admin"
+                rel="nofollow"
                 className="flex items-center gap-2 border border-[#333] px-4 py-2 text-xs font-mono uppercase text-[#777] hover:text-[#fff] hover:border-[#777] transition-all bg-[#111]"
                 title="Admin Configuration"
                 style={{

@@ -182,12 +182,12 @@ export default function Hero() {
                       Instant Project Guide :: pricing
                     </span>
                   </div>
-                  <h3
+                  <h2
                     className="text-xl font-bold uppercase tracking-wider text-white md:text-2xl"
                     style={{ fontFamily: "var(--font-orbitron), monospace" }}
                   >
                     Estimate your project <span className="text-[#00ff88]">investment</span>
-                  </h3>
+                  </h2>
                   <p
                     className="max-w-md text-sm leading-relaxed text-[#6b7280]"
                     style={{ fontFamily: "var(--font-sans), sans-serif" }}

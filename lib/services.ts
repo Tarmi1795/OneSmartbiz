@@ -195,7 +195,7 @@ export const serviceCatalog: ServiceData[] = [
       "We create brand films, reels, product videos, motion graphics, and VFX-led stories that make complex offers memorable and help premium brands stand out across GCC digital channels.",
     outcome:
       "Turn your message into campaign-ready assets that look premium, explain quickly, and travel across platforms.",
-    image: "/services/multimedia-vfx-osb.jpeg",
+    image: "/services/multimedia-vfx-osb.webp",
     accent: "#ff00ff",
     secondaryAccent: "#00d4ff",
     metadata: {

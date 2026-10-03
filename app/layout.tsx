@@ -6,28 +6,36 @@ const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
 const orbitron = Orbitron({
   variable: "--font-orbitron",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
+  display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
 const shareTechMono = Share_Tech_Mono({
   variable: "--font-sharetech",
   subsets: ["latin"],
   weight: ["400"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "One Smart Biz — Strategic Digital Solutions | Doha, Qatar",
+  metadataBase: new URL("https://www.onesmartbiz.pro"),
+  title: {
+    default: "One Smart Biz — Strategic Digital Solutions | Doha, Qatar",
+    template: "%s | One Smart Biz",
+  },
   description:
     "The leading digital consultancy in Doha, Qatar. High-performance web engineering, multimedia production, and financial intelligence for modern enterprises.",
   keywords: "digital agency doha, web development qatar, multimedia vfx, financial consultancy, GCC digital transformation",
@@ -70,6 +78,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.onesmartbiz.pro",
   },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "google-site-verification-placeholder",
+  },
 };
 
 
@@ -91,6 +102,24 @@ export default function RootLayout({
           <BackToHeroButton />
           <WhatsAppChat />
         </SmoothScroll>
+        {/* Schema.org: WebSite */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "@id": "https://www.onesmartbiz.pro/#website",
+              "name": "One Smart Biz",
+              "url": "https://www.onesmartbiz.pro",
+              "description": "Strategic digital solutions, web engineering, multimedia and financial intelligence in Doha, Qatar.",
+              "publisher": {
+                "@id": "https://www.onesmartbiz.pro/#organization"
+              },
+              "inLanguage": "en-QA"
+            })
+          }}
+        />
         {/* Schema.org: LocalBusiness */}
         <script
           type="application/ld+json"
