@@ -142,6 +142,13 @@ const posts = [
     date: "2026-04-08",
     category: "Design",
   },
+  {
+    slug: "ai-news-roundup-2026-10-03",
+    title: "AI News Roundup: OpenAI DevDay 2026, Gemini 4 Argon & Microsoft's $10B Gulf Bet",
+    excerpt: "OpenAI's always-on agents, Google's Gemini 4 Argon, and Microsoft's $10B Middle East AI investment — this week's biggest AI stories and what they mean for Qatar businesses.",
+    date: "2026-10-03",
+    category: "AI News",
+  },
 ];
 
 import Nav from "@/components/Nav";
