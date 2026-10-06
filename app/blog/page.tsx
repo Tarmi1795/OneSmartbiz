@@ -149,6 +149,13 @@ const posts = [
     date: "2026-10-03",
     category: "AI News",
   },
+  {
+    slug: "ai-news-roundup-2026-10-06",
+    title: "AI News Roundup: White House 'Super Intelligence' Accord, Meta Muse vs OpenAI Dots & Nvidia's $150B Bet",
+    excerpt: "Six AI giants sign the White House voluntary accord, Meta and OpenAI race to own the AI agent market, and Nvidia backs the boom with a $150B buyback — what it means for Qatar businesses.",
+    date: "2026-10-06",
+    category: "AI News",
+  },
 ];
 
 import Nav from "@/components/Nav";
