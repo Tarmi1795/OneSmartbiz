@@ -156,6 +156,13 @@ const posts = [
     date: "2026-10-06",
     category: "AI News",
   },
+  {
+    slug: "ai-news-roundup-2026-10-09",
+    title: "AI News Roundup: GPT-6 for Everyone, SoftBank's $100B Gulf Play & an Agent Safety Wake-Up Call",
+    excerpt: "GPT-6 reaches every ChatGPT user with a new 'Intelligent UI', SoftBank seeks $100B from Gulf investors for its next AI fund, and an Anthropic agent's false police tip becomes the industry's safety wake-up call.",
+    date: "2026-10-09",
+    category: "AI News",
+  },
 ];
 
 import Nav from "@/components/Nav";

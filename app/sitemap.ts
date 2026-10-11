@@ -21,7 +21,8 @@ const blogRoutes = [
   "build-vs-buy-website-cost-analysis-qatar",
   "middle-east-website-design-trends-2026",
   "ai-news-roundup-2026-10-03",
-  "ai-news-roundup-2026-10-06"
+  "ai-news-roundup-2026-10-06",
+  "ai-news-roundup-2026-10-09"
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
