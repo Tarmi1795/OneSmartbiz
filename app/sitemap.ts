@@ -22,7 +22,8 @@ const blogRoutes = [
   "middle-east-website-design-trends-2026",
   "ai-news-roundup-2026-10-03",
   "ai-news-roundup-2026-10-06",
-  "ai-news-roundup-2026-10-09"
+  "ai-news-roundup-2026-10-09",
+  "ai-news-roundup-2026-11-03"
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

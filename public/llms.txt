@@ -54,6 +54,7 @@ In-depth guides published on the One Smart Biz blog. All articles are written fo
 - [AI News Roundup: OpenAI DevDay 2026, Gemini 4 Argon & Microsoft's $10B Gulf Bet](https://www.onesmartbiz.pro/blog/ai-news-roundup-2026-10-03): This week's biggest AI stories — OpenAI's always-on Dots agents, GPT-6.1 Sol, Google's Gemini 4 Argon, and Microsoft's $10B+ Gulf AI infrastructure commitment — explained for Qatar businesses.
 - [AI News Roundup: White House 'Super Intelligence' Accord, Meta Muse vs OpenAI Dots & Nvidia's $150B Bet](https://www.onesmartbiz.pro/blog/ai-news-roundup-2026-10-06): Six AI giants sign the White House voluntary accord on superintelligence, Meta's Muse and OpenAI's Dots race for the agent market, and Nvidia's $150B buyback — explained for Qatar businesses.
 - [AI News Roundup: GPT-6 for Everyone, SoftBank's $100B Gulf Play & an Agent Safety Wake-Up Call](https://www.onesmartbiz.pro/blog/ai-news-roundup-2026-10-09): GPT-6 rolls out to all ChatGPT users with the new Intelligent UI, SoftBank seeks $100B from Gulf investors for its next AI fund, and Anthropic's agent safety incident — explained for Qatar businesses.
+- [AI News Roundup: GPT-6.1 Terra, Claude Duet, Meta's Open-Weights Play & Saudi's New Cloud Region](https://www.onesmartbiz.pro/blog/ai-news-roundup-2026-11-03): OpenAI's half-price computer use, Anthropic's proactive ask-first Claude Duet agent, Meta's open-weight 816B model, and Microsoft's new Saudi cloud region — explained for Qatar businesses.
 
 ## Optional
 

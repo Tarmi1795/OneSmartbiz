@@ -163,6 +163,13 @@ const posts = [
     date: "2026-10-09",
     category: "AI News",
   },
+  {
+    slug: "ai-news-roundup-2026-11-03",
+    title: "AI News Roundup: GPT-6.1 Terra, Claude Duet, Meta's Open-Weights Play & Saudi's New Cloud Region",
+    excerpt: "OpenAI ships half-price computer use with GPT-6.1 Terra, Anthropic previews the proactive Claude Duet agent, Meta open-sources an 816B-parameter giant, and Microsoft's Saudi cloud region goes live this November.",
+    date: "2026-11-03",
+    category: "AI News",
+  },
 ];
 
 import Nav from "@/components/Nav";
