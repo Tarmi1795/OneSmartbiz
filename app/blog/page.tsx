@@ -170,6 +170,13 @@ const posts = [
     date: "2026-11-03",
     category: "AI News",
   },
+  {
+    slug: "ai-news-roundup-2026-11-11",
+    title: "AI News Roundup: Anthropic's $1.4T IPO, Claude vs Microsoft Office & AI's $300B Fundraising Season",
+    excerpt: "Anthropic files for a record IPO at up to $1.4 trillion with Qatar's QIA among its backers, launches Claude-powered office tools that knocked Microsoft shares, and AI firms price $300B+ of stock in 2026.",
+    date: "2026-11-11",
+    category: "AI News",
+  },
 ];
 
 import Nav from "@/components/Nav";
