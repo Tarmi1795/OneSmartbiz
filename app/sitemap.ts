@@ -24,7 +24,8 @@ const blogRoutes = [
   "ai-news-roundup-2026-10-06",
   "ai-news-roundup-2026-10-09",
   "ai-news-roundup-2026-11-03",
-  "ai-news-roundup-2026-11-11"
+  "ai-news-roundup-2026-11-11",
+  "ai-news-roundup-2026-11-14"
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

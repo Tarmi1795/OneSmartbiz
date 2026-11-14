@@ -177,6 +177,13 @@ const posts = [
     date: "2026-11-11",
     category: "AI News",
   },
+  {
+    slug: "ai-news-roundup-2026-11-14",
+    title: "AI News Roundup: Lawsuit to Freeze Frontier AI, OpenAI's Cursor Reprieve & Saudi's Creator AI Rules",
+    excerpt: "US nonprofits sue five AI giants to halt frontier development, OpenAI grants Cursor a reprieve at the November 12 cutoff, and Saudi Arabia issues the GCC's first responsible-AI rules for content creators.",
+    date: "2026-11-14",
+    category: "AI News",
+  },
 ];
 
 import Nav from "@/components/Nav";

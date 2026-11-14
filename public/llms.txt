@@ -56,6 +56,7 @@ In-depth guides published on the One Smart Biz blog. All articles are written fo
 - [AI News Roundup: GPT-6 for Everyone, SoftBank's $100B Gulf Play & an Agent Safety Wake-Up Call](https://www.onesmartbiz.pro/blog/ai-news-roundup-2026-10-09): GPT-6 rolls out to all ChatGPT users with the new Intelligent UI, SoftBank seeks $100B from Gulf investors for its next AI fund, and Anthropic's agent safety incident — explained for Qatar businesses.
 - [AI News Roundup: GPT-6.1 Terra, Claude Duet, Meta's Open-Weights Play & Saudi's New Cloud Region](https://www.onesmartbiz.pro/blog/ai-news-roundup-2026-11-03): OpenAI's half-price computer use, Anthropic's proactive ask-first Claude Duet agent, Meta's open-weight 816B model, and Microsoft's new Saudi cloud region — explained for Qatar businesses.
 - [AI News Roundup: Anthropic's $1.4T IPO, Claude vs Microsoft Office & AI's $300B Fundraising Season](https://www.onesmartbiz.pro/blog/ai-news-roundup-2026-11-11): Anthropic's record IPO filing with Qatar's QIA among its backers, its Claude-powered office tools challenging Microsoft, and AI's record $300B+ fundraising year — explained for Qatar businesses.
+- [AI News Roundup: Lawsuit to Freeze Frontier AI, OpenAI's Cursor Reprieve & Saudi's Creator AI Rules](https://www.onesmartbiz.pro/blog/ai-news-roundup-2026-11-14): Nonprofits sue five AI giants to halt frontier development, OpenAI's temporary Cursor reprieve after SpaceX's $60B acquisition, and Saudi Arabia's new responsible-AI rules for content creators — explained for Qatar businesses.
 
 ## Optional
 
