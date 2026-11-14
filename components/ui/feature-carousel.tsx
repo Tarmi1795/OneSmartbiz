@@ -21,6 +21,14 @@ import { HugeiconsIcon } from "@hugeicons/react";
 
 const FEATURES = [
   {
+    id: "ai-systems",
+    label: "AI & Automation Services",
+    icon: AiCloudIcon,
+    image: "https://iili.io/BxdoSP2.jpg",
+    href: "/services/ai-automation",
+    description: "Corporate-safe agentic AI and workflow automation for enterprises.",
+  },
+  {
     id: "web-dev",
     label: "Web Development",
     icon: CommandFreeIcons,
@@ -75,14 +83,6 @@ const FEATURES = [
     image: "/services/business-formation.webp",
     href: "/services/business-formation",
     description: "Company setup, licensing, documentation, and launch guidance for Qatar businesses.",
-  },
-  {
-    id: "ai-systems",
-    label: "AI & Automation Services",
-    icon: AiCloudIcon,
-    image: "https://iili.io/BxdoSP2.jpg",
-    href: "/services/ai-automation",
-    description: "AI assistants, workflow automation, and smarter operations.",
   },
   {
     id: "branding",

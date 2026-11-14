@@ -175,13 +175,13 @@ export default function ImmersiveScroll() {
             className="space-y-4 absolute max-w-2xl"
           >
             <div className="inline-block font-mono bg-[#00ff88]/10 border border-[#00ff88]/30 px-3 py-1 text-[10px] text-[#00ff88] tracking-widest uppercase">
-               02 // Engineered Efficiency
+               02 // Agentic AI
             </div>
             <h2 className="text-4xl md:text-7xl font-black text-white uppercase tracking-tighter" style={{ fontFamily: "var(--font-orbitron), sans-serif" }}>
-               Autonomous <span className="text-[#00ff88]">Systems</span>
+               Corporate-Safe <span className="text-[#00ff88]">Agentic AI</span>
             </h2>
             <p className="text-gray-400 text-sm md:text-base leading-relaxed font-sans px-4">
-               Proprietary AI engines and automated workflows designed to eliminate operational friction and accelerate growth exponentially.
+               Enterprise-grade AI automation and governed agentic applications that eliminate operational friction — auditable, human-supervised, and built to accelerate growth exponentially.
             </p>
           </motion.div>
 

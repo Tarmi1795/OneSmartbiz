@@ -190,12 +190,15 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { BlogListingClient } from "@/components/ui/blog-client";
 
+// Newest articles first
+const sortedPosts = [...posts].sort((a, b) => b.date.localeCompare(a.date));
+
 export default function BlogPage() {
   return (
     <>
       <Nav />
       <main className="min-h-screen bg-[#0a0a0f] text-white pt-24 overflow-hidden">
-        <BlogListingClient posts={posts} />
+        <BlogListingClient posts={sortedPosts} />
 
         {/* Decorative Elements */}
         <div className="fixed inset-0 pointer-events-none z-0">

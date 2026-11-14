@@ -33,12 +33,12 @@ const shareTechMono = Share_Tech_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.onesmartbiz.pro"),
   title: {
-    default: "One Smart Biz — Strategic Digital Solutions | Doha, Qatar",
+    default: "AI Automation & Agentic AI Solutions in Doha, Qatar | One Smart Biz",
     template: "%s | One Smart Biz",
   },
   description:
-    "The leading digital consultancy in Doha, Qatar. High-performance web engineering, multimedia production, and financial intelligence for modern enterprises.",
-  keywords: "digital agency doha, web development qatar, multimedia vfx, financial consultancy, GCC digital transformation",
+    "One Smart Biz builds AI automation and corporate-safe agentic applications for enterprises in Doha, Qatar — governed AI agents, web engineering, multimedia, and financial automation.",
+  keywords: "ai automation qatar, agentic ai doha, enterprise ai agents qatar, corporate ai solutions doha, ai company qatar, web development qatar, multimedia vfx, financial automation, GCC digital transformation",
   icons: {
     icon: [
       { url: "/favicon.png", sizes: "32x32", type: "image/png" },
@@ -48,8 +48,8 @@ export const metadata: Metadata = {
     shortcut: "/favicon.png",
   },
   openGraph: {
-    title: "One Smart Biz — Strategic Digital Solutions | Doha, Qatar",
-    description: "High-performance web engineering, multimedia production, and financial intelligence for modern enterprises.",
+    title: "AI Automation & Agentic AI Solutions in Doha, Qatar | One Smart Biz",
+    description: "AI automation and corporate-safe agentic applications for modern enterprises — governed AI agents, web engineering, multimedia, and financial automation.",
     url: "https://www.onesmartbiz.pro",
     siteName: "One Smart Biz",
     images: [
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
         url: "https://iili.io/qN7uhLF.png",
         width: 1200,
         height: 630,
-        alt: "One Smart Biz - Strategic Digital Solutions",
+        alt: "One Smart Biz - AI Automation and Agentic AI Solutions",
       },
     ],
     locale: "en_QA",
@@ -65,8 +65,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "One Smart Biz — Strategic Digital Solutions",
-    description: "Leading digital consultancy in Doha, Qatar.",
+    title: "AI Automation & Agentic AI Solutions | One Smart Biz",
+    description: "AI automation and corporate-safe agentic applications in Doha, Qatar.",
     images: ["https://iili.io/qN7uhLF.png"],
   },
   robots: {
@@ -112,7 +112,7 @@ export default function RootLayout({
               "@id": "https://www.onesmartbiz.pro/#website",
               "name": "One Smart Biz",
               "url": "https://www.onesmartbiz.pro",
-              "description": "Strategic digital solutions, web engineering, multimedia and financial intelligence in Doha, Qatar.",
+              "description": "AI automation and corporate-safe agentic applications, web engineering, multimedia and financial automation for enterprises in Doha, Qatar.",
               "publisher": {
                 "@id": "https://www.onesmartbiz.pro/#organization"
               },

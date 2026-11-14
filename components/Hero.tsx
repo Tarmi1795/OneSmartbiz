@@ -76,13 +76,13 @@ export default function Hero() {
 
               <div className="relative">
                 <h1
-                  className="cyber-glitch text-5xl font-black uppercase leading-none tracking-tight md:text-7xl lg:text-8xl"
-                  data-text="PREMIUM"
+                  className="cyber-glitch text-4xl font-black uppercase leading-none tracking-tight md:text-6xl"
+                  data-text="AI AUTOMATION"
                   style={{ fontFamily: "var(--font-orbitron), monospace" }}
                 >
-                  <span className="block text-[#e0e0e0]">PREMIUM</span>
-                  <span className="block gradient-text-cyber">DIGITAL</span>
-                  <span className="block text-[#e0e0e0]">PARTNER</span>
+                  <span className="block text-[#e0e0e0]">AI AUTOMATION</span>
+                  <span className="block gradient-text-cyber">&amp; AGENTIC AI</span>
+                  <span className="block text-[#e0e0e0]">FOR ENTERPRISE</span>
                 </h1>
               </div>
             </div>
@@ -96,10 +96,10 @@ export default function Hero() {
                 style={{ fontFamily: "var(--font-sans), sans-serif" }}
               >
                 <span className="text-[#00ff88]">{`>`} </span>
-                Leading Strategic Digital Agency in Doha, Qatar. We empower
-                modern enterprises through high-performance web engineering,
-                award-winning multimedia production, social media growth, AI
-                automation, and data-driven brand transformation.
+                One Smart Biz delivers AI automation and corporate-safe agentic
+                applications for modern enterprises in Doha, Qatar — governed AI
+                agents that work alongside your teams, backed by high-performance
+                web engineering, multimedia production, and financial automation.
                 <span
                   ref={cursorRef}
                   className="ml-1 inline-block h-4 w-2 align-middle bg-[#00ff88]"
