@@ -184,6 +184,13 @@ const posts = [
     date: "2026-11-14",
     category: "AI News",
   },
+  {
+    slug: "ai-news-roundup-2026-11-17",
+    title: "AI News Roundup: Gemini 4 Hydrogen, Anthropic's Fable 5.2 Duo & the November 30 Deprecation Cliff",
+    excerpt: "Google launches the fast Gemini 4 Hydrogen as Carbon rolls out widely, Anthropic ships its Fable 5.2 and Mythos 5.2 frontier pair on every major cloud, and a November 30 deprecation cliff hits Claude and OpenAI tooling.",
+    date: "2026-11-17",
+    category: "AI News",
+  },
 ];
 
 import Nav from "@/components/Nav";
