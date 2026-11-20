@@ -191,6 +191,13 @@ const posts = [
     date: "2026-11-17",
     category: "AI News",
   },
+  {
+    slug: "ai-news-roundup-2026-11-20",
+    title: "AI News Roundup: Anthropic's $1.3T Debut, the AI Selloff It Didn't Stop & Apple's Agent Ambitions",
+    excerpt: "Anthropic completes the biggest IPO in history at a $1.3 trillion market cap, the AI stock selloff continues anyway, OpenAI ships GPT-6.2 Astra and Sol, and Apple is quietly building its own autonomous AI agent.",
+    date: "2026-11-20",
+    category: "AI News",
+  },
 ];
 
 import Nav from "@/components/Nav";
