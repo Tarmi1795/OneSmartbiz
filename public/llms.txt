@@ -59,6 +59,7 @@ In-depth guides published on the One Smart Biz blog. All articles are written fo
 - [AI News Roundup: Lawsuit to Freeze Frontier AI, OpenAI's Cursor Reprieve & Saudi's Creator AI Rules](https://www.onesmartbiz.pro/blog/ai-news-roundup-2026-11-14): Nonprofits sue five AI giants to halt frontier development, OpenAI's temporary Cursor reprieve after SpaceX's $60B acquisition, and Saudi Arabia's new responsible-AI rules for content creators — explained for Qatar businesses.
 - [AI News Roundup: Gemini 4 Hydrogen, Anthropic's Fable 5.2 Duo & the November 30 Deprecation Cliff](https://www.onesmartbiz.pro/blog/ai-news-roundup-2026-11-17): Google's fast Gemini 4 Hydrogen and the Carbon rollout, Anthropic's Fable 5.2 and Mythos 5.2 on every major cloud, and the November 30 API deprecation cliff — explained for Qatar businesses.
 - [AI News Roundup: Anthropic's $1.3T Debut, the AI Selloff It Didn't Stop & Apple's Agent Ambitions](https://www.onesmartbiz.pro/blog/ai-news-roundup-2026-11-20): Anthropic's record $81.3B IPO debut, the AI stock selloff that followed, OpenAI's GPT-6.2 Astra and Sol, and Apple's autonomous agent plans — explained for Qatar businesses.
+- [AI News Roundup: OpenAI's Transparency Play, the Riemann Hypothesis Proof & Dubai's AI-Native Government](https://www.onesmartbiz.pro/blog/ai-news-roundup-2026-11-23): OpenAI publishes perplexity numbers and urges shared AI limits, the Lean-verified Riemann Hypothesis proof with Claude's help, Dubai's 93-agent AI-native government, and Qatar's US summit — explained for Qatar businesses.
 
 ## Optional
 

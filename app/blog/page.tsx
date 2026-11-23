@@ -198,6 +198,13 @@ const posts = [
     date: "2026-11-20",
     category: "AI News",
   },
+  {
+    slug: "ai-news-roundup-2026-11-23",
+    title: "AI News Roundup: OpenAI's Transparency Play, the Riemann Hypothesis Proof & Dubai's AI-Native Government",
+    excerpt: "OpenAI publishes its models' perplexity numbers and urges shared industry limits, a Lean-verified Riemann Hypothesis proof lands with Claude's help, Dubai unveils 93 AI agents for an AI-native government, and Qatar deepens AI ties at a US summit.",
+    date: "2026-11-23",
+    category: "AI News",
+  },
 ];
 
 import Nav from "@/components/Nav";
