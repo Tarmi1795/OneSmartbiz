@@ -205,6 +205,13 @@ const posts = [
     date: "2026-11-23",
     category: "AI News",
   },
+  {
+    slug: "ai-news-roundup-2026-11-26",
+    title: "AI News Roundup: OpenAI's IPO Countdown, Washington vs Nvidia & Million-Satellite Compute",
+    excerpt: "OpenAI's IPO countdown clock starts ticking, Washington intervenes in Nvidia's boardroom while chip export chaos spreads across Asia, and the FCC approves SpaceX's million-satellite Starmind orbital datacenter constellation.",
+    date: "2026-11-26",
+    category: "AI News",
+  },
 ];
 
 import Nav from "@/components/Nav";
